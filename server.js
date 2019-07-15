@@ -32,14 +32,16 @@ const main = async () => {
     page: page.page,
   }));
 
-  const generateHtml = pagesAndLayouts.map(({ name, layout, page, data, title }) => ({
-    html: layout({ content: page(data), title }),
+  const generateHtml = pagesAndLayouts.map(async ({ name, layout, page, data, title }) => ({
+    html: layout({ content: typeof data === 'function' ? page(await data()) : page(data), title }),
     name: name,
   }));
 
+  const resolveData = await Promise.all(generateHtml);
+
   await checkIfDistExists();
 
-  await Promise.all(generateHtml.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)));
+  await Promise.all(resolveData.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)));
 
   console.log('\nBuild complete!\n');
   console.timeEnd('Build time');
