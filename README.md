@@ -2,4 +2,4 @@
 
 World's lightest static-site generator
 --
-I built this project mainly to showcase the fundamental of static-site generation
+I built this project mainly to showcase the fundamentals of static-site generator
