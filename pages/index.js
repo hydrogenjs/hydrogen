@@ -1,6 +1,6 @@
 const html = require('html-template-tag');
 
-const page = ({ posts }) => html`
+const page = () => html`
 
 `;
 
