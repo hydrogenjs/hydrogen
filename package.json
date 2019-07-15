@@ -1,0 +1,15 @@
+{
+  "name": "jamstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx nodemon -w ./layouts.js -w ./pages.js -w ./server.js -w ./data.json server.js"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
