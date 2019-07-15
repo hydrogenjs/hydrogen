@@ -13,6 +13,7 @@ const checkIfDistExists = async () => {
 };
 
 const main = async () => {
+  console.time('Build time');
   const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
     name: page.split('.')[0],
     ...require(`./pages/${page}`),
@@ -41,6 +42,7 @@ const main = async () => {
   await Promise.all(generateHtml.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)));
 
   console.log('\nBuild complete!\n');
+  console.timeEnd('Build time');
 }
 
 main();
