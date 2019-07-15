@@ -76,7 +76,7 @@ const createUnorderedListOfFruits = (fruits) => html`
 
 const page = ({ fruits }) => html`
   <div>
-    ${createUnorderedListOfFruits(fruits)}
+    $${createUnorderedListOfFruits(fruits)}
   </div>
 `;
 
