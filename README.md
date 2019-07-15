@@ -70,7 +70,7 @@ const html = require('html-template-tag');
 
 const createUnorderedListOfFruits = (fruits) => html`
   <li>
-    ${fruits.map(fruit => html`<li>${fruit}</li>`)}
+    ${fruits.map(fruit => html`<li>${fruit}</li>`).join('')}
   </li>
 `;
 
