@@ -1,5 +1,17 @@
 const fs = require('fs-extra');
 
+const checkIfDistExists = async () => {
+  const exist = await new Promise((resolve, reject) => {
+    fs.exists('./dist', (exist) => resolve(exist));
+  });
+
+  if (exist) {
+    return false;
+  }
+
+  return fs.mkdir('./dist');
+};
+
 const main = async () => {
   const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
     name: page.split('.')[0],
@@ -23,7 +35,11 @@ const main = async () => {
     name: name,
   }));
 
-  await Promise.all(generateHtml.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)))
+  await checkIfDistExists();
+
+  await Promise.all(generateHtml.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)));
+
+  console.log('\nBuild complete!\n');
 }
 
 main();
