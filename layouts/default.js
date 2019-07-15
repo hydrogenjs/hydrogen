@@ -1,4 +1,6 @@
-const defaultLayout = ({ content }) => `
+const html = require('html-template-tag');
+
+module.exports = ({ content }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -8,11 +10,7 @@ const defaultLayout = ({ content }) => `
     <title>Static-site generator</title>
   </head>
   <body>
-    ${content}
+    $${content}
   </body>
   </html>
 `;
-
-module.exports = {
-  defaultLayout,
-};

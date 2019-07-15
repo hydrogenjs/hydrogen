@@ -601,6 +601,18 @@ has-values@^1.0.0:
     is-number "^3.0.0"
     kind-of "^4.0.0"
 
+html-es6cape@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/html-es6cape/-/html-es6cape-1.0.5.tgz#f3a437883b0594a01b175a6a2833090920b37d85"
+  integrity sha1-86Q3iDsFlKAbF1pqKDMJCSCzfYU=
+
+html-template-tag@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/html-template-tag/-/html-template-tag-3.1.0.tgz#103aafeede61695367aa668c3e9d64b12f049a7d"
+  integrity sha512-HXsGn9cqO8iuM1QqZCveZqsce3VeIGxDshxaslEAoD76iDmE63r+qgYQjR5WGcwtO5FPtRboZN57Rx+QxrbhMw==
+  dependencies:
+    html-es6cape "^1.0.5"
+
 iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"

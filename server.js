@@ -1,30 +1,29 @@
 const fs = require('fs-extra');
-const { defaultLayout } = require('./layouts');
-const { index } = require('./pages');
-const data = require('./data.json');
 
-const listOfFruits = `
-  <ul>
-    ${data.fruits.map(fruit => `<li>${fruit}</li>`).join('')}
-  </ul>
-`;
+const main = async () => {
+  const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
+    name: page.split('.')[0],
+    ...require(`./pages/${page}`),
+  })));
 
-const Homepage = defaultLayout({
-  content: index({ list: listOfFruits }),
-});
+  const layouts = await fs.readdir('./layouts').then(layouts => layouts.map(layout => ({
+    name: layout.split('.')[0],
+    layout: require(`./layouts/${layout}`),
+  })));
 
-fs.exists('./dist', (exists) => {
-  if (exists) {
-    fs.writeFile('./dist/index.html', Homepage)
-      .then(() => console.log('build complete! 🎉'));
-    return false;
-  }
+  const pagesAndLayouts = pages.map(page => ({
+    name: page.name,
+    data: page.data,
+    layout: layouts.find(layout => layout.name === page.layout).layout,
+    page: page.page,
+  }));
 
-  fs.mkdir('./dist').then(() => {
-    fs.writeFile('./dist/index.html', Homepage)
-      .then(() => console.log('build complete! 🎉'));
-  });
-});
+  const generateHtml = pagesAndLayouts.map(({ name, layout, page, data }) => ({
+    html: layout({ content: page(data) }),
+    name: name,
+  }));
 
+  await Promise.all(generateHtml.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)))
+}
 
-
+main();

@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npx nodemon -w ./layouts.js -w ./pages.js -w ./server.js -w ./data.json server.js"
+    "dev": "npx nodemon -w ./layouts -w ./pages server.js"
   },
   "dependencies": {
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^8.1.0",
+    "html-template-tag": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
