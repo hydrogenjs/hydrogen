@@ -21,7 +21,11 @@ pages/
   |_index.js
 ```
 
+## Layouts
+
 Let's look at how to create a layout like `layouts/default.js`:
+
+All you do is export a `function` and that function takes an object as an argument with `title` and `content` as properties.
 
 ```javascript
 const html = require('html-template-tag');
@@ -42,7 +46,16 @@ module.exports = ({ title, content }) => html`
 `;
 ```
 
+## Pages
+
 Let's look at how to configure `pages/index.js`:
+
+exported properties:
+
+* `layout`: a `string` of the layout name
+* `title`: a `string` of the page title
+* `data`: an `object | async function` that returns data
+* `page`: the root level `function` that return HTML markup
 
 ```javascript
 const html = require('html-template-tag');
