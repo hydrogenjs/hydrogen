@@ -13,5 +13,18 @@ const Homepage = defaultLayout({
   content: index({ list: listOfFruits }),
 });
 
-fs.writeFile('./dist/index.html', Homepage);
+fs.exists('./dist', (exists) => {
+  if (exists) {
+    fs.writeFile('./dist/index.html', Homepage)
+      .then(() => console.log('build complete! 🎉'));
+    return false;
+  }
+
+  fs.mkdir('./dist').then(() => {
+    fs.writeFile('./dist/index.html', Homepage)
+      .then(() => console.log('build complete! 🎉'));
+  });
+});
+
+
 
