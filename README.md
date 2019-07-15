@@ -89,3 +89,9 @@ module.exports = {
   page,
 };
 ```
+
+## Syntax highlighting
+
+For syntax highligting of HTML within the template tag, use **lit-html** extension for VSCode
+
+![](https://i.ibb.co/BcRRh8k/image.png)
