@@ -26,12 +26,13 @@ const main = async () => {
   const pagesAndLayouts = pages.map(page => ({
     name: page.name,
     data: page.data,
+    title: page.title,
     layout: layouts.find(layout => layout.name === page.layout).layout,
     page: page.page,
   }));
 
-  const generateHtml = pagesAndLayouts.map(({ name, layout, page, data }) => ({
-    html: layout({ content: page(data) }),
+  const generateHtml = pagesAndLayouts.map(({ name, layout, page, data, title }) => ({
+    html: layout({ content: page(data), title }),
     name: name,
   }));
 

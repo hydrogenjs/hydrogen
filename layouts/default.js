@@ -1,13 +1,13 @@
 const html = require('html-template-tag');
 
-module.exports = ({ content }) => html`
+module.exports = ({ title, content }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Static-site generator</title>
+    <title>${title}</title>
   </head>
   <body>
     $${content}

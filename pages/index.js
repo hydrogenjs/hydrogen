@@ -6,5 +6,6 @@ const page = () => html`
 
 module.exports = {
   layout: 'default',
+  title: 'Homepage',
   page,
 };
