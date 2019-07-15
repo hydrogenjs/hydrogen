@@ -60,3 +60,32 @@ module.exports = {
   page,
 };
 ```
+
+## Components
+
+You can create very simple HTML components
+
+```javascript
+const html = require('html-template-tag');
+
+const createUnorderedListOfFruits = (fruits) => html`
+  <li>
+    ${fruits.map(fruit => html`<li>${fruit}</li>`)}
+  </li>
+`;
+
+const page = ({ fruits }) => html`
+  <div>
+    ${createUnorderedListOfFruits(fruits)}
+  </div>
+`;
+
+module.exports = {
+  layout: 'default',
+  title: 'Homepage',
+  data: {
+    fruits: ['Orange', 'Mango', 'Grapes'],
+  },
+  page,
+};
+```
