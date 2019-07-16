@@ -48,17 +48,14 @@ const main = async () => {
 }
 
 const checkIfPagesExist = async () => {
-  const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
-    name: page.split('.')[0],
-    path: `./pages/${page}`,
-  })));
-
   const distPages = await fs.readdir('./dist').then(pages => pages.filter(page => page.includes('.html')).map(page => ({
     name: page.split('.')[0],
     path: `./dist/${page}`
   })));
 
-  const pagesToDelete = distPages.filter(distPage => pages.find(page => page.name !== distPage.name));
+  const pagesToDelete = distPages.filter(page => {
+    return !fs.existsSync(`./pages/${page.name}.js`);
+  });
 
   await Promise.all(pagesToDelete.map(page => fs.unlink(page.path)));
 };
