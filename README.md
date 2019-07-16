@@ -74,6 +74,31 @@ module.exports = {
 };
 ```
 
+### Async data
+
+You can also fetch data asynchronously from external APIs using the `async data` function
+
+```javascript
+const html = require('html-template-tag');
+
+const page = ({ heading }) => html`
+  <h1>${heading}</h1>
+`;
+
+module.exports = {
+  layout: 'default',
+  title: 'Homepage',
+  async data() {
+    const heading = await new Promise((resolve) => resolve('This is my homepage'));
+
+    return { 
+      heading,
+    };
+  },
+  page,
+};
+```
+
 ## Components
 
 You can create very simple HTML components
