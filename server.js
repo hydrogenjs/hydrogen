@@ -19,12 +19,16 @@ const main = async () => {
     ...require(`./pages/${page}`),
   })));
 
+  const checkPageHasConfig = pages.filter(page => page.page);
+  
+  pages.filter(page => !page.page).forEach(({ name }) => console.log(`Page: [${name}.js] is missing required config properties`));
+
   const layouts = await fs.readdir('./layouts').then(layouts => layouts.map(layout => ({
     name: layout.split('.')[0],
     layout: require(`./layouts/${layout}`),
   })));
 
-  const pagesAndLayouts = pages.map(page => ({
+  const pagesAndLayouts = checkPageHasConfig.map(page => ({
     name: page.name,
     data: page.data,
     title: page.title,
