@@ -47,4 +47,20 @@ const main = async () => {
   console.timeEnd('Build time');
 }
 
-main();
+const checkIfPagesExist = async () => {
+  const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
+    name: page.split('.')[0],
+    path: `./pages/${page}`,
+  })));
+
+  const distPages = await fs.readdir('./dist').then(pages => pages.filter(page => page.includes('.html')).map(page => ({
+    name: page.split('.')[0],
+    path: `./dist/${page}`
+  })));
+
+  const pagesToDelete = distPages.filter(distPage => pages.find(page => page.name !== distPage.name));
+
+  await Promise.all(pagesToDelete.map(page => fs.unlink(page.path)));
+};
+
+main().then(() => checkIfPagesExist());
