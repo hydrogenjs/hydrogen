@@ -17,10 +17,16 @@ const main = async () => {
   const pages = await fs.readdir('./pages').then(pages => pages.map(page => ({
     name: page.split('.')[0],
     ...require(`./pages/${page}`),
-  })));
+  })).filter(({ name }) => !name.includes('-')));
+
+  const nestedPages = await fs.readdir('./pages').then(pages => pages.map(page => ({
+    name: page.split('.')[0],
+    ...require(`./pages/${page}`),
+  })).filter(({ name }) => name.includes('-')));
 
   const checkPageHasConfig = pages.filter(page => page.page);
-  
+  const checkNestedPageHasConfig = nestedPages.filter(page => page.page);
+
   pages.filter(page => !page.page).forEach(({ name }) => console.log(`Page: [${name}.js] is missing required config properties`));
 
   const layouts = await fs.readdir('./layouts').then(layouts => layouts.map(layout => ({
@@ -36,16 +42,43 @@ const main = async () => {
     page: page.page,
   }));
 
+  const nestedPagesAndLayout = checkNestedPageHasConfig.map(page => ({
+    name: page.name,
+    data: page.data,
+    title: page.title,
+    layout: layouts.find(layout => layout.name === page.layout).layout,
+    page: page.page,
+  }));
+
   const generateHtml = pagesAndLayouts.map(async ({ name, layout, page, data, title }) => ({
     html: layout({ content: typeof data === 'function' ? page(await data()) : page(data), title }),
     name: name,
   }));
 
+  const generateHtmlNestedPages = nestedPagesAndLayout.map(async ({ name, layout, page, data, title }) => ({
+    html: layout({ content: typeof data === 'function' ? page(await data()) : page(data), title }),
+    name: name,
+  }));
+
   const resolveData = await Promise.all(generateHtml);
+  const resolveNestedPagesData = await Promise.all(generateHtmlNestedPages);
 
   await checkIfDistExists();
 
-  await Promise.all(resolveData.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)));
+  await Promise.all(resolveNestedPagesData.map(({ name, html }) => {
+    const [a] = name.split('-');
+    
+    if (!fs.existsSync(`./dist/${a}`)) {
+      return fs.mkdir(`./dist/${a}`);
+    }
+
+  }));
+
+  await Promise.all([
+    ...resolveData.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)),
+    ...resolveNestedPagesData.map(({ name, html }) => fs.writeFile(`./dist/${name.replace('-','/')}.html`, html)),
+  ]);
+
 
   console.log('\nBuild complete!\n');
   console.timeEnd('Build time');
