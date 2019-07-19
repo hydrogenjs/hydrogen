@@ -66,17 +66,20 @@ const main = async () => {
   await checkIfDistExists();
 
   await Promise.all(resolveNestedPagesData.map(({ name, html }) => {
-    const [a] = name.split('-');
-    
-    if (!fs.existsSync(`./dist/${a}`)) {
-      return fs.mkdir(`./dist/${a}`);
+    const filePathParts = name.split('-');
+    const filename = filePathParts.pop();
+
+    const folder = `./dist/${filePathParts.join('/')}`;
+
+    if (!fs.existsSync(folder)) {
+      fs.mkdir(folder);
     }
 
   }));
 
   await Promise.all([
     ...resolveData.map(({ name, html }) => fs.writeFile(`./dist/${name}.html`, html)),
-    ...resolveNestedPagesData.map(({ name, html }) => fs.writeFile(`./dist/${name.replace('-','/')}.html`, html)),
+    ...resolveNestedPagesData.map(({ name, html }) => fs.writeFile(`./dist/${name.split('-').join('/')}.html`, html)),
   ]);
 
 
