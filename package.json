@@ -52,9 +52,8 @@
   "repository": "ShailenNaidoo/hydrogen",
   "scripts": {
     "postpack": "rm -rf oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "echo NO TESTS",
-    "version": "oclif-dev readme && git add README.md"
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
+    "test": "echo NO TESTS"
   },
   "types": "lib/index.d.ts"
 }
