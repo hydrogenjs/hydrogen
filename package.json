@@ -1,17 +1,59 @@
 {
-  "name": "jamstack",
+  "name": "cli",
+  "description": "The world's lightest static-site generator",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "npx nodemon -w ./layouts -w ./pages server.js"
+  "author": "Shailen Naidoo",
+  "bin": {
+    "hydrogen": "./bin/run"
   },
+  "bugs": "https://github.com/ShailenNaidoo/hydrogen/issues",
   "dependencies": {
-    "axios": "^0.19.0",
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "chalk": "^2.4.2",
     "fs-extra": "^8.1.0",
-    "html-template-tag": "^3.1.0"
+    "tslib": "^1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+    "@oclif/dev-cli": "^1",
+    "@types/fs-extra": "^8.0.0",
+    "@types/node": "^10",
+    "execa": "^2.0.3",
+    "globby": "^10",
+    "nodemon": "^1.19.1",
+    "oclif": "^1.13.5",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/ShailenNaidoo/hydrogen",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "hydrogen",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "ShailenNaidoo/hydrogen",
+  "scripts": {
+    "postpack": "rm -rf oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
 }
