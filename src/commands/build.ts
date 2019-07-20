@@ -1,5 +1,4 @@
 import { Command } from '@oclif/command';
-import execa from 'execa';
 import { main } from '../generator';
 
 export class Build extends Command {
@@ -8,4 +7,4 @@ export class Build extends Command {
   async run() {
     await main();
   };
-}
+};

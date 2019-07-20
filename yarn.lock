@@ -649,7 +649,7 @@ cli-ux@^4.9.0:
     treeify "^1.1.0"
     tslib "^1.9.3"
 
-cli-ux@^5.2.1:
+cli-ux@^5.2.1, cli-ux@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/cli-ux/-/cli-ux-5.3.1.tgz#3bed8b37c44b03a5d1b9d71d39a69a919a101835"
   integrity sha512-l2MXbitx0FjtHKSbHytuxfxWv6MdWBRh23ItRJjU17cjj0dqZxfAL863tzbR1FIs7jccPllPUvn3QWK6BQg3Pg==
@@ -1668,10 +1668,10 @@ http-call@^5.1.2, http-call@^5.2.2:
     parse-json "^4.0.0"
     tunnel-agent "^0.6.0"
 
-hydrogen-cli@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.0.2.tgz#8c1bb4f73756068042a2ff2e119e6a0d18951f03"
-  integrity sha512-LFIYaMYolEUd5qWErov8o63KzwKFjVyCRUU0YiC31NhJ4j4wnbp0Qyk7l8A3LGGvy2EcWkEfycq7qYZtNAX8/A==
+hydrogen-cli@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.0.3.tgz#9a15cc95269b5fc3ea78a6c909373d1c228917d9"
+  integrity sha512-8QI+yKs7AMGZRtEpG2OmohMLQk+BSvLUdZenfTcFx17USFpRDoBHPJejWNY2pT7y88n4AoLBoBRTQkA2jDWhaQ==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
