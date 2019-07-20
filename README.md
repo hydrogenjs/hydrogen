@@ -1,6 +1,4 @@
-<center>
-  <img src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp" />
-</center>
+<p align="center"><img src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp"></p>
 
 # 🎈 Hydrogen
 
