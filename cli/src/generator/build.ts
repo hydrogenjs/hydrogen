@@ -1,9 +1,14 @@
 import fs from 'fs-extra';
+declare function require(path: string): any;
 
 const getPages = async () => {
-  return fs.readdir('./pages');
+  const pages = await fs.readdir('./pages');
+
+  return pages;
 };
 
 export const builder = async () => {
-  console.log(await getPages());
+  const pages = await getPages();
+
+  console.log(pages);
 };
