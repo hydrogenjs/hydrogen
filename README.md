@@ -22,7 +22,7 @@ $ npm install -g hydrogen-cli
 $ hydrogen COMMAND
 running command...
 $ hydrogen (-v|--version|version)
-hydrogen-cli/0.0.2 linux-x64 node-v10.16.0
+hydrogen-cli/0.0.3 linux-x64 node-v10.16.0
 $ hydrogen --help [COMMAND]
 USAGE
   $ hydrogen COMMAND
@@ -44,7 +44,6 @@ USAGE
 # Commands
 <!-- commands -->
 * [`hydrogen build`](#hydrogen-build)
-* [`hydrogen dev`](#hydrogen-dev)
 * [`hydrogen help [COMMAND]`](#hydrogen-help-command)
 
 ## `hydrogen build`
@@ -56,18 +55,7 @@ USAGE
   $ hydrogen build
 ```
 
-_See code: [src/commands/build.ts](https://github.com/ShailenNaidoo/hydrogen/blob/v0.0.2/src/commands/build.ts)_
-
-## `hydrogen dev`
-
-Start Hydrogen dev server
-
-```
-USAGE
-  $ hydrogen dev
-```
-
-_See code: [src/commands/dev.ts](https://github.com/ShailenNaidoo/hydrogen/blob/v0.0.2/src/commands/dev.ts)_
+_See code: [src/commands/build.ts](https://github.com/ShailenNaidoo/hydrogen/blob/v0.0.3/src/commands/build.ts)_
 
 ## `hydrogen help [COMMAND]`
 
