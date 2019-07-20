@@ -12,8 +12,23 @@ The world&#39;s lightest static-site generator
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 # Usage
 <!-- usage -->
+```sh-session
+$ npm install -g hydrogen-cli
+$ hydrogen COMMAND
+running command...
+$ hydrogen (-v|--version|version)
+hydrogen-cli/0.0.1 linux-x64 node-v10.16.0
+$ hydrogen --help [COMMAND]
+USAGE
+  $ hydrogen COMMAND
+...
+```
+<!-- usagestop -->
 ```sh-session
 $ npm install -g cli
 $ hydrogen COMMAND
@@ -28,6 +43,49 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`hydrogen build`](#hydrogen-build)
+* [`hydrogen dev`](#hydrogen-dev)
+* [`hydrogen help [COMMAND]`](#hydrogen-help-command)
+
+## `hydrogen build`
+
+Starts building templates for production
+
+```
+USAGE
+  $ hydrogen build
+```
+
+_See code: [src/commands/build.ts](https://github.com/ShailenNaidoo/hydrogen/blob/v0.0.1/src/commands/build.ts)_
+
+## `hydrogen dev`
+
+Start Hydrogen dev server
+
+```
+USAGE
+  $ hydrogen dev
+```
+
+_See code: [src/commands/dev.ts](https://github.com/ShailenNaidoo/hydrogen/blob/v0.0.1/src/commands/dev.ts)_
+
+## `hydrogen help [COMMAND]`
+
+display help for hydrogen
+
+```
+USAGE
+  $ hydrogen help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
+<!-- commandsstop -->
 * [`hydrogen hello [FILE]`](#hydrogen-hello-file)
 * [`hydrogen help [COMMAND]`](#hydrogen-help-command)
 
