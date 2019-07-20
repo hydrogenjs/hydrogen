@@ -80,7 +80,7 @@ module.exports = {
   layout: 'default',
   title: 'Homepage',
   page,
-  async data() {
+  async data({ dev }) {
     return {
       name: 'John',
     };
