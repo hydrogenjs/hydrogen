@@ -1,5 +1,5 @@
 const page = () => `
-  <p>Hello Worl</p>
+
 `;
 
 module.exports = {
