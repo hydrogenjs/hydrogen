@@ -13,7 +13,7 @@ export const checkIfLayoutAndPageDirectoriesExist = async (): Promise<[boolean, 
   }));
 
   return Promise.all(directoriesToCheck).then((dirs: Directory[]): [boolean, Directory[]] => [
-    !dirs.every(({ exists }) => !exists),
+    dirs.length !== 0 ? !dirs.every(({ exists }) => exists) : false,
     dirs.filter(({ exists }) => !exists),
   ]);
 };
