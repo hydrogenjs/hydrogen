@@ -5,7 +5,7 @@ interface Page {
   layout: string;
   title: string;
   page(data: object): string;
-  data(): Promise<object>;
+  data?(): Promise<object>;
 }
 
 interface Layout {
@@ -18,7 +18,7 @@ interface PageAndLayout {
   title: string;
   layout({ title, content }: { title: string; content: string }): string;
   page(data: object): string;
-  data(): Promise<object>;
+  data?(): Promise<object>;
 }
 
 interface HTMLObject {
