@@ -21,6 +21,7 @@
     "@types/node": "^10",
     "execa": "^2.0.3",
     "globby": "^10",
+    "hydrogen-cli": "^0.0.2",
     "nodemon": "^1.19.1",
     "oclif": "^1.13.5",
     "ts-node": "^8",

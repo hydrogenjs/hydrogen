@@ -1668,6 +1668,18 @@ http-call@^5.1.2, http-call@^5.2.2:
     parse-json "^4.0.0"
     tunnel-agent "^0.6.0"
 
+hydrogen-cli@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.0.2.tgz#8c1bb4f73756068042a2ff2e119e6a0d18951f03"
+  integrity sha512-LFIYaMYolEUd5qWErov8o63KzwKFjVyCRUU0YiC31NhJ4j4wnbp0Qyk7l8A3LGGvy2EcWkEfycq7qYZtNAX8/A==
+  dependencies:
+    "@oclif/command" "^1"
+    "@oclif/config" "^1"
+    "@oclif/plugin-help" "^2"
+    chalk "^2.4.2"
+    fs-extra "^8.1.0"
+    tslib "^1"
+
 hyperlinker@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hyperlinker/-/hyperlinker-1.0.0.tgz#23dc9e38a206b208ee49bc2d6c8ef47027df0c0e"
