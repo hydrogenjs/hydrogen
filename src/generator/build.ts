@@ -6,7 +6,7 @@ interface Page {
   layout: string;
   title: string;
   page(data: object): string;
-  data?(): Promise<object>;
+  data?({ dev }: { dev: boolean }): Promise<object>;
 }
 
 interface Layout {
@@ -19,15 +19,13 @@ interface PageAndLayout {
   title: string;
   layout({ title, content, dev }: { title: string; content: string; dev: boolean }): string;
   page(data: object): string;
-  data?(): Promise<object>;
+  data?({ dev }: { dev: boolean }): Promise<object>;
 }
 
 interface HTMLObject {
   html: string;
   name: string;
 }
-
-const DEV = process.env.MODE === 'dev';
 
 const getPages = async (): Promise<Page[]> => {
   const filenames = await fs.readdir(`./pages`);
@@ -53,21 +51,21 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
     ...otherValues,
   }));
 
-const generateHTML = (pages: PageAndLayout[]): Promise<HTMLObject[]> => Promise.all(pages.map(async (page) => ({
-  html: page.layout({ title: page.title, content: page.page(page.data ? { ...await page.data(), dev: DEV } : { dev: DEV }), dev: DEV }),
+const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page) => ({
+  html: page.layout({ title: page.title, content: page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
   name: page.name.replace('js', 'html'),
 })));
 
 const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> =>  Promise.all(pages.map((page) => fs.writeFile(`${process.env.PWD}/dist/${page.name}`, page.html)));
 
-export const builder = async () => {
+export const builder = async (dev: boolean) => {
   cli.action.start('Building files');
   console.time('Build time');
 
   const pages = await getPages();
   const layouts = await getLayouts();
   const mergedLayoutsWithPages = await mergeLayoutsWithPages(pages, layouts);
-  const htmlPages = await generateHTML(mergedLayoutsWithPages);
+  const htmlPages = await generateHTML(mergedLayoutsWithPages, dev);
 
   await saveHTMLToFiles(htmlPages);
 

@@ -1,7 +1,7 @@
 import { checkIfLayoutAndPageDirectoriesExist, logDirsThatDontExist, checkifBuildFolderExists } from "./helpers";
 import { builder } from './build';
 
-export const main = async (): Promise<void | boolean> => {
+export const main = async (dev: boolean): Promise<void | boolean> => {
   const [check, dirs] = await checkIfLayoutAndPageDirectoriesExist();
   
   if (check) {
@@ -10,5 +10,5 @@ export const main = async (): Promise<void | boolean> => {
   }
 
   await checkifBuildFolderExists();
-  await builder();
+  await builder(dev);
 };

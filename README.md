@@ -102,9 +102,13 @@ Properties of the exported object
 
 All you have to do is run this command, it will generate a `dist` folder with your HTML documents
 
-
+<small><strong>development build</strong></small>
 ```bash
-MODE=dev npx hydrogen build
+npx hydrogen build --dev
 ```
 
-**Note!**: set `MODE` to `dev` for developent mode and `prod` for production mode when building your application
+<small><strong>production build</strong></small>
+
+```bash
+npx hydrogen build
+```
