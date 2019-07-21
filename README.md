@@ -1,36 +1,49 @@
+<p align="center"><img src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp"></p>
+
 # 🎈 Hydrogen
 
-### World's lightest static-site generator
+Voted the world's lightest static-site generator built with TypeScript ❤ It uses 🔥 _lit-html_ inspired templating for super duper performant template generation.
 
-This project is basically an experiment for educational purposes, to see what is least required to create a static-site generator and also provide the necessary features for basic web development
+BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/@11ty/eleventy) 😜
 
-## Getting Started
+[![Version](https://img.shields.io/npm/v/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
+[![Downloads/week](https://img.shields.io/npm/dw/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
+[![License](https://img.shields.io/npm/l/cli.svg)](https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json)
 
-1. Clone repo
-2. Install packages with NPM or Yarn
-3. Run `yarn dev`
+## ⚙ Features
 
-All changes to the files will cause the server to auto-build your static html files
+- ⚡ **Millisecond Builds**. With the global average attention span being 8 seconds, why wait seconds for you builds when you can wait milliseconds. Read the SLA.
+- 🔥 **JavaScript Templates**. With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.
+- 🔌 **Use External APIs**. Plug into your data with remote APIs.
 
-## Folder structure
+## 🔨 Getting started
+
+Time to install. You know what to do, time to put _NPM_ or _Yarn_ to work 💪
+
+```bash
+yarn add hydrogen-cli
+```
+
+### Folder structure
+
+Here is a basic folder structure you can setup.
 
 ```
 layouts/
   |_ default.js
-pages/
-  |_index.js
+pages//
+  |_ index.js
 ```
 
-## Layouts
+There are two types of templates: `layout` and `page`
 
-Let's look at how to create a layout like `layouts/default.js`:
+### Layout
 
-All you do is export a `function` and that function takes an object as an argument with `title` and `content` as properties.
+A layout is a template that contains the markup for the application shell
 
+<small><strong>default.js</strong></small>
 ```javascript
-const html = require('html-template-tag');
-
-module.exports = ({ title, content }) => html`
+module.exports = ({ title, content, dev }) => `
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -40,96 +53,62 @@ module.exports = ({ title, content }) => html`
     <title>${title}</title>
   </head>
   <body>
-    $${content}
+    ${content}
   </body>
   </html>
 `;
 ```
 
-## Pages
+Properties made available to the exported function
 
-Let's look at how to configure `pages/index.js`:
+| Properties | Description | Type |
+|------------| ------------|------|
+| *title* | The is the title of page | `string` |
+| *content* | The HTML generate by the page | `string` |
+| *dev* | If in development mode | `boolean` |
 
-exported properties:
+### Page
 
-* `layout`: a `string` of the layout name
-* `title`: a `string` of the page title
-* `data`: an `object | async function` that returns data
-* `page`: the root level `function` that return HTML markup
+A page is your content that gets injected into the layout you assign.
 
 ```javascript
-const html = require('html-template-tag');
-
-const page = ({ heading }) => html`
-  <h1>${heading}</h1>
+const page = ({ name, dev }) => `
+  <p>${name}<p>
 `;
 
 module.exports = {
   layout: 'default',
   title: 'Homepage',
-  data: {
-    heading: 'This is my homepage',
-  },
   page,
-};
-```
-
-### Async data
-
-You can also fetch data asynchronously from external APIs using the `async data` function
-
-```javascript
-const html = require('html-template-tag');
-
-const page = ({ heading }) => html`
-  <h1>${heading}</h1>
-`;
-
-module.exports = {
-  layout: 'default',
-  title: 'Homepage',
-  async data() {
-    const heading = await new Promise((resolve) => resolve('This is my homepage'));
-
-    return { 
-      heading,
+  async data({ dev }) {
+    return {
+      name: 'John',
     };
   },
-  page,
 };
 ```
 
-## Components
+Properties of the exported object
 
-You can create very simple HTML components
+| Properties | Description | Type |
+|------------|-------------|------|
+| _layout_ | Assigns a layout to your page | `string` |
+| _title_ | Assigns a title to your page layout | `string` |
+| _page_ | Your page content goes here, you get access to all the properties returned from the `async data` method | `function(): string` |
+| _data_ | A method where you can access data from remote APIs. **!Always return an object** | `async function(): Promise<object>`
 
-```javascript
-const html = require('html-template-tag');
+## How do build my templates?.
 
-const createUnorderedListOfFruits = (fruits) => html`
-  <li>
-    $${fruits.map(fruit => html`<li>${fruit}</li>`).join('')}
-  </li>
-`;
 
-const page = ({ fruits }) => html`
-  <div>
-    $${createUnorderedListOfFruits(fruits)}
-  </div>
-`;
+All you have to do is run this command, it will generate a `dist` folder with your HTML documents
 
-module.exports = {
-  layout: 'default',
-  title: 'Homepage',
-  data: {
-    fruits: ['Orange', 'Mango', 'Grapes'],
-  },
-  page,
-};
+<small><strong>development build</strong></small>
+```bash
+npx hydrogen build --dev
 ```
 
-## Syntax highlighting
+<small><strong>production build</strong></small>
 
-For syntax highligting of HTML within the template tag, use **lit-html** extension for VSCode
-
-![](https://i.ibb.co/BcRRh8k/image.png)
+```bash
+npx hydrogen build
+```
