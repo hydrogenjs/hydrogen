@@ -1656,6 +1656,18 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
   integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
 
+html-es6cape@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/html-es6cape/-/html-es6cape-1.0.5.tgz#f3a437883b0594a01b175a6a2833090920b37d85"
+  integrity sha1-86Q3iDsFlKAbF1pqKDMJCSCzfYU=
+
+html-template-tag@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/html-template-tag/-/html-template-tag-3.1.0.tgz#103aafeede61695367aa668c3e9d64b12f049a7d"
+  integrity sha512-HXsGn9cqO8iuM1QqZCveZqsce3VeIGxDshxaslEAoD76iDmE63r+qgYQjR5WGcwtO5FPtRboZN57Rx+QxrbhMw==
+  dependencies:
+    html-es6cape "^1.0.5"
+
 http-call@^5.1.2, http-call@^5.2.2:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/http-call/-/http-call-5.2.4.tgz#42303c02db40cba29f94304be97102067ea34d06"
