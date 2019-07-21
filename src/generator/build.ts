@@ -27,7 +27,7 @@ interface HTMLObject {
   name: string;
 }
 
-const getPages = async (): Promise<Page[]> => {
+export const getPages = async (): Promise<Page[]> => {
   const filenames = await fs.readdir(`./pages`);
 
   return Promise.all(filenames.map(async (filename): Promise<Page> => ({
