@@ -25,6 +25,7 @@
     "@types/node": "^10",
     "execa": "^2.0.3",
     "globby": "^10",
+    "husky": "^3.0.1",
     "jest": "^24.8.0",
     "mock-fs": "^4.10.1",
     "nodemon": "^1.19.1",
@@ -59,7 +60,13 @@
   "scripts": {
     "postpack": "rm -rf oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
-    "test": "echo NO TESTS"
+    "test": "npx jest"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
+    }
+  }
 }
