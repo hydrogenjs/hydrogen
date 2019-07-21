@@ -12,7 +12,7 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 
 ## 🕶 Features
 
-- ⚡ **Millisecond Builds**. With the global average attention span being 8 seconds, why wait seconds for you builds when you can wait milliseconds. Read the SLA.
+- ⚡ **Millisecond Builds**. With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds. Read the SLA.
 - 🔥 **JavaScript Templates**. With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.
 - 🔌 **Use External APIs**. Plug into your data with remote APIs.
 
