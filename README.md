@@ -31,7 +31,7 @@ Here is a basic folder structure you can setup.
 ```
 layouts/
   |_ default.js
-pages//
+pages/
   |_ index.js
 ```
 
@@ -97,7 +97,7 @@ Properties of the exported object
 | _page_ | Your page content goes here, you get access to all the properties returned from the `async data` method | `function(): string` |
 | _data_ | A method where you can access data from remote APIs. **!Always return an object** | `async function(): Promise<object>`
 
-## How do build my templates?.
+## How do I build my templates?
 
 
 All you have to do is run this command, it will generate a `dist` folder with your HTML documents
