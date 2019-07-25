@@ -1,7 +1,7 @@
 {
   "name": "hydrogen-cli",
   "description": "Voted the world's lightest static-site generator built with TypeScript ❤ It uses 🔥 lit-html inspired templating for super duper performant template generation",
-  "version": "0.0.11",
+  "version": "0.0.14",
   "author": "Shailen Naidoo",
   "bin": {
     "hydrogen": "./bin/run"
@@ -20,11 +20,18 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1",
     "@types/fs-extra": "^8.0.0",
+    "@types/jest": "^24.0.15",
+    "@types/mock-fs": "^3.6.30",
     "@types/node": "^10",
     "execa": "^2.0.3",
     "globby": "^10",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "mock-fs": "^4.10.1",
     "nodemon": "^1.19.1",
     "oclif": "^1.13.5",
+    "serve": "^11.1.0",
+    "ts-jest": "^24.0.2",
     "ts-node": "^8",
     "typescript": "^3.3"
   },
@@ -54,7 +61,13 @@
   "scripts": {
     "postpack": "rm -rf oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
-    "test": "echo NO TESTS"
+    "test": "npx jest"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
+    }
+  }
 }

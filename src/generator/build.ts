@@ -27,7 +27,7 @@ interface HTMLObject {
   name: string;
 }
 
-const getPages = async (): Promise<Page[]> => {
+export const getPages = async (): Promise<Page[]> => {
   const filenames = await fs.readdir(`./pages`);
 
   return Promise.all(filenames.map(async (filename): Promise<Page> => ({
@@ -52,7 +52,7 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
   }));
 
 const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page) => ({
-  html: page.layout({ title: page.title, content: page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
+  html: page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
   name: page.name.replace('js', 'html'),
 })));
 

@@ -20,7 +20,7 @@ export const checkIfLayoutAndPageDirectoriesExist = async (): Promise<[boolean, 
 
 export const logDirsThatDontExist = (dirs: Directory[]): void => dirs.forEach(({ dirName }) => console.log(`[${chalk.green(dirName)}] folder does not exist ❌`));
 
-export const checkifBuildFolderExists = async (): Promise<boolean | void> => {
+export const checkIfBuildFolderExists = async (): Promise<boolean | void> => {
   if (await fs.pathExists('./dist')) {
     return false;
   }
