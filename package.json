@@ -1,7 +1,7 @@
 {
   "name": "hydrogen-cli",
   "description": "Voted the world's lightest static-site generator built with TypeScript ❤ It uses 🔥 lit-html inspired templating for super duper performant template generation",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "author": "Shailen Naidoo",
   "bin": {
     "hydrogen": "./bin/run"
@@ -30,6 +30,7 @@
     "jest": "^24.8.0",
     "mock-fs": "^4.10.1",
     "nodemon": "^1.19.1",
+    "npm-run-all": "^4.1.5",
     "oclif": "^1.13.5",
     "serve": "^11.1.0",
     "ts-jest": "^24.0.2",
