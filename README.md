@@ -114,3 +114,16 @@ npx hydrogen build --dev
 ```bash
 npx hydrogen build
 ```
+
+## How do I setup a dev server?
+
+Just add these commands to your `package.json` file
+
+```json
+"scripts": {
+  "dev": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\" & npx serve",
+  "build": "npx cross-env npx hydrogen build"
+}
+```
+
+`dev` will spin up a dev server with auto reloading
