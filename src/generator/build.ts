@@ -2,6 +2,8 @@ import fs from 'fs-extra';
 import cli from 'cli-ux';
 import path from 'path';
 import { copyPublicFolder } from './helpers';
+import chalk from 'chalk';
+import figlet from 'figlet';
 
 interface Page {
   name: string;
@@ -63,6 +65,11 @@ const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[
 const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> =>  Promise.all(pages.map((page) => fs.writeFile(path.normalize(`${CWD}/dist/${page.name}`), page.html)));
 
 export const builder = async (dev: boolean) => {
+
+  !dev ? console.log(chalk.red(await new Promise((resolve) => figlet('Hydrogen', (e, data) => resolve(data))))): null;
+
+  console.log(`\n${chalk.underline('MODE')}: ${dev ? chalk.red('DEVELOPMENT') : chalk.green('PRODUCTION')}`);
+
   cli.action.start('Building files');
   console.time('Build time');
 
@@ -76,4 +83,5 @@ export const builder = async (dev: boolean) => {
 
   cli.action.stop();
   console.timeEnd('Build time');
+  console.log('');
 };
