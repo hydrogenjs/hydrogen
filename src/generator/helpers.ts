@@ -16,12 +16,12 @@ export const checkIfLayoutAndPageDirectoriesExist = async (): Promise<[boolean, 
   }));
 
   return Promise.all(directoriesToCheck).then((dirs: Directory[]): [boolean, Directory[]] => [
-    dirs.length !== 0 ? !dirs.every(({ exists }) => exists) : false,
-    dirs.filter(({ exists }) => !exists),
+    dirs.length !== 0 ? !dirs.every(({ exists }): boolean => exists) : false,
+    dirs.filter(({ exists }): boolean => !exists),
   ]);
 };
 
-export const logDirsThatDontExist = (dirs: Directory[]): void => dirs.forEach(({ dirName }) => console.log(`[${chalk.green(dirName)}] folder does not exist ❌`));
+export const logDirsThatDontExist = (dirs: Directory[]): void => dirs.forEach(({ dirName }): void => console.log(`[${chalk.green(dirName)}] folder does not exist ❌`));
 
 export const checkIfBuildFolderExists = async (): Promise<boolean | void> => {
   if (await fs.pathExists(path.normalize(`${CWD}/dist`))) {

@@ -1,9 +1,9 @@
 import fs from 'fs-extra';
 import cli from 'cli-ux';
 import path from 'path';
-import { copyPublicFolder } from './helpers';
 import chalk from 'chalk';
 import figlet from 'figlet';
+import { copyPublicFolder } from './helpers';
 
 interface Page {
   name: string;
@@ -34,7 +34,7 @@ interface HTMLObject {
 const CWD = process.cwd();
 
 export const getPages = async (): Promise<Page[]> => {
-  const filenames = await fs.readdir(`./pages`);
+  const filenames = await fs.readdir('./pages');
 
   return Promise.all(filenames.map(async (filename): Promise<Page> => ({
     name: filename,
@@ -43,7 +43,7 @@ export const getPages = async (): Promise<Page[]> => {
 };
 
 const getLayouts = async (): Promise<Layout[]> => {
-  const filenames = await fs.readdir(`./layouts`);
+  const filenames = await fs.readdir('./layouts');
 
   return Promise.all(filenames.map(async (filename): Promise<Layout> => ({
     name: filename.split('.')[0],
@@ -52,21 +52,22 @@ const getLayouts = async (): Promise<Layout[]> => {
 };
 
 const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[] => pages
-  .map(({ layout, ...otherValues }) => ({
-    layout: layouts.filter(({ name }) => name === layout)[0].default,
+  .map(({ layout, ...otherValues }): PageAndLayout => ({
+    layout: layouts.filter(({ name }): boolean => name === layout)[0].default,
     ...otherValues,
   }));
 
-const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page) => ({
+const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
   html: page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
   name: page.name.replace('js', 'html'),
 })));
 
-const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> =>  Promise.all(pages.map((page) => fs.writeFile(path.normalize(`${CWD}/dist/${page.name}`), page.html)));
+const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.writeFile(path.normalize(`${CWD}/dist/${page.name}`), page.html)));
 
-export const builder = async (dev: boolean) => {
-
-  !dev ? console.log(chalk.red(await new Promise((resolve) => figlet('Hydrogen', (e, data) => resolve(data))))): null;
+export const builder = async (dev: boolean): Promise<void> => {
+  if (!dev) {
+    console.log(chalk.red(await new Promise((resolve): void => figlet('Hydrogen', (e, data): void => resolve(data)))));
+  }
 
   console.log(`\n${chalk.underline('MODE')}: ${dev ? chalk.red('DEVELOPMENT') : chalk.green('PRODUCTION')}`);
 
