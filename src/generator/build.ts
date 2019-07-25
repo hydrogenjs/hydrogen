@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import cli from 'cli-ux';
 import path from 'path';
+import { copyPublicFolder } from './helpers';
 
 interface Page {
   name: string;
@@ -71,6 +72,7 @@ export const builder = async (dev: boolean) => {
   const htmlPages = await generateHTML(mergedLayoutsWithPages, dev);
 
   await saveHTMLToFiles(htmlPages);
+  await copyPublicFolder();
 
   cli.action.stop();
   console.timeEnd('Build time');

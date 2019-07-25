@@ -30,3 +30,11 @@ export const checkIfBuildFolderExists = async (): Promise<boolean | void> => {
 
   return fs.mkdir(path.normalize(`${CWD}/dist`));
 };
+
+export const copyPublicFolder = async (): Promise<void|boolean> => {
+  if (!(await fs.pathExists(path.normalize(`${CWD}/public`)))) {
+    return false;
+  }
+
+  return fs.copy(path.normalize(`${CWD}/public`), path.normalize(`${CWD}/dist/public`));
+};
