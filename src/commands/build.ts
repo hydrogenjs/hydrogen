@@ -12,7 +12,6 @@ export class Build extends Command {
   };
 
   async run() {
-
     const { flags } = this.parse(Build);
     await main(flags.dev);
   };
