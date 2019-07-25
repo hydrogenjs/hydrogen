@@ -10,6 +10,8 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 [![Downloads/week](https://img.shields.io/npm/dw/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
 [![License](https://img.shields.io/npm/l/cli.svg)](https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json)
 
+> Hydrogen is experimental at this point, looking to get it into beta soon
+
 ## 🕶 Features
 
 - ⚡ **Millisecond Builds**. With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds. Read the SLA.
