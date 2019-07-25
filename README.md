@@ -10,7 +10,7 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 [![Downloads/week](https://img.shields.io/npm/dw/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
 [![License](https://img.shields.io/npm/l/cli.svg)](https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json)
 
-> Hydrogen is experimental at this point, looking to get it into beta soon
+> Hydrogen is experimental at this point, looking to get it into beta soon. **Only working on Linux!**
 
 ## 🕶 Features
 
@@ -126,3 +126,11 @@ Properties of the exported object
 | _title_ | Assigns a title to your page layout | `string` |
 | _page_ | Your page content goes here, you get access to all the properties returned from the `async data` method | `function(): string` |
 | _data_ | A method where you can access data from remote APIs. **!Always return an object** | `async function(): Promise<object>`
+
+## 🚗 Roadmap
+
+- [x] Layouts
+- [x] Pages
+- [x] Dev/Prod builds
+- [x] Async data
+- [] Cross platform
