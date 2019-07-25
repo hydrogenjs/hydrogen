@@ -133,4 +133,4 @@ Properties of the exported object
 - [x] Pages
 - [x] Dev/Prod builds
 - [x] Async data
-- [-] Cross platform
+- [o] Cross platform
