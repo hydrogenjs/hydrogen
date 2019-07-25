@@ -10,7 +10,17 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 [![Downloads/week](https://img.shields.io/npm/dw/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
 [![License](https://img.shields.io/npm/l/cli.svg)](https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json)
 
-> Hydrogen is experimental at this point, looking to get it into beta soon. **Only working on Linux!**
+## Index
+
+- 🕶 [Features](#-features)
+- 🧪 [Getting Started](#🧪getting-started)
+  - [How do i build my templates?](#how-do-i-build-my-templates)
+  - [How do i setup a dev server?](#how-do-i-setup-a-dev-server)
+  - [Configuration](#configuration)
+    - [Folder structure](#folder-structure)
+    - [Layout](#layout)
+    - [Page](#page)
+  - [Roadmap](#roadmap)
 
 ## 🕶 Features
 
@@ -18,7 +28,7 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 - 🔥 **JavaScript Templates**. With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.
 - 🔌 **Use External APIs**. Plug into your data with remote APIs.
 
-##  🧪Getting started
+##  🧪 Getting started
 
 Time to install. You know what to do, time to put _NPM_ or _Yarn_ to work 💪
 
@@ -47,12 +57,16 @@ Just add these commands to your `package.json` file
 
 ```json
 "scripts": {
-  "dev": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\" & npx serve",
-  "build": "npx cross-env npx hydrogen build"
+  "reload": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\"",
+  "serve": "npx cross-env npx serve ./dist",
+  "dev": "npx npm-run-all --parallel reload serve",
+  "build": "npx hydrogen build"
 }
 ```
 
 `dev` will spin up a dev server with auto reloading
+
+## Configuration
 
 ### Folder structure
 
@@ -127,10 +141,10 @@ Properties of the exported object
 | _page_ | Your page content goes here, you get access to all the properties returned from the `async data` method | `function(): string` |
 | _data_ | A method where you can access data from remote APIs. **!Always return an object** | `async function(): Promise<object>`
 
-## 🚗 Roadmap
+## Roadmap
 
 - [x] Layouts
 - [x] Pages
 - [x] Dev/Prod builds
 - [x] Async data
-- [ ] Cross platform
+- [x] Cross platform
