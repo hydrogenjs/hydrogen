@@ -26,6 +26,34 @@ Time to install. You know what to do, time to put _NPM_ or _Yarn_ to work 💪
 yarn add hydrogen-cli
 ```
 
+## How do I build my templates?
+
+All you have to do is run this command, it will generate a `dist` folder with your HTML documents
+
+<small><strong>development build</strong></small>
+```bash
+npx hydrogen build --dev
+```
+
+<small><strong>production build</strong></small>
+
+```bash
+npx hydrogen build
+```
+
+## How do I setup a dev server?
+
+Just add these commands to your `package.json` file
+
+```json
+"scripts": {
+  "dev": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\" & npx serve",
+  "build": "npx cross-env npx hydrogen build"
+}
+```
+
+`dev` will spin up a dev server with auto reloading
+
 ### Folder structure
 
 Here is a basic folder structure you can setup.
@@ -98,32 +126,3 @@ Properties of the exported object
 | _title_ | Assigns a title to your page layout | `string` |
 | _page_ | Your page content goes here, you get access to all the properties returned from the `async data` method | `function(): string` |
 | _data_ | A method where you can access data from remote APIs. **!Always return an object** | `async function(): Promise<object>`
-
-## How do I build my templates?
-
-
-All you have to do is run this command, it will generate a `dist` folder with your HTML documents
-
-<small><strong>development build</strong></small>
-```bash
-npx hydrogen build --dev
-```
-
-<small><strong>production build</strong></small>
-
-```bash
-npx hydrogen build
-```
-
-## How do I setup a dev server?
-
-Just add these commands to your `package.json` file
-
-```json
-"scripts": {
-  "dev": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\" & npx serve",
-  "build": "npx cross-env npx hydrogen build"
-}
-```
-
-`dev` will spin up a dev server with auto reloading
