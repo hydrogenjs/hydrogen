@@ -77,9 +77,14 @@ layouts/
   |_ default.js
 pages/
   |_ index.js
+public/
+  |_ css/
+    |_ main.css
+  |_ js/
+    |_ script.js
 ```
 
-There are two types of templates: `layout` and `page`
+There are two types of templates: `layout` and `page`, use `public` to store all your static assest 
 
 ### Layout
 
