@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import cli from 'cli-ux';
+import path from 'path';
 
 interface Page {
   name: string;
@@ -27,12 +28,14 @@ interface HTMLObject {
   name: string;
 }
 
+const CWD = process.cwd();
+
 export const getPages = async (): Promise<Page[]> => {
   const filenames = await fs.readdir(`./pages`);
 
   return Promise.all(filenames.map(async (filename): Promise<Page> => ({
     name: filename,
-    ...await import(`${process.env.PWD}/pages/${filename}`),
+    ...await import(path.normalize(`${CWD}/pages/${filename}`)),
   })));
 };
 
@@ -41,7 +44,7 @@ const getLayouts = async (): Promise<Layout[]> => {
 
   return Promise.all(filenames.map(async (filename): Promise<Layout> => ({
     name: filename.split('.')[0],
-    ...await import(`${process.env.PWD}/layouts/${filename}`),
+    ...await import(path.normalize(`${CWD}/layouts/${filename}`)),
   })));
 };
 
@@ -56,7 +59,7 @@ const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[
   name: page.name.replace('js', 'html'),
 })));
 
-const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> =>  Promise.all(pages.map((page) => fs.writeFile(`${process.env.PWD}/dist/${page.name}`, page.html)));
+const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> =>  Promise.all(pages.map((page) => fs.writeFile(path.normalize(`${CWD}/dist/${page.name}`), page.html)));
 
 export const builder = async (dev: boolean) => {
   cli.action.start('Building files');
