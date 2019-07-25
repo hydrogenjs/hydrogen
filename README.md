@@ -57,7 +57,7 @@ Just add these commands to your `package.json` file
 
 ```json
 "scripts": {
-  "reload": "npx cross-env npx nodemon --exec \"npx hydrogen build --dev\"",
+  "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
   "serve": "npx cross-env npx serve ./dist",
   "dev": "npx npm-run-all --parallel reload serve",
   "build": "npx hydrogen build"
