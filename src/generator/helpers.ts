@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import path from 'path';
+import glob from 'glob';
 
 interface Directory {
   dirName: string;
@@ -38,3 +39,13 @@ export const copyPublicFolder = async (): Promise<void|boolean> => {
 
   return fs.copy(path.normalize(`${CWD}/public`), path.normalize(`${CWD}/dist/public`));
 };
+
+export const globFiles = async (pattern: string): Promise<string[]> => new Promise((res, rej): void => {
+  glob(pattern, (err, files): void => {
+    if (err) {
+      rej(err);
+    }
+
+    res(files);
+  });
+});
