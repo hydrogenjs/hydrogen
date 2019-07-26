@@ -49,3 +49,13 @@ export const globFiles = async (pattern: string): Promise<string[]> => new Promi
     res(files);
   });
 });
+
+export const tempateGenerator = async (filename: string): Promise<void|boolean> => {
+  if (!filename) {
+    console.log('\nNo file provided\n');
+    return false;
+  }
+
+  const file = await import(`${CWD}/${filename}`);
+  await fs.outputFile(filename.replace('.js', '.html'), file.page({ title: file.title, ...file.data ? await file.data() : {} }));
+};
