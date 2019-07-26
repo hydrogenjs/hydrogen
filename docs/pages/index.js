@@ -8,10 +8,33 @@ const page = () => html`
   </center>
   <h2>⚡ Quick Start</h2>
   <hr>
-  <pre style="padding: 20px 20px 0px 0px; background-color: #616161; border-radius: 10px; font-size: 20px; border: 1px solid white;">
-    $: yarn add hydrogen-cli
+  <pre>
+    <code>
+      $: yarn add hydrogen-cli
+    </code>
   </pre>
-`;
+  <small>index.js</small>
+  <pre>
+    <code class="javascript">
+      const page = ({ title }) => '&lt;title&gt;$n{title}&lt;/title&gt;'
+
+      module.exports = {
+        title: 'Hello World',
+      }
+    </code>
+  </pre>
+  <pre>
+    <code>
+      npx hydrogen generate index.js
+    </code>
+  </pre>
+  <small>index.html</small>
+  <pre>
+    <code>
+      &lt;title&gt;Hello World&lt;/title&gt;
+    </code>
+  </pre>
+  `.replace('$n', '$');
 
 module.exports = {
   layout: 'default',

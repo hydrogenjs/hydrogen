@@ -983,10 +983,10 @@ html-template-tag@^3.1.0:
   dependencies:
     html-es6cape "^1.0.5"
 
-hydrogen-cli@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.4.0.tgz#c81f0a8c196a8c04bf15d36a785380ec98b0a7d2"
-  integrity sha512-RSUQZd+oexL6Ukx6c4/YtNdr6/1yBsWNYvywJ33xIYCypOvnKXNQ8tfcmSW4BCxSJmX6sDHHdhq3BA902+JXgw==
+hydrogen-cli@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.4.1.tgz#6c395ce07663cc0e6ad508dd1988bc7458dfbf07"
+  integrity sha512-ve/M/Bq4XGgQCrg7ioL8miEHGA3gQQgdZwqfMc7KnODzgVc/EFBEhCU2Bwr8fKdF1WgxwpX2NqGv1OBf70JbDg==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
