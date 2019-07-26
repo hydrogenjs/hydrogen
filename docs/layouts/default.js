@@ -1,6 +1,6 @@
 const html = require('html-template-tag');
 
-module.exports = ({ content }) => html`
+module.exports = ({ title, content }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -8,10 +8,10 @@ module.exports = ({ content }) => html`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/vs.min.css">
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <title>Document</title>
+    <title>${title}</title>
   </head>
   <body>
     $${content}
@@ -30,7 +30,7 @@ module.exports = ({ content }) => html`
 
     pre code {
       font-size: 18px;
-      border-radius: 5px;
+      border-radius: 10px;
     }
   </style>
   </html>

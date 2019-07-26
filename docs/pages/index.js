@@ -9,28 +9,29 @@ const page = () => html`
   <h2>⚡ Quick Start</h2>
   <hr>
   <pre>
-    <code>
+    <code class="plaintext">
       $: yarn add hydrogen-cli
     </code>
   </pre>
   <small>index.js</small>
   <pre>
-    <code class="javascript">
-      const page = ({ title }) => '&lt;title&gt;$n{title}&lt;/title&gt;'
+    <code class="lang-js">
+      const page = ({ title }) => ${'`'}&lt;title&gt;$n{title}&lt;/title&gt;${'`'};
 
       module.exports = {
         title: 'Hello World',
-      }
+        page,
+      };
     </code>
   </pre>
   <pre>
-    <code>
+    <code class="plaintext">
       npx hydrogen generate index.js
     </code>
   </pre>
   <small>index.html</small>
   <pre>
-    <code>
+    <code class="lang-html">
       &lt;title&gt;Hello World&lt;/title&gt;
     </code>
   </pre>
@@ -38,6 +39,6 @@ const page = () => html`
 
 module.exports = {
   layout: 'default',
-  title: 'Hello',
+  title: '🎈 Hydrogen: Super fast static-site generator',
   page,
 };
