@@ -153,3 +153,4 @@ Properties of the exported object
 - [x] Dev/Prod builds
 - [x] Async data
 - [x] Cross platform
+- [ ] Nested routes
