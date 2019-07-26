@@ -3,7 +3,7 @@ import cli from 'cli-ux';
 import path from 'path';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { copyPublicFolder } from './helpers';
+import { copyPublicFolder, globFiles } from './helpers';
 
 interface Page {
   name: string;
@@ -11,6 +11,7 @@ interface Page {
   title: string;
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
+  path: string;
 }
 
 interface Layout {
@@ -24,21 +25,24 @@ interface PageAndLayout {
   layout({ title, content, dev }: { title: string; content: string; dev: boolean }): string;
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
+  path: string;
 }
 
 interface HTMLObject {
   html: string;
   name: string;
+  path: string;
 }
 
 const CWD = process.cwd();
 
 export const getPages = async (): Promise<Page[]> => {
-  const filenames = await fs.readdir('./pages');
+  const filenames = await globFiles('pages/**/*.js');
 
   return Promise.all(filenames.map(async (filename): Promise<Page> => ({
-    name: filename,
-    ...await import(path.normalize(`${CWD}/pages/${filename}`)),
+    name: filename.split('/').pop(),
+    path: filename.replace('pages', 'dist').replace('.js', '.html'),
+    ...await import(path.normalize(`${CWD}/${filename}`)),
   })));
 };
 
@@ -60,9 +64,10 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
 const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
   html: page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
   name: page.name.replace('js', 'html'),
+  path: page.path,
 })));
 
-const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.writeFile(path.normalize(`${CWD}/dist/${page.name}`), page.html)));
+const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.outputFile(path.normalize(`${CWD}/${page.path}`), page.html)));
 
 export const builder = async (dev: boolean): Promise<void> => {
   if (!dev) {
