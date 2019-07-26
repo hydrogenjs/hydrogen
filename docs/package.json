@@ -6,5 +6,11 @@
   "dependencies": {
     "html-template-tag": "^3.1.0",
     "hydrogen-cli": "^0.4.0"
+  },
+  "scripts": {
+    "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
+    "serve": "npx cross-env npx serve ./dist",
+    "dev": "npx npm-run-all --parallel reload serve",
+    "build": "npx hydrogen build"
   }
 }
