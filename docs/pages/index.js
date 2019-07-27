@@ -32,7 +32,7 @@ const page = () => html`
       npx hydrogen generate index.js
     </code>
   </pre>
-  <small>Output file: <i>dist/index.html</i></small>
+  <small>Output file: <i>index.html</i></small>
   <pre>
     <code class="lang-html">
       &lt;title&gt;Hello World&lt;/title&gt;

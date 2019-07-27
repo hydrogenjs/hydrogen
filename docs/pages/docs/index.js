@@ -24,6 +24,11 @@ const page = () => html`
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
     </ul>
   </p>
+  <h2>Index</h2>
+  <ul>
+    <li>Getting Started</li>
+  </ul>
+  <h2>Getting Started</h2>
 `;
 
 module.exports = {

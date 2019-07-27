@@ -32,8 +32,30 @@ module.exports = ({ title, content }) => html`
       overflow-y: scroll;
     }
 
-    pre code {
+    h1 {
+      font-size: 25px;
+    }
+
+    h2 {
       font-size: 18px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    li {
+      font-size: 13px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    small {
+      font-size: 10px;
+    }
+
+    pre code {
+      font-size: 13px;
       border-radius: 10px;
     }
   </style>
