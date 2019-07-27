@@ -17,8 +17,8 @@ const page = () => html`
   </pre>
   <small>Input file: <i>index.js</i></small>
   <pre>
-    <code class="lang-js">
-      const page = ({ title }) => ${'`'}&lt;title&gt;$n{title}&lt;/title&gt;${'`'};
+    <code class="lang-javascript">
+      const page = ({ title }) => &#96;&lt;title&gt;$n{title}&lt;/title&gt;&#96;
 
       module.exports = {
         title: 'Hello World',

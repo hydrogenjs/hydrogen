@@ -54,6 +54,10 @@ module.exports = ({ title, content }) => html`
       font-size: 10px;
     }
 
+    a {
+      color: white;
+    }
+
     pre code {
       font-size: 13px;
       border-radius: 10px;
