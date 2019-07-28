@@ -30,6 +30,7 @@ const page = () => html`
       <li><a href="/docs/getting-started#create-a-template">Step 3: Create a template</a></li>
       <li><a href="/docs/getting-started#build-the-template">Step 4: Build the template</a></li>
     </ul>
+    <li><a href="/docs/advanced-setup">Advanced Setup</a></li>
   </ul>
 `;
 
