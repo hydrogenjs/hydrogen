@@ -74,6 +74,7 @@ module.exports = ({ title, content }) => html`
     table {
       border: 1px solid white;
       padding: 5px;
+      border-radius: 10px;
     }
 
     tr {
