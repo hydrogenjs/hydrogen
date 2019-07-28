@@ -7,11 +7,7 @@ const page = () => html`
   <h1>The lightest static-site generator</h1>
   <hr>
   <p>
-    Hydrogen was created out of the need to negate the <a style="color: #76FF03;" href="https://gostrengths.com/what-is-the-paradox-of-choice/">"paradox of choice"</a>
-    which a lot of static-site generators try to do by providing developers with too many choices to make.
-  </p>
-  <p>
-    Hydrogen uses JavaScript as it's templating engine, essentially making the choice for you. 
+    Hydrogen uses JavaScript as it's templating engine, it's aimed at doing one thing really well which is converting <i>template literals</i> to HTML making it super extensible as you have the whole <span style="color: #76FF03;">Node.js</span> ecosystem at your fingertips.
   </p>
   <p>
     Before ES6, JavaScript was not considered powerful enough to manipulate large chunks of the DOM and template engines like Handlebars and Pug filled that void. Now that JavaScript is more powerful than ever,
@@ -20,14 +16,21 @@ const page = () => html`
   <p>
     Hydrogen provides you with:
     <ul>
-      <li><strong>⚡ Millisecond Build.</strong> With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds.</li>
-      <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.</li>
+      <li><strong>⚡ Millisecond Builds.</strong> With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds.</li>
+      <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of JavaScript.</li>
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
     </ul>
   </p>
   <h2>Index</h2>
   <ul>
     <li><a href="/docs/getting-started">Getting Started</a></li>
+    <ul>
+      <li><a href="/docs/getting-started#setup-a-project">Step 1: Setup a project</a></li>
+      <li><a href="/docs/getting-started#install-hydrogen">Step 2: Install Hydrogen</a></li>
+      <li><a href="/docs/getting-started#create-a-template">Step 3: Create a template</a></li>
+      <li><a href="/docs/getting-started#build-the-template">Step 4: Build the template</a></li>
+    </ul>
+    <li><a href="/docs/advanced-setup">Advanced Setup</a></li>
   </ul>
 `;
 
