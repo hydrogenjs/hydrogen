@@ -59,3 +59,10 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
   const file = await import(`${CWD}/${filename}`);
   await fs.outputFile(filename.replace('.js', '.html'), await file.page({ title: file.title, ...file.data ? await file.data() : {} }));
 };
+
+// @ts-ignore
+export const generateHead = ([tag, props]: [string, object]): string => {
+  // @ts-ignore
+  const keys = Object.keys(props).map((key: string): string => `${key}="${props[key]}"`).join(' ');
+  return `<${tag} ${keys} />`;
+};

@@ -3,7 +3,7 @@ import cli from 'cli-ux';
 import path from 'path';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { copyPublicFolder, globFiles } from './helpers';
+import { copyPublicFolder, globFiles, generateHead } from './helpers';
 
 interface Page {
   name: string;
@@ -12,6 +12,7 @@ interface Page {
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
+  head: [string, object][];
 }
 
 interface Layout {
@@ -22,10 +23,11 @@ interface Layout {
 interface PageAndLayout {
   name: string;
   title: string;
-  layout({ title, content, dev }: { title: string; content: string; dev: boolean }): string;
+  layout({ title, content, head, dev }: { title: string; content: string; head: string; dev: boolean }): string;
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
+  head: [string, object][];
 }
 
 interface HTMLObject {
@@ -62,7 +64,7 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
   }));
 
 const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
-  html: await page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
+  html: await page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), head: page.head ? page.head.map(generateHead).join('\n') : '', dev }),
   name: page.name.replace('js', 'html'),
   path: page.path,
 })));
