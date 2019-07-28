@@ -62,7 +62,7 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
   }));
 
 const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
-  html: page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
+  html: await page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), dev }),
   name: page.name.replace('js', 'html'),
   path: page.path,
 })));

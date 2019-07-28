@@ -5,9 +5,8 @@ const page = () => html`
   <hr>
   <p>
     Hydrogen is available on <a style="color: #2289b4;" href="https://yarnpkg.com/en/package/hydrogen-cli">Yarn</a> and <a style="color: #f43f43;" href="https://www.npmjs.com/package/hydrogen-cli">NPM</a>
-    and requires Node.js 8 and higher.
+    and requires Node.js 8 and higher. We will be using Yarn as the package manager throughout the documentation
   </p>
-  <small class="code"><i>We will be using Yarn as the package manager throughout the documentation</i></small>
   <h2 id="setup-a-project">Step 1: Setup a project</h2>
   <p>We need a folder to store our project files</p>
   <pre>
