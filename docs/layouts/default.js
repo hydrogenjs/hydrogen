@@ -52,7 +52,7 @@ module.exports = ({ title, content }) => html`
     }
 
     small {
-      font-size: 11px;
+      font-size: 12px;
     }
 
     a {
@@ -60,7 +60,7 @@ module.exports = ({ title, content }) => html`
     }
 
     pre code {
-      font-size: 13px;
+      font-size: 14px;
       border-radius: 10px;
     }
     
