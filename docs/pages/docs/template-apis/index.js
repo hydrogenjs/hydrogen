@@ -4,7 +4,7 @@ const page = () => html`
   <h1>Template APIs</h1>
   <hr>
   <p>Let's breakdown the APIs of <code class="code">layout</code> and <code class="code">page</code> templates.</p>
-  <h2>Layout Template</h2>
+  <h2 id="layout-template">Layout Template</h2>
   <p>
     The layout template is used to create our application shell. It's just a JS file that exports a function.
   </p>
@@ -46,7 +46,7 @@ const page = () => html`
       <td>boolean</td>
     </tr>
   </table>
-  <h2>Page Template</h2>
+  <h2 id="page-template">Page Template</h2>
   <p>
     The page template contains your page's content. It gets injected into the application shell which is contained in the layout template. 
     It's just a JS file which exports a combination of properties and functions.
