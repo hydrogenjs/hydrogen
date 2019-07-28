@@ -29,6 +29,7 @@ module.exports = {
       "max-len": ["error", { code: 140 }],
       "consistent-return": 'off',
       "linebreak-style": ["error", "windows"],
-      "@typescript-eslint/no-var-requires": "off"
+      "@typescript-eslint/no-var-requires": "off",
+      "no-nested-ternary": "off"
   }
 };

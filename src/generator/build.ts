@@ -12,7 +12,7 @@ interface Page {
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
-  head: [string, object][];
+  head(): Promise<[string, object][]> | [string, object][];
 }
 
 interface Layout {
@@ -27,7 +27,7 @@ interface PageAndLayout {
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
-  head: [string, object][];
+  head(): Promise<[string, object][]> | [string, object][];
 }
 
 interface HTMLObject {
@@ -64,7 +64,17 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
   }));
 
 const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
-  html: await page.layout({ title: page.title, content: await page.page(page.data ? { ...await page.data({ dev }), dev } : { dev }), head: page.head ? page.head.map(generateHead).join('\n') : '', dev }),
+  html: await page.layout({
+    title: page.title, 
+    content: await page.page(
+      page.data ? {
+        ...await page.data({ dev }),
+        dev,
+      } : { dev },
+    ),
+    head: page.head ? (page.head().then ? await page.head().then((res): string => res.map(generateHead).join('\n')) : page.head().map(generateHead).join('\n')) : '',
+    dev,
+  }),
   name: page.name.replace('js', 'html'),
   path: page.path,
 })));
