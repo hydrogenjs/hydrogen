@@ -37,7 +37,7 @@ const page = () => html`
       <li><a href="/docs/advanced-setup#building-our-templates-into-html">Step 3: Building our templates into HTML</a></li>
       <li><a href="/docs/advanced-setup#using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</a></li>
     </ul>
-    <li><a href="/docs/advanced-setup">Template APIs</a></li>
+    <li><a href="/docs/template-apis">Template APIs</a></li>
     <ul>
       <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>
       <li><a href="/docs/template-apis#page-template">Page Template</a></li>
