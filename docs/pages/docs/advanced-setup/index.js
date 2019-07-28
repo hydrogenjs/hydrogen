@@ -7,7 +7,7 @@ const page = () => html`
     If you have not read the <a style="color: #76FF03;" href="/docs/getting-started">Getting Started</a> guide, now would be the perfect time!
     The Advanced Section builds on top of what we did in the Getting Started section.
   </p>
-  <h2>Step 1: Setting up a layout</h2>
+  <h2 id="setting-up-a-layout">Step 1: Setting up a layout</h2>
   <p>
     A <code class="code">layout</code> is a template that contains our application shell which our <code class="code">page</code>
     templates get injected into. Create a folder called "layouts", this is where our layouts will be stored.
@@ -32,7 +32,7 @@ const page = () => html`
     <code class="code">title</code> is provided by the page template and <code class="code">content</code> is the result of the generated page template.
     Now that we have our layout, we now need to use link it to a page template.
   </p>
-  <h2>Step 2: Setting up a page</h2>
+  <h2 id="setting-up-a-page">Step 2: Setting up a page</h2>
   <p>
     A <code class="code">page</code> is a template that contains your page content. All page templates are stored in the pages folder.
   </p>
@@ -53,7 +53,7 @@ const page = () => html`
       };
     </code>
   </pre>
-  <h2>Step 3: Building our templates into HTML</h2>
+  <h2 id="building-our-templates-into-html">Step 3: Building our templates into HTML</h2>
   <p>
     After setting up our pages and layouts, we are now able to generate our templates into deployable HTML files. The built files are stored in <code class="code">dist</code>.
     To build your templates run the <code class="code">build</code> command
@@ -73,7 +73,7 @@ const page = () => html`
       Build time: 49.934ms
     </code>
   </pre>
-  <h2>Step 4: Using static assets like CSS and JS</h2>
+  <h2 id="using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</h2>
   <p>
     If you have static assets like CSS, JS, Images and etc... You can create a folder called <code class="code">public</code> in the root of the project.
     You can place any assets you like in this folder and when you run the <code class="code">build</code> command the public folder is automatically hoisted into the dist folder.
