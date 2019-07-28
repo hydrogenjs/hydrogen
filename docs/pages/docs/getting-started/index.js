@@ -8,7 +8,7 @@ const page = () => html`
     and requires Node.js 8 and higher.
   </p>
   <small class="code"><i>We will be using Yarn as the package manager throughout the documentation</i></small>
-  <h2>Step 1: Setup a project</h2>
+  <h2 id="setup-a-project">Step 1: Setup a project</h2>
   <p>We need a folder to store our project files</p>
   <pre>
     <code class="lang-shell">
@@ -16,7 +16,7 @@ const page = () => html`
       $ cd hydrogen-sample
     </code>
   </pre>
-  <h2>Step 2: Install Hydrogen</h2>
+  <h2 id="install-hydrogen">Step 2: Install Hydrogen</h2>
   <p>Our project needs a <code class="code"><i>package.json</i></code>. We can use Yarn to make one</p>
   <pre>
     <code class="lang-shell">
@@ -29,7 +29,7 @@ const page = () => html`
       $ yarn add hydrogen-cli
     </code>
   </pre>
-  <h2>Step 3: Create a template</h2>
+  <h2 id="create-a-template">Step 3: Create a template</h2>
   <p>Let's create a simple template which we will store in <code class="code">index.js</code> file</p>
   <pre>
     <code class="lang-javascript">
@@ -53,7 +53,7 @@ const page = () => html`
       };
     </code>
   </pre>
-  <h2>Step 4: Build the template</h2>
+  <h2 id="build-the-template">Step 4: Build the template</h2>
   <p>
     We need to run the <code class="code">generate</code> command to build the <code class="code">index.js</code> template.
     The output of template will be stored in a file of the same name as the template but with the <code class="code">.html</code> extension.

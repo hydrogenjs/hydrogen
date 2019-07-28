@@ -17,13 +17,19 @@ const page = () => html`
     Hydrogen provides you with:
     <ul>
       <li><strong>⚡ Millisecond Builds.</strong> With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds.</li>
-      <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.</li>
+      <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of JavaScript.</li>
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
     </ul>
   </p>
   <h2>Index</h2>
   <ul>
     <li><a href="/docs/getting-started">Getting Started</a></li>
+    <ul>
+      <li><a href="/docs/getting-started#setup-a-project">Step 1: Setup a project</a></li>
+      <li><a href="/docs/getting-started#install-hydrogen">Step 2: Install Hydrogen</a></li>
+      <li><a href="/docs/getting-started#create-a-template">Step 3: Create a template</a></li>
+      <li><a href="/docs/getting-started#build-the-template">Step 4: Build the template</a></li>
+    </ul>
   </ul>
 `;
 

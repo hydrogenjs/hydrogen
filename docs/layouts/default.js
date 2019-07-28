@@ -67,6 +67,10 @@ module.exports = ({ title, content }) => html`
       border-top: dotted 1px;
     }
 
+    ul ul li {
+      font-size: 11px;
+    }
+
     .code {
       background-color: black; 
       color: #76FF03; 
