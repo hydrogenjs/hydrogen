@@ -1,13 +1,12 @@
 const html = require('html-template-tag');
 
-module.exports = ({ title, content }) => html`
+module.exports = async ({ title, content }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Palanquin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
@@ -88,7 +87,7 @@ module.exports = ({ title, content }) => html`
 
     td { 
       border-top: 1px solid white;
-      font-size: 11px;
+      font-size: 13px;
       padding: 10px;
     }
 
