@@ -75,7 +75,7 @@ const page = () => html`
     </tr>
     <tr>
       <td><code class="code">layout</code></td>
-      <td>This the name of the layout you want to use</td>
+      <td>This is the name of the layout you want to use</td>
       <td>string</td>
     </tr>
     <tr>
