@@ -11,8 +11,8 @@ const page = () => html`
   <hr style="margin-bottom: 20px;">
   <small>Install: <i>Hydrogen CLI</i></small>
   <pre>
-    <code class="plaintext">
-      $: yarn add hydrogen-cli
+    <code class="lang-shell">
+      $ yarn add hydrogen-cli
     </code>
   </pre>
   <small>Input file: <i>index.js</i></small>
@@ -28,8 +28,8 @@ const page = () => html`
   </pre>
   <small>Run command: <i>generate</i></small>
   <pre>
-    <code class="plaintext">
-      npx hydrogen generate index.js
+    <code class="lang-shell">
+      $ npx hydrogen generate index.js
     </code>
   </pre>
   <small>Output file: <i>index.html</i></small>

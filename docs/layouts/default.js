@@ -62,6 +62,16 @@ module.exports = ({ title, content }) => html`
       font-size: 13px;
       border-radius: 10px;
     }
+    
+    hr {
+      border-top: dotted 1px;
+    }
+
+    .code {
+      background-color: black; 
+      color: #76FF03; 
+      padding: 2px;
+    }
   </style>
   </html>
 `;
