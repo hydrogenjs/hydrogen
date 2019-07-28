@@ -14,7 +14,7 @@ const page = () => html`
         &lt;!DOCTYPE html&gt;
         &lt;html&gt;
           &lt;head&gt;
-            &lt;script src="$n{dev ? 'https://deve.script.js' : 'https://prod.script.js'}"&gt;&lt;/script&gt;
+            &lt;script src="$n{dev ? 'https://dev.script.js' : 'https://prod.script.js'}"&gt;&lt;/script&gt;
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;

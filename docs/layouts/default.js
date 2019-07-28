@@ -91,11 +91,19 @@ module.exports = async ({ title, content }) => html`
       padding: 10px;
     }
 
+    footer {
+      margin-top: 20px;
+    }
+
     .code {
       background-color: black; 
       color: #76FF03; 
       padding: 2px;
     }
   </style>
+  <hr style="margin-top: 40px;">
+  <footer>
+    <p>Made with Hydrogen by <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a> 🤎</p>
+  </footer>
   </html>
 `;
