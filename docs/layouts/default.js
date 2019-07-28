@@ -71,6 +71,25 @@ module.exports = ({ title, content }) => html`
       font-size: 11px;
     }
 
+    table {
+      border: 1px solid white;
+      padding: 5px;
+    }
+
+    tr {
+      border: 1px solid white;
+    }
+
+    th {
+      padding: 5px;
+    }
+
+    td { 
+      border-top: 1px solid white;
+      font-size: 11px;
+      padding: 10px;
+    }
+
     .code {
       background-color: black; 
       color: #76FF03; 
