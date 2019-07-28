@@ -31,6 +31,12 @@ const page = () => html`
       <li><a href="/docs/getting-started#build-the-template">Step 4: Build the template</a></li>
     </ul>
     <li><a href="/docs/advanced-setup">Advanced Setup</a></li>
+    <ul>
+      <li><a href="/docs/advanced-setup#setting-up-a-layout">Step 1: Setting up a layout</a></li>
+      <li><a href="/docs/advanced-setup#setting-up-a-page">Step 2: Setting up a page</a></li>
+      <li><a href="/docs/advanced-setup#building-our-templates-into-html">Step 3: Building our templates into HTML</a></li>
+      <li><a href="/docs/advanced-setup#using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</a></li>
+    </ul>
   </ul>
 `;
 
