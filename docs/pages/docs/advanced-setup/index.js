@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>Advanced Setup</h1>
+  <h1>⚙ Advanced Setup</h1>
   <hr>
   <p>
     If you have not read the <a style="color: #76FF03;" href="/docs/getting-started">Getting Started</a> guide, now would be the perfect time!

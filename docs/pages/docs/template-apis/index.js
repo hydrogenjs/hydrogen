@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>Template APIs</h1>
+  <h1>👀 Template APIs</h1>
   <hr>
   <p>Let's breakdown the APIs of <code class="code">layout</code> and <code class="code">page</code> templates.</p>
   <h2 id="layout-template">Layout Template</h2>

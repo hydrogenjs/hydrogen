@@ -23,26 +23,26 @@ const page = () => html`
   </p>
   <h2>Index</h2>
   <ul>
-    <li><a href="/docs/getting-started">Getting Started</a></li>
+    <li><a href="/docs/getting-started">🔨 Getting Started</a></li>
     <ul>
       <li><a href="/docs/getting-started#setup-a-project">Step 1: Setup a project</a></li>
       <li><a href="/docs/getting-started#install-hydrogen">Step 2: Install Hydrogen</a></li>
       <li><a href="/docs/getting-started#create-a-template">Step 3: Create a template</a></li>
       <li><a href="/docs/getting-started#build-the-template">Step 4: Build the template</a></li>
     </ul>
-    <li><a href="/docs/advanced-setup">Advanced Setup</a></li>
+    <li><a href="/docs/advanced-setup">⚙ Advanced Setup</a></li>
     <ul>
       <li><a href="/docs/advanced-setup#setting-up-a-layout">Step 1: Setting up a layout</a></li>
       <li><a href="/docs/advanced-setup#setting-up-a-page">Step 2: Setting up a page</a></li>
       <li><a href="/docs/advanced-setup#building-our-templates-into-html">Step 3: Building our templates into HTML</a></li>
       <li><a href="/docs/advanced-setup#using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</a></li>
     </ul>
-    <li><a href="/docs/working-with-data">Working with Data</a></li>
+    <li><a href="/docs/working-with-data">🌐 Working with Data</a></li>
     <ul>
       <li><a href="/docs/working-with-data#using-synchronous-data">Using synchronous data</a></li>
       <li><a href="/docs/working-with-data#using-asynchronous-data">Using asynchronous data</a></li>
     </ul>
-    <li><a href="/docs/template-apis">Template APIs</a></li>
+    <li><a href="/docs/template-apis">👀 Template APIs</a></li>
     <ul>
       <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>
       <li><a href="/docs/template-apis#page-template">Page Template</a></li>

@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>Getting Started</h1>
+  <h1>🔨 Getting Started</h1>
   <hr>
   <p>
     Hydrogen is available on <a style="color: #2289b4;" href="https://yarnpkg.com/en/package/hydrogen-cli">Yarn</a> and <a style="color: #f43f43;" href="https://www.npmjs.com/package/hydrogen-cli">NPM</a>

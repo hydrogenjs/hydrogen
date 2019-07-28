@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>Working with Data</h1>
+  <h1>🌐 Working with Data</h1>
   <hr>
   <p>
     Hydrogen has a powerful API for exposing data to your page templates using the data method, we can expose synchronous or asynchronous data.

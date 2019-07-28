@@ -7,7 +7,8 @@ module.exports = ({ title, content }) => html`
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Palanquin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -24,7 +25,7 @@ module.exports = ({ title, content }) => html`
     body {
       background: #222222;
       color: white;
-      font-family: "Roboto Mono", sans-serif;
+      font-family: Palanquin, sans-serif;
       padding: 2rem;
       max-width: 800px;
       width: 100%;
@@ -33,25 +34,25 @@ module.exports = ({ title, content }) => html`
     }
 
     h1 {
-      font-size: 25px;
+      font-size: 30px;
     }
 
     h2 {
-      font-size: 18px;
+      font-size: 24px;
     }
 
     p {
-      font-size: 13px;
+      font-size: 16px;
     }
 
     li {
-      font-size: 13px;
+      font-size: 16px;
       margin-top: 10px;
       margin-bottom: 10px;
     }
 
     small {
-      font-size: 10px;
+      font-size: 11px;
     }
 
     a {
@@ -68,7 +69,7 @@ module.exports = ({ title, content }) => html`
     }
 
     ul ul li {
-      font-size: 11px;
+      font-size: 13px;
     }
 
     table {
