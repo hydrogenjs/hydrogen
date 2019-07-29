@@ -7,7 +7,15 @@ const page = () => html`
   <center>
     <img style="margin: 20px; border-radius: 10px;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>
-  <p align="center"><a style="color: #76FF03;" href="/docs">Docs</a> | v0.5 | <a style="color: white;" href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a></p>
+  <p align="center">
+    <a style="color: #76FF03;" href="/docs">Docs</a>
+    |
+    v0.5
+    |
+    <a style="color: white;" href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
+    |
+    <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a>
+  </p>
   <h2 id="quick-start">⚡ Quick Start</h2>
   <hr style="margin-bottom: 20px;">
   <small>Install: <i>Hydrogen CLI</i></small>
