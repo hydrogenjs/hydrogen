@@ -1,6 +1,6 @@
 const html = require('html-template-tag');
 
-module.exports = async ({ title, content }) => html`
+module.exports = async ({ title, content, head }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -11,10 +11,7 @@ module.exports = async ({ title, content }) => html`
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <meta name="description" content="A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation">
-    <meta property="og:title" content="🎈 Hydrogen: Super fast static-site generator" />
-    <meta property="og:image" content="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp" />
-    <meta property="og:url" content="https://hydrogen-cli.netlify.com" />
+    $${head}
     <title>${title}</title>
   </head>
   <body>
@@ -71,6 +68,14 @@ module.exports = async ({ title, content }) => html`
       font-size: 13px;
     }
 
+    ul ul li a {
+      text-decoration: none;
+    }
+
+    ul ul li a:hover {
+      text-decoration: underline;
+    }
+
     table {
       border: 1px solid white;
       padding: 5px;
@@ -99,6 +104,15 @@ module.exports = async ({ title, content }) => html`
       background-color: black; 
       color: #76FF03; 
       padding: 2px;
+    }
+
+    .badge {
+      background-color: #EEEEEE;
+      color: black;
+      padding: 5px;
+      font-size: 12px;
+      margin-left: 10px;
+      border-radius: 5px;
     }
   </style>
   <hr style="margin-top: 40px;">
