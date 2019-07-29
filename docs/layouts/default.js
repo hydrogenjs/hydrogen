@@ -11,10 +11,7 @@ module.exports = async ({ title, content, head }) => html`
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <meta name="description" content="A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation">
-    <meta property="og:title" content="🎈 Hydrogen: Super fast static-site generator" />
-    <meta property="og:image" content="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp" />
-    <meta property="og:url" content="https://hydrogen-cli.netlify.com" />
+    $${head}
     <title>${title}</title>
   </head>
   <body>

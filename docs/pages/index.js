@@ -51,4 +51,10 @@ module.exports = {
   layout: 'default',
   title: '🎈 Hydrogen: Super fast static-site generator',
   page,
+  head: () => [
+    ['meta', { name: 'description', content: 'A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation' }],
+    ['meta', { property: 'og:title', content: '🎈 Hydrogen: Super fast static-site generator' }],
+    ['meta', { property: 'og:description', content: 'A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation' }],
+    ['meta', { property: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+  ],
 };
