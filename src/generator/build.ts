@@ -3,7 +3,7 @@ import cli from 'cli-ux';
 import path from 'path';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { copyPublicFolder, globFiles, generateHead } from './helpers';
+import { copyPublicFolder, globFiles, transformHeadToHTML } from './helpers';
 
 interface Page {
   name: string;
@@ -12,7 +12,7 @@ interface Page {
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
-  head(): Promise<[string, object][]> | [string, object][];
+  head(): Promise<[string, object][]>;
 }
 
 interface Layout {
@@ -27,7 +27,7 @@ interface PageAndLayout {
   page(data: object): string;
   data?({ dev }: { dev: boolean }): Promise<object>;
   path: string;
-  head(): Promise<[string, object][]> | [string, object][];
+  head(): Promise<[string, object][]>;
 }
 
 interface HTMLObject {
@@ -63,21 +63,21 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
     ...otherValues,
   }));
 
-const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => ({
-  html: await page.layout({
-    title: page.title, 
-    content: await page.page(
-      page.data ? {
-        ...await page.data({ dev }),
-        dev,
-      } : { dev },
-    ),
-    head: page.head ? (page.head().then ? await page.head().then((res): string => res.map(generateHead).join('\n')) : page.head().map(generateHead).join('\n')) : '',
-    dev,
-  }),
-  name: page.name.replace('js', 'html'),
-  path: page.path,
-})));
+const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
+
+  const data = page.data ? { ...await page.data({ dev }), dev } : { dev };
+
+  return {
+    html: await page.layout({
+      title: page.title,
+      content: await page.page(data),
+      head: page.head ? await transformHeadToHTML(page.head, data) : '',
+      dev,
+    }),
+    name: page.name.replace('js', 'html'),
+    path: page.path,
+  };
+}));
 
 const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.outputFile(path.normalize(`${CWD}/${page.path}`), page.html)));
 

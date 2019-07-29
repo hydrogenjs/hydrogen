@@ -61,8 +61,13 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
 };
 
 // @ts-ignore
-export const generateHead = ([tag, props]: [string, object]): string => {
+export const mapHeadTags = ([tag, props]: [string, object]): string => {
   // @ts-ignore
   const keys = Object.keys(props).map((key: string): string => `${key}="${props[key]}"`).join(' ');
   return `<${tag} ${keys} />`;
+};
+
+export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object): Promise<string> => {
+  const tags = await head({ ...data });
+  return tags.map(mapHeadTags).join('\n');
 };
