@@ -43,6 +43,10 @@ const page = () => html`
       <li><a href="/docs/working-with-data#using-asynchronous-data">Using asynchronous data</a></li>
     </ul>
     <li><a href="/docs/working-with-meta-data">🕶 Working with Metadata</a></li>
+    <ul>
+      <li><a href="/docs/working-with-meta-data#using-the-head-api">Using the Head API</a></li>
+      <li><a href="/docs/working-with-meta-data#using-asynchronous-data-with-the-head-api">Using asynchronous data with the Head API</a></li>
+    </ul>
     <li><a href="/docs/template-apis">👀 Template APIs</a></li>
     <ul>
       <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>

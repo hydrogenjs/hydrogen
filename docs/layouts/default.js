@@ -68,6 +68,14 @@ module.exports = async ({ title, content, head }) => html`
       font-size: 13px;
     }
 
+    ul ul li a {
+      text-decoration: none;
+    }
+
+    ul ul li a:hover {
+      text-decoration: underline;
+    }
+
     table {
       border: 1px solid white;
       padding: 5px;
