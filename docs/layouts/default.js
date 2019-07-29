@@ -109,9 +109,10 @@ module.exports = async ({ title, content, head }) => html`
     .badge {
       background-color: #EEEEEE;
       color: black;
-      padding: 2px;
+      padding: 5px;
       font-size: 12px;
       margin-left: 10px;
+      border-radius: 5px;
     }
   </style>
   <hr style="margin-top: 40px;">

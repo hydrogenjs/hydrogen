@@ -34,10 +34,29 @@ const page = () => html`
         layout: 'default',
         title: 'Hydrogen webpage',
         page,
+        data: () => ({
+          text: 'Hydrogen metadata',
+        }),
         head: () => [
           ['meta', { name: 'description', content: 'Hydrogen metadata' }],
         ];
       };
+    </code>
+  </pre>
+  <small>Run build command</small>
+  <pre>
+    <code class="lang-html">
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+        &lt;head&gt;
+          &lt;meta name="description" content="Hydrogen metadata" /&gt;
+          &lt;script src="https://dev.script.js"&gt;&lt;/script&gt;
+          &lt;title&gt;Hydrogen webpage&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+          &lt;p&gt;Hydrogen metadata&lt;/p&gt;          
+        &lt;/body&gt;
+      &lt;/html&gt;
     </code>
   </pre>
   <h2 id="using-asynchronous-data-with-the-head-api">Using asynchronous data with the Head API</h2>
