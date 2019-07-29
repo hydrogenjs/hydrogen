@@ -134,10 +134,17 @@ module.exports = async ({ title, content, head }) => html`
       margin-top: 20px;
     }
 
+    img {
+      border-radius: 10px;
+    }
+
     .code {
       background-color: black; 
       color: #76FF03; 
       padding: 2px;
+      padding-left: 4px;
+      padding-right: 4px;
+      border-radius: 5px;
     }
 
     .badge {
@@ -147,6 +154,12 @@ module.exports = async ({ title, content, head }) => html`
       font-size: 12px;
       margin-left: 10px;
       border-radius: 5px;
+    }
+
+    .tip {
+      border-left: 3px solid white; 
+      border-radius: 3px; 
+      padding-left: 20px;
     }
   </style>
   <hr style="margin-top: 40px;">

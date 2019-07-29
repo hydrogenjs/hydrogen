@@ -3,7 +3,7 @@ const html = require('html-template-tag');
 const page = () => html`
   <h1>🎈 Hydrogen</h1>
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
-  <p style="border-left: 3px solid white; border-radius: 3px; padding-left: 20px;"><i>Compile a ton of templates in under ~150ms</i></p>
+  <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
   <center>
     <img style="margin: 20px; border-radius: 10px;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>

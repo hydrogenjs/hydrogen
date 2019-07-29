@@ -12,7 +12,7 @@ const page = () => html`
     A <code class="code">layout</code> is a template that contains our application shell which our <code class="code">page</code>
     templates get injected into. Create a folder called "layouts", this is where our layouts will be stored.
   </p>
-  <small class="code">layouts/default.js</small>
+  <small>layouts/default.js</small>
   <pre>
     <code class="lang-javascript">
       module.exports = ({ title, content }) => &#96;
@@ -36,7 +36,7 @@ const page = () => html`
   <p>
     A <code class="code">page</code> is a template that contains your page content. All page templates are stored in the pages folder.
   </p>
-  <small class="code">pages/index.js</small>
+  <small>pages/index.js</small>
   <pre>
     <code class="lang-javascript">
       const page = ({ text }) => &#96;
@@ -73,6 +73,7 @@ const page = () => html`
       Build time: 49.934ms
     </code>
   </pre>
+  <p class="tip">Use the <code class="code">--dev</code> to enable builds in development mode</p>
   <h2 id="using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</h2>
   <p>
     If you have static assets like CSS, JS, Images and etc... You can create a folder called <code class="code">public</code> in the root of the project.
