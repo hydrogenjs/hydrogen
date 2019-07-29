@@ -26,7 +26,7 @@ module.exports = async ({ title, content, head }) => html`
         top: -40px;
       }
       to {
-        top: -45px;
+        top: -50px;
       }
     }
   </style>
@@ -42,7 +42,7 @@ module.exports = async ({ title, content, head }) => html`
       overflow-y: scroll;
     }
 
-    .float-ballon {
+    .float-ballon:hover {
       font-weight: bold;
       top: -40px;
       animation-name: float;
@@ -61,10 +61,6 @@ module.exports = async ({ title, content, head }) => html`
 
     nav p a {
       text-decoration: none;
-    }
-
-    nav p a:hover {
-      text-decoration: underline;
     }
 
     h1 {
