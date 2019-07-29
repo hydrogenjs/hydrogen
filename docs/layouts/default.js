@@ -100,6 +100,14 @@ module.exports = async ({ title, content, head }) => html`
       color: #76FF03; 
       padding: 2px;
     }
+
+    .badge {
+      background-color: #EEEEEE;
+      color: black;
+      padding: 2px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
   </style>
   <hr style="margin-top: 40px;">
   <footer>

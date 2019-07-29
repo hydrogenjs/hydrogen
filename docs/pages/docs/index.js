@@ -42,6 +42,7 @@ const page = () => html`
       <li><a href="/docs/working-with-data#using-synchronous-data">Using synchronous data</a></li>
       <li><a href="/docs/working-with-data#using-asynchronous-data">Using asynchronous data</a></li>
     </ul>
+    <li><a href="/docs/working-with-meta-data">🕶 Working with Metadata</a></li>
     <li><a href="/docs/template-apis">👀 Template APIs</a></li>
     <ul>
       <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>
