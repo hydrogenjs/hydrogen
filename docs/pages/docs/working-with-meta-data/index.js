@@ -54,7 +54,7 @@ const page = () => html`
           &lt;title&gt;Hydrogen webpage&lt;/title&gt;
         &lt;/head&gt;
         &lt;body&gt;
-          &lt;p&gt;Hydrogen metadata&lt;/p&gt;          
+          &lt;p&gt;Hydrogen metadata&lt;/p&gt;
         &lt;/body&gt;
       &lt;/html&gt;
     </code>
