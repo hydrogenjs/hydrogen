@@ -15,6 +15,9 @@ module.exports = async ({ title, content, head }) => html`
     <title>${title}</title>
   </head>
   <body>
+    <nav>
+      <p><a href="/">🎈</a></p>
+    </nav>
     $${content}
   </body>
   <style>
@@ -27,6 +30,21 @@ module.exports = async ({ title, content, head }) => html`
       width: 100%;
       margin: 0 auto;
       overflow-y: scroll;
+    }
+
+    nav p {
+      position: fixed;
+      left: 30px;
+      top: -40px;
+      font-size: 50px;
+    }
+
+    nav p a {
+      text-decoration: none;
+    }
+
+    nav p a:hover {
+      text-decoration: underline;
     }
 
     h1 {
