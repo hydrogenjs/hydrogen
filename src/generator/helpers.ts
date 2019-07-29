@@ -56,8 +56,10 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
     return false;
   }
 
+  console.time('build time');
   const file = await import(`${CWD}/${filename}`);
   await fs.outputFile(filename.replace('.js', '.html'), await file.page({ title: file.title, ...file.data ? await file.data() : {} }));
+  console.timeEnd('build time');
 };
 
 // @ts-ignore
