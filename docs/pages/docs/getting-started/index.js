@@ -85,4 +85,10 @@ module.exports = {
   layout: 'default',
   title: 'Getting Started | 🎈 Hydrogen',
   page,
+  head: () => [
+    ['meta', { name: 'description', content: 'Learn how to get up and running with Hydrogen' }],
+    ['meta', { property: 'og:title', content: 'Getting Started | 🎈 Hydrogen' }],
+    ['meta', { property: 'og:description', content: 'Learn how to get up and running with Hydrogen' }],
+    ['meta', { property: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+  ],
 };

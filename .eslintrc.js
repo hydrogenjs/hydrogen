@@ -26,7 +26,7 @@ module.exports = {
       "import/newline-after-import": 'off',
       "@typescript-eslint/indent": ["error", 2],
       "import/prefer-default-export": 'off',
-      "max-len": ["error", { code: 140 }],
+      "max-len": ["error", { code: 200 }],
       "consistent-return": 'off',
       "linebreak-style": ["error", "windows"],
       "@typescript-eslint/no-var-requires": "off",

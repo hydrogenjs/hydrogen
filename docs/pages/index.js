@@ -50,8 +50,15 @@ const page = () => html`
   <h2>🏝 Deep dive</h2>
   <hr style="margin-bottom: 20px;">
   <p>Hydrogen is fast because it uses plain JavaScript as a template engine, no need to use something like Pug or Handlebars anymore!</p>
-  <p>The <a style="color: white;" href="#quick-start">⚡ Quick Start</a> gave you a quick taste of what's possible with Hydrogen, all we did was write a simple JS function that renders a piece of HTML which gets saved to an HTML file.</p>
-  <p>The sweet thing about Hydrogen is that it only provides two commands <i style="color: #ff2f2f;">generate</i> and <i style="color: #007acc;">build</i>. This is what makes Hydrogen so powerful, it does not provide a dev server or any overhead packages. If you want, you can build what ever configuration you want on top of it.</p>
+  <p>
+    The <a style="color: white;" href="#quick-start">⚡ Quick Start</a> gave you a quick taste of what's possible with Hydrogen, 
+    all we did was write a simple JS function that renders a piece of HTML which gets saved to an HTML file.
+  </p>
+  <p>
+    The sweet thing about Hydrogen is that it only provides two commands <i style="color: #ff2f2f;">generate</i> and <i style="color: #007acc;">build</i>. 
+    This is what makes Hydrogen so powerful, it does not provide a dev server or any overhead packages. 
+    If you want, you can build what ever configuration you want on top of it.
+  </p>
   <p>Checkout the <a style="color: #76FF03;" href="/docs">docs</a></p>
 `.replace('$n', '$');
 

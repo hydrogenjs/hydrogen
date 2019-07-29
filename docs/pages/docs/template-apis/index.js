@@ -100,4 +100,10 @@ module.exports = {
   layout: 'default',
   title: 'Template APIs | 🎈 Hydrogen',
   page,
+  head: () => [
+    ['meta', { name: 'description', content: 'In-depth look at the Template APIs' }],
+    ['meta', { name: 'og:title', content: 'Template APIs | 🎈 Hydrogen' }],
+    ['meta', { name: 'og:description', content: 'In-depth look at the Template APIs' }],
+    ['meta', { name: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+  ],
 };
