@@ -16,10 +16,20 @@ module.exports = async ({ title, content, head }) => html`
   </head>
   <body>
     <nav>
-      <p><a href="/">🎈</a></p>
+      <p class="float-ballon"><a href="/">🎈</a></p>
     </nav>
     $${content}
   </body>
+  <style>
+    @keyframes float {
+      from {
+        top: -40px;
+      }
+      to {
+        top: -45px;
+      }
+    }
+  </style>
   <style>
     body {
       background: #222222;
@@ -30,6 +40,16 @@ module.exports = async ({ title, content, head }) => html`
       width: 100%;
       margin: 0 auto;
       overflow-y: scroll;
+    }
+
+    .float-ballon {
+      font-weight: bold;
+      top: -40px;
+      animation-name: float;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
     }
 
     nav p {
