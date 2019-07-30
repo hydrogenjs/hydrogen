@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes floatb {
+  from {
+    top: -30px;
+  }
+  to {
+    top: -40px;
+  }
+}
+
 body {
   background: white;
   color: black;
@@ -20,11 +29,11 @@ body {
 
 .float-ballon:hover {
   font-weight: bold;
-  /* animation-name: float;
+  animation-name: floatb;
   animation-iteration-count: infinite;
   animation-duration: 1s;
   animation-direction: alternate;
-  animation-timing-function: ease-in-out; */
+  animation-timing-function: ease-in-out;
 }
 
 nav p {
