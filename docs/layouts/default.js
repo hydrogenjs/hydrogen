@@ -25,11 +25,14 @@ module.exports = async ({ title, content, head }) => html`
   </body>
   <hr style="margin-top: 40px;">
   <footer style="display: flex; justify-content: space-between;">
+    <div id="theme-toggle" style="position: fixed; bottom: 20px; right: 30px; font-size: 30px;">
+      🌞
+    </div>
     <p>
       Made with Hydrogen by <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a> 🤎
     </p>
     <p>
-      <button id="theme-toggle" class="theme-toggle-dark">Enable Dark Mode</button>
+      <!-- <button id="theme-toggle" class="theme-toggle-dark">Enable Dark Mode</button> -->
     </p>
   </footer>
   </html>

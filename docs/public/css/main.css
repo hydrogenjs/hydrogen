@@ -1,9 +1,9 @@
 @keyframes float {
   from {
-    top: -40px;
+    bottom: 20px;
   }
   to {
-    top: -50px;
+    bottom: 30px;
   }
 }
 
@@ -20,19 +20,18 @@ body {
 
 .float-ballon:hover {
   font-weight: bold;
-  top: -40px;
-  animation-name: float;
+  /* animation-name: float;
   animation-iteration-count: infinite;
   animation-duration: 1s;
   animation-direction: alternate;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; */
 }
 
 nav p {
   position: fixed;
   left: 30px;
-  top: -40px;
-  font-size: 50px;
+  top: -30px;
+  font-size: 40px;
 }
 
 nav p a {
@@ -139,17 +138,32 @@ img {
 }
 
 .theme-toggle-dark {
-  padding: 1px 5px 1px 5px;
   font-family: Palanquin;
-  border-radius: 5px;
-  background-color: #222;
+  border-radius: 20px;
   color: white;
+  cursor: pointer;
+  
+}
+
+.theme-toggle-dark:hover {
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 
 .theme-toggle-light {
-  padding: 1px 5px 1px 5px;
   font-family: Palanquin;
-  border-radius: 5px;
-  background-color: white;
+  border-radius: 25px;
   color: black;
+  cursor: pointer;
+}
+
+.theme-toggle-light:hover {
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
