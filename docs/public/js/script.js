@@ -33,12 +33,14 @@ window.addEventListener('DOMContentLoaded', () => {
       setDarkTheme();
       themeToggle.className = 'theme-toggle-light';
       themeToggle.innerText = '🌞';
+      themeToggle.title = 'Enable Light Mode';
       return false;
     }
 
     setLightTheme();
     themeToggle.className = 'theme-toggle-dark';
     themeToggle.innerText = '🌙';
+    themeToggle.title = 'Enable Dark Mode';
   };
 
   initLocalStorage();
@@ -48,6 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (e.target.className === 'theme-toggle-dark') {
       e.target.className = 'theme-toggle-light';
       themeToggle.innerText = '🌞';
+      themeToggle.title = 'Enable Light Mode';
       const getThemeState = JSON.parse(localStorage.getItem('theme'));
       const state = {
         darkMode: !getThemeState.darkMode,
@@ -59,6 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
       e.target.className = 'theme-toggle-dark';
       themeToggle.innerText = '🌙';
+      themeToggle.title = 'Enable Dark Mode';
 
       const getThemeState = JSON.parse(localStorage.getItem('theme'));
       const state = {
