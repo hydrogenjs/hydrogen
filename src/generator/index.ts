@@ -1,4 +1,4 @@
-import { checkIfLayoutAndPageDirectoriesExist, logDirsThatDontExist, checkIfBuildFolderExists, globFiles, getConfig } from "./helpers";
+import { checkIfLayoutAndPageDirectoriesExist, logDirsThatDontExist, checkIfBuildFolderExists, getConfig } from './helpers';
 import { builder } from './build';
 
 export const main = async (dev: boolean): Promise<void | boolean> => {
