@@ -13,6 +13,7 @@ module.exports = async ({ title, content, head }) => html`
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/public/js/script.js"></script>
     $${head}
     <title>${title}</title>
   </head>
@@ -31,38 +32,5 @@ module.exports = async ({ title, content, head }) => html`
       <button id="theme-toggle" class="theme-toggle-dark">Enable Dark Mode</button>
     </p>
   </footer>
-  <script>
-    const initLocalStorage = () => {
-      if (localStorage.getItem('theme')) {
-        return false;
-      }
-
-      localStorage.setItem('theme', JSON.stringify({ darkMode: false }));
-    }
-
-    initLocalStorage();
-
-    document.getElementById('theme-toggle').onclick = (e) => {
-      if (e.target.className === 'theme-toggle-dark') {
-        e.target.className = 'theme-toggle-light';
-        
-        const getThemeState = JSON.parse(localStorage.getItem('theme'));
-        const state = {
-          darkMode: !getThemeState.darkMode,
-        };
-
-        localStorage.setItem('theme', JSON.stringify(state));
-      } else {
-        e.target.className = 'theme-toggle-dark';
-
-        const getThemeState = JSON.parse(localStorage.getItem('theme'));
-        const state = {
-          darkMode: !getThemeState.darkMode,
-        };
-
-        localStorage.setItem('theme', JSON.stringify(state));
-      }
-    }
-  </script>
   </html>
 `;

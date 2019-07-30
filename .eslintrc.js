@@ -13,6 +13,7 @@ module.exports = {
       "es6": true,
       "node": true,
       "jest": true,
+      "browser": true,
   },
   "extends": ["plugin:@typescript-eslint/recommended", "airbnb-base"],
   "globals": {
