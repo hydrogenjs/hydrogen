@@ -7,7 +7,7 @@ const page = () => html`
   <h1>The lightest static-site generator</h1>
   <hr>
   <p>
-    Hydrogen uses JavaScript as it's templating engine, it's aimed at doing one thing really well which is converting <i>template literals</i> to HTML making it super extensible as you have the whole <span style="color: #76FF03;">Node.js</span> ecosystem at your fingertips.
+    Hydrogen uses JavaScript as it's templating engine, it's aimed at doing one thing really well which is converting <i>template literals</i> to HTML making it super extensible as you have the whole <span style="color: #007acc;">Node.js</span> ecosystem at your fingertips.
   </p>
   <p>
     Before ES6, JavaScript was not considered powerful enough to manipulate large chunks of the DOM and template engines like Handlebars and Pug filled that void. Now that JavaScript is more powerful than ever,

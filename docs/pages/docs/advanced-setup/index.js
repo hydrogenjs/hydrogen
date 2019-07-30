@@ -4,7 +4,7 @@ const page = () => html`
   <h1>⚙ Advanced Setup</h1>
   <hr>
   <p>
-    If you have not read the <a style="color: #76FF03;" href="/docs/getting-started">Getting Started</a> guide, now would be the perfect time!
+    If you have not read the <a style="color: #007acc;" href="/docs/getting-started">Getting Started</a> guide, now would be the perfect time!
     The Advanced Section builds on top of what we did in the Getting Started section.
   </p>
   <h2 id="setting-up-a-layout">Step 1: Setting up a layout</h2>
@@ -79,7 +79,7 @@ const page = () => html`
     If you have static assets like CSS, JS, Images and etc... You can create a folder called <code class="code">public</code> in the root of the project.
     You can place any assets you like in this folder and when you run the <code class="code">build</code> command the public folder is automatically hoisted into the dist folder.
   </p>
-  <p>Repeat <span style="color: #76FF03;">Step 3</span> to see how it works.</p>
+  <p>Repeat <span style="color: #007acc;">Step 3</span> to see how it works.</p>
 `.replace(/\$n/g, '$');
 
 module.exports = {
