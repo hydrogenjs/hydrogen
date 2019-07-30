@@ -15,7 +15,7 @@ module.exports = async ({ title, content, head }) => html`
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="/public/js/script.js"></script>
     $${head}
-    <title>${title}</title>
+    ${title ? `<title>${title}</title>` : undefined}
   </head>
   <body>
     <nav>
