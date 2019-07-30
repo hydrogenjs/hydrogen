@@ -19,13 +19,13 @@ module.exports = async ({ title, content, head }) => html`
   </head>
   <body>
     <nav>
-      <p class="float-ballon"><a href="/">🏠</a></p>
+      <p class="float-ballon"><a href="/">🎈</a></p>
     </nav>
     $${content}
   </body>
   <hr style="margin-top: 40px;">
   <footer style="display: flex; justify-content: space-between;">
-    <div id="theme-toggle" style="position: fixed; bottom: 20px; left: 30px; font-size: 30px;">
+    <div id="theme-toggle" style="position: fixed; bottom: 20px; right: 30px; font-size: 30px;">
       🌞
     </div>
     <p>

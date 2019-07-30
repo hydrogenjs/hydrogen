@@ -30,8 +30,8 @@ body {
 nav p {
   position: fixed;
   left: 30px;
-  top: -20px;
-  font-size: 25px;
+  top: -30px;
+  font-size: 40px;
 }
 
 nav p a {
