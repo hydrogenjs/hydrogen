@@ -13,6 +13,11 @@ interface LayoutArgs {
   dev: boolean;
 }
 
+interface PageArgs {
+  config: Config;
+  dev: boolean;
+}
+
 interface DataArgs {
   config: object;
   dev: boolean;
@@ -26,7 +31,7 @@ interface Page {
   name: string;
   layout: string;
   title: string;
-  page(data: object): string;
+  page(args: PageArgs): string;
   data?({ config, dev }: DataArgs): Promise<object>;
   path: string;
   head({ config }: HeadArgs): Promise<[string, object][]>;
@@ -41,7 +46,7 @@ interface PageAndLayout {
   name: string;
   title: string;
   layout(args: LayoutArgs): string;
-  page(data: object): string;
+  page(args: PageArgs): string;
   data?({ config, dev }: DataArgs): Promise<object>;
   path: string;
   head({ config }: HeadArgs): Promise<[string, object][]>;
@@ -87,7 +92,7 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
 
 const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
 
-  const data = page.data ? { ...await page.data({ config, dev }), dev } : { dev };
+  const data = page.data ? { ...await page.data({ config, dev }), config, dev } : { config, dev };
 
   return {
     html: await page.layout({
