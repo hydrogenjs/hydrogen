@@ -12,7 +12,7 @@ const page = () => html`
     |
     v0.5
     |
-    <a style="color: white;" href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
+    <a href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
     |
     <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a>
   </p>
@@ -51,7 +51,7 @@ const page = () => html`
   <hr style="margin-bottom: 20px;">
   <p>Hydrogen is fast because it uses plain JavaScript as a template engine, no need to use something like Pug or Handlebars anymore!</p>
   <p>
-    The <a style="color: white;" href="#quick-start">⚡ Quick Start</a> gave you a quick taste of what's possible with Hydrogen, 
+    The <a href="#quick-start">⚡ Quick Start</a> gave you a quick taste of what's possible with Hydrogen, 
     all we did was write a simple JS function that renders a piece of HTML which gets saved to an HTML file.
   </p>
   <p>

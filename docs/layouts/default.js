@@ -32,8 +32,8 @@ module.exports = async ({ title, content, head }) => html`
   </style>
   <style>
     body {
-      background: #222222;
-      color: white;
+      background: white;
+      color: black;
       font-family: Palanquin, sans-serif;
       padding: 2rem;
       max-width: 800px;
@@ -86,7 +86,7 @@ module.exports = async ({ title, content, head }) => html`
     }
 
     a {
-      color: white;
+      color: black;
     }
 
     pre code {
@@ -157,7 +157,7 @@ module.exports = async ({ title, content, head }) => html`
     }
 
     .tip {
-      border-left: 3px solid white; 
+      border-left: 3px solid black; 
       border-radius: 3px; 
       padding-left: 20px;
     }
