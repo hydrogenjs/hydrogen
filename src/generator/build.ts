@@ -10,9 +10,9 @@ interface Page {
   layout: string;
   title: string;
   page(data: object): string;
-  data?({ dev }: { dev: boolean }): Promise<object>;
+  data?({ config, dev }: { config: object; dev: boolean }): Promise<object>;
   path: string;
-  head(): Promise<[string, object][]>;
+  head({ config }: { config: object }): Promise<[string, object][]>;
 }
 
 interface Layout {
@@ -25,9 +25,9 @@ interface PageAndLayout {
   title: string;
   layout({ title, content, head, dev }: { title: string; content: string; head: string; dev: boolean }): string;
   page(data: object): string;
-  data?({ dev }: { dev: boolean }): Promise<object>;
+  data?({ config, dev }: { config: object; dev: boolean }): Promise<object>;
   path: string;
-  head(): Promise<[string, object][]>;
+  head({ config }: { config: object }): Promise<[string, object][]>;
 }
 
 interface HTMLObject {
@@ -63,15 +63,15 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
     ...otherValues,
   }));
 
-const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
+const generateHTML = (pages: PageAndLayout[], config: object, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
 
-  const data = page.data ? { ...await page.data({ dev }), dev } : { dev };
+  const data = page.data ? { ...await page.data({ config, dev }), dev } : { dev };
 
   return {
     html: await page.layout({
       title: page.title,
       content: await page.page(data),
-      head: page.head ? await transformHeadToHTML(page.head, data) : '',
+      head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
       dev,
     }),
     name: page.name.replace('js', 'html'),
@@ -81,7 +81,7 @@ const generateHTML = (pages: PageAndLayout[], dev: boolean): Promise<HTMLObject[
 
 const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.outputFile(path.normalize(`${CWD}/${page.path}`), page.html)));
 
-export const builder = async (dev: boolean): Promise<void> => {
+export const builder = async (config: object, dev: boolean): Promise<void> => {
   if (!dev) {
     console.log(chalk.red(await new Promise((resolve): void => figlet('Hydrogen', (e, data): void => resolve(data)))));
   }
@@ -94,7 +94,7 @@ export const builder = async (dev: boolean): Promise<void> => {
   const pages = await getPages();
   const layouts = await getLayouts();
   const mergedLayoutsWithPages = await mergeLayoutsWithPages(pages, layouts);
-  const htmlPages = await generateHTML(mergedLayoutsWithPages, dev);
+  const htmlPages = await generateHTML(mergedLayoutsWithPages, config, dev);
 
   await saveHTMLToFiles(htmlPages);
   await copyPublicFolder();

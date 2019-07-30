@@ -74,7 +74,17 @@ export const mapHeadTags = ([tag, props, content = null]: [string, object, strin
   return `<${tag} ${keys} />`;
 };
 
-export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object): Promise<string> => {
-  const tags = await head({ ...data });
+export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object, config: object): Promise<string> => {
+  const tags = await head({ ...data, config });
   return tags.map(mapHeadTags).join('\n');
+};
+
+export const getConfig = async (): Promise<object> => {
+  const exists = await fs.pathExists(`${CWD}/hydrogen.config.js`);
+
+  if (!exists) {
+    return {};
+  }
+
+  return import(`${CWD}/hydrogen.config.js`).then((res): object => res.default);
 };
