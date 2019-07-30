@@ -5,14 +5,36 @@ import chalk from 'chalk';
 import figlet from 'figlet';
 import { copyPublicFolder, globFiles, transformHeadToHTML } from './helpers';
 
+interface LayoutArgs {
+  title: string;
+  content: string;
+  head: string;
+  config: Config;
+  dev: boolean;
+}
+
+interface PageArgs {
+  config: Config;
+  dev: boolean;
+}
+
+interface DataArgs {
+  config: object;
+  dev: boolean;
+}
+
+interface HeadArgs {
+  config: object;
+}
+
 interface Page {
   name: string;
   layout: string;
   title: string;
-  page(data: object): string;
-  data?({ config, dev }: { config: object; dev: boolean }): Promise<object>;
+  page(args: PageArgs): string;
+  data?({ config, dev }: DataArgs): Promise<object>;
   path: string;
-  head({ config }: { config: object }): Promise<[string, object][]>;
+  head({ config }: HeadArgs): Promise<[string, object][]>;
 }
 
 interface Layout {
@@ -23,17 +45,23 @@ interface Layout {
 interface PageAndLayout {
   name: string;
   title: string;
-  layout({ title, content, head, dev }: { title: string; content: string; head: string; dev: boolean }): string;
-  page(data: object): string;
-  data?({ config, dev }: { config: object; dev: boolean }): Promise<object>;
+  layout(args: LayoutArgs): string;
+  page(args: PageArgs): string;
+  data?({ config, dev }: DataArgs): Promise<object>;
   path: string;
-  head({ config }: { config: object }): Promise<[string, object][]>;
+  head({ config }: HeadArgs): Promise<[string, object][]>;
 }
 
 interface HTMLObject {
   html: string;
   name: string;
   path: string;
+}
+
+export interface Config {
+  name?: string;
+  staticFolder?: string;
+  head?({ config }: HeadArgs): Promise<[string, object][]>;
 }
 
 const CWD = process.cwd();
@@ -63,9 +91,9 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
     ...otherValues,
   }));
 
-const generateHTML = (pages: PageAndLayout[], config: object, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
+const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
 
-  const data = page.data ? { ...await page.data({ config, dev }), dev } : { dev };
+  const data = page.data ? { ...await page.data({ config, dev }), config, dev } : { config, dev };
 
   return {
     html: await page.layout({
@@ -73,6 +101,7 @@ const generateHTML = (pages: PageAndLayout[], config: object, dev: boolean): Pro
       content: await page.page(data),
       // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
+      config,
       dev,
     }),
     name: page.name.replace('js', 'html'),
@@ -82,7 +111,7 @@ const generateHTML = (pages: PageAndLayout[], config: object, dev: boolean): Pro
 
 const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise.all(pages.map((page): Promise<void> => fs.outputFile(path.normalize(`${CWD}/${page.path}`), page.html)));
 
-export const builder = async (config: object, dev: boolean): Promise<void> => {
+export const builder = async (config: Config, dev: boolean): Promise<void> => {
   if (!dev) {
     console.log(chalk.red(await new Promise((resolve): void => figlet('Hydrogen', (e, data): void => resolve(data)))));
   }
@@ -98,7 +127,7 @@ export const builder = async (config: object, dev: boolean): Promise<void> => {
   const htmlPages = await generateHTML(mergedLayoutsWithPages, config, dev);
 
   await saveHTMLToFiles(htmlPages);
-  await copyPublicFolder();
+  await copyPublicFolder(config.staticFolder);
 
   cli.action.stop();
   console.timeEnd('Build time');

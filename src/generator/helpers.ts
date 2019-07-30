@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import chalk from 'chalk';
 import path from 'path';
 import glob from 'glob';
+import { Config } from './build';
 
 interface Directory {
   dirName: string;
@@ -32,12 +33,12 @@ export const checkIfBuildFolderExists = async (): Promise<boolean | void> => {
   return fs.mkdir(path.normalize(`${CWD}/dist`));
 };
 
-export const copyPublicFolder = async (): Promise<void|boolean> => {
+export const copyPublicFolder = async (staticFolder: string | undefined = 'public'): Promise<void|boolean> => {
   if (!(await fs.pathExists(path.normalize(`${CWD}/public`)))) {
     return false;
   }
 
-  return fs.copy(path.normalize(`${CWD}/public`), path.normalize(`${CWD}/dist/public`));
+  return fs.copy(path.normalize(`${CWD}/${staticFolder}`), path.normalize(`${CWD}/dist/${staticFolder}`));
 };
 
 export const globFiles = async (pattern: string): Promise<string[]> => new Promise((res, rej): void => {
@@ -74,18 +75,18 @@ export const mapHeadTags = ([tag, props, content = null]: [string, object, strin
   return `<${tag} ${keys} />`;
 };
 
-export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object, config: object): Promise<string> => {
-  const tags = await head({ ...data, config });
+export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object, config: Config): Promise<string> => {
+  const tags = [...config.head ? await config.head({ ...data, config }) : [], ...await head({ ...data, config })];
   // @ts-ignore
   return tags.map(mapHeadTags).join('\n');
 };
 
-export const getConfig = async (): Promise<object> => {
+export const getConfig = async (): Promise<Config> => {
   const exists = await fs.pathExists(`${CWD}/hydrogen.config.js`);
 
   if (!exists) {
     return {};
   }
 
-  return import(`${CWD}/hydrogen.config.js`).then((res): object => res.default);
+  return import(`${CWD}/hydrogen.config.js`).then((res): Config => res.default);
 };

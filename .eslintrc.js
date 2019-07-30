@@ -31,6 +31,7 @@ module.exports = {
       "consistent-return": 'off',
       "linebreak-style": ["error", "windows"],
       "@typescript-eslint/no-var-requires": "off",
-      "no-nested-ternary": "off"
+      "no-nested-ternary": "off",
+      "no-console": "off",
   }
 };
