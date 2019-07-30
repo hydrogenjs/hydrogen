@@ -76,6 +76,7 @@ export const mapHeadTags = ([tag, props, content = null]: [string, object, strin
 
 export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object, config: object): Promise<string> => {
   const tags = await head({ ...data, config });
+  // @ts-ignore
   return tags.map(mapHeadTags).join('\n');
 };
 
