@@ -10,10 +10,11 @@ const page = () => html`
   </p>
   <pre>
     <code class="lang-javascript">
-      module.exports = ({ title, content, dev }) => &#96;
+      module.exports = ({ title, content, head, dev }) => &#96;
         &lt;!DOCTYPE html&gt;
         &lt;html&gt;
           &lt;head&gt;
+            $n{head}
             &lt;script src="$n{dev ? 'https://dev.script.js' : 'https://prod.script.js'}"&gt;&lt;/script&gt;
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
@@ -38,6 +39,11 @@ const page = () => html`
     <tr>
       <td><code class="code">content</code></td>
       <td>This is output generated after compiling the page template, this gets injected into the layout template</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><code class="code">head</code></td>
+      <td>This is a string of html tags that can be injected into the layout. The head is determined by the head function in the page template</td>
       <td>string</td>
     </tr>
     <tr>
@@ -92,6 +98,11 @@ const page = () => html`
       <td><code class="code">data</code></td>
       <td>This is a function that can be used to fetch data from remote sources such as: JSON files or APIs</td>    
       <td>async data({ dev: boolean }): object</td>    
+    </tr>
+    <tr>
+      <td><code class="code">head</code></td>
+      <td>This is a function that can be used to dynamically generate metadata which gets injected into the layout template</td>
+      <td>async head({ ...data: object, dev: boolean }): [string, object][]</td>
     </tr>
   </table>
 `.replace(/\$n/g, '$');
