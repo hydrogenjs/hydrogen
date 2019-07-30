@@ -23,8 +23,46 @@ module.exports = async ({ title, content, head }) => html`
     $${content}
   </body>
   <hr style="margin-top: 40px;">
-  <footer>
-    <p>Made with Hydrogen by <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a> 🤎</p>
+  <footer style="display: flex; justify-content: space-between;">
+    <p>
+      Made with Hydrogen by <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a> 🤎
+    </p>
+    <p>
+      <button id="theme-toggle" class="theme-toggle-dark">Enable Dark Mode</button>
+    </p>
   </footer>
+  <script>
+    const initLocalStorage = () => {
+      if (localStorage.getItem('theme')) {
+        return false;
+      }
+
+      localStorage.setItem('theme', JSON.stringify({ darkMode: false }));
+    }
+
+    initLocalStorage();
+
+    document.getElementById('theme-toggle').onclick = (e) => {
+      if (e.target.className === 'theme-toggle-dark') {
+        e.target.className = 'theme-toggle-light';
+        
+        const getThemeState = JSON.parse(localStorage.getItem('theme'));
+        const state = {
+          darkMode: !getThemeState.darkMode,
+        };
+
+        localStorage.setItem('theme', JSON.stringify(state));
+      } else {
+        e.target.className = 'theme-toggle-dark';
+
+        const getThemeState = JSON.parse(localStorage.getItem('theme'));
+        const state = {
+          darkMode: !getThemeState.darkMode,
+        };
+
+        localStorage.setItem('theme', JSON.stringify(state));
+      }
+    }
+  </script>
   </html>
 `;

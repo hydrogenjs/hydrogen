@@ -137,3 +137,17 @@ img {
   border-radius: 3px; 
   padding-left: 20px;
 }
+
+.theme-toggle-dark {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #222;
+  color: white;
+}
+
+.theme-toggle-light {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
