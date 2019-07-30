@@ -9,6 +9,7 @@ interface LayoutArgs {
   title: string;
   content: string;
   head: string;
+  config: Config;
   dev: boolean;
 }
 
@@ -94,6 +95,7 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
       content: await page.page(data),
       // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
+      config,
       dev,
     }),
     name: page.name.replace('js', 'html'),
