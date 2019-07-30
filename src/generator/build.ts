@@ -61,6 +61,7 @@ interface HTMLObject {
 export interface Config {
   name?: string;
   staticFolder?: string;
+  head?({ config }: HeadArgs): Promise<[string, object][]>;
 }
 
 const CWD = process.cwd();

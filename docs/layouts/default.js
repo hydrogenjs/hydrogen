@@ -7,13 +7,6 @@ module.exports = async ({ title, content, head, config }) => html`
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/${config.staticFolder}/css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Palanquin&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
-    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="/${config.staticFolder}/js/script.js"></script>
     $${head}
     ${title ? `<title>${title}</title>` : undefined}
   </head>
