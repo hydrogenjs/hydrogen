@@ -32,13 +32,13 @@ window.addEventListener('DOMContentLoaded', () => {
     if (state.darkMode) {
       setDarkTheme();
       themeToggle.className = 'theme-toggle-light';
-      themeToggle.innerText = 'Enable Light Mode';
+      themeToggle.innerText = '🌞';
       return false;
     }
 
     setLightTheme();
     themeToggle.className = 'theme-toggle-dark';
-    themeToggle.innerText = 'Enable Dark Mode';
+    themeToggle.innerText = '🌙';
   };
 
   initLocalStorage();
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
   themeToggle.onclick = (e) => {
     if (e.target.className === 'theme-toggle-dark') {
       e.target.className = 'theme-toggle-light';
-      themeToggle.innerText = 'Enable Light Mode';
+      themeToggle.innerText = '🌞';
       const getThemeState = JSON.parse(localStorage.getItem('theme'));
       const state = {
         darkMode: !getThemeState.darkMode,
@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
       setDarkTheme();
     } else {
       e.target.className = 'theme-toggle-dark';
-      themeToggle.innerText = 'Enable Dark Mode';
+      themeToggle.innerText = '🌙';
 
       const getThemeState = JSON.parse(localStorage.getItem('theme'));
       const state = {
