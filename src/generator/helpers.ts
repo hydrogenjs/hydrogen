@@ -63,9 +63,14 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
 };
 
 // @ts-ignore
-export const mapHeadTags = ([tag, props]: [string, object]): string => {
+export const mapHeadTags = ([tag, props, content = null]: [string, object, string|null]): string => {
   // @ts-ignore
   const keys = Object.keys(props).map((key: string): string => `${key}="${props[key]}"`).join(' ');
+
+  if (content) {
+    return `<${tag} ${keys}>${content}</${tag}>`;
+  }
+
   return `<${tag} ${keys} />`;
 };
 
