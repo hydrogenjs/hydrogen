@@ -8,7 +8,7 @@ const page = () => html`
     <img style="margin: 20px; border-radius: 10px;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>
   <p align="center">
-    <a style="color: #76FF03;" href="/docs">Docs</a>
+    <a style="color: #007acc;" href="/docs">Docs</a>
     |
     v0.5.2
     |
@@ -61,7 +61,7 @@ const page = () => html`
     This is what makes Hydrogen so powerful, it does not provide a dev server or any overhead packages. 
     If you want, you can build what ever configuration you want on top of it.
   </p>
-  <p>Checkout the <a style="color: #76FF03;" href="/docs">docs</a></p>
+  <p>Checkout the <a style="color: #007acc;" href="/docs">docs</a></p>
 `.replace('$n', '$');
 
 module.exports = {
