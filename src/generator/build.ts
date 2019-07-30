@@ -71,6 +71,7 @@ const generateHTML = (pages: PageAndLayout[], config: object, dev: boolean): Pro
     html: await page.layout({
       title: page.title,
       content: await page.page(data),
+      // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
       dev,
     }),
