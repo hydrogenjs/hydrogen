@@ -10,11 +10,13 @@ const page = () => html`
   <p align="center">
     <a style="color: #76FF03;" href="/docs">Docs</a>
     |
-    v0.5
+    v0.5.2
     |
     <a href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
     |
     <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a>
+    |
+    <a class="github-button" href="https://github.com/ShailenNaidoo/hydrogen" data-icon="octicon-star" data-show-count="true" aria-label="Star ShailenNaidoo/hydrogen on GitHub">Star</a>
   </p>
   <h2 id="quick-start">⚡ Quick Start</h2>
   <hr style="margin-bottom: 20px;">

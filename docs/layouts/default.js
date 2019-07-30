@@ -12,6 +12,7 @@ module.exports = async ({ title, content, head }) => html`
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css">
     <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     $${head}
     <title>${title}</title>
   </head>
