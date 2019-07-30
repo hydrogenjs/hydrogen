@@ -102,7 +102,7 @@ const page = () => html`
     <tr>
       <td><code class="code">head</code></td>
       <td>This is a function that can be used to dynamically generate metadata which gets injected into the layout template</td>
-      <td>async head({ ...data: object, dev: boolean }): [string, object][]</td>
+      <td>async head({ ...data: object, dev: boolean }): [string, object, string][]</td>
     </tr>
   </table>
 `.replace(/\$n/g, '$');
