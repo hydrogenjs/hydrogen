@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "html-template-tag": "^3.1.0",
-    "hydrogen-cli": "^0.5.0"
+    "hydrogen-cli": "^0.5.4"
   },
   "scripts": {
     "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",

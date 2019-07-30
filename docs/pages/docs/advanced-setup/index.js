@@ -86,10 +86,11 @@ module.exports = {
   layout: 'default',
   title: 'Advanced Setup | 🎈 Hydrogen',
   page,
-  head: () => [
+  head: ({ config }) => [
     ['meta', { name: 'description', content: 'Learn how to use a more advanced setup with Hydrogen' }],
     ['meta', { property: 'og:title', content: 'Advanced Setup | 🎈 Hydrogen' }],
     ['meta', { property: 'og:description', content: 'Learn how to use a more advanced setup with Hydrogen' }],
     ['meta', { property: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+    ['title', {}, `Advanced Setup | ${config.name}`],
   ],
 };

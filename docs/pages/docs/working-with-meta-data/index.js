@@ -86,12 +86,12 @@ const page = () => html`
 
 module.exports = {
   layout: 'default',
-  title: 'Working with Metadata | 🎈 Hydrogen',
   page,
-  head: () => [
+  head: ({ config }) => [
     ['meta', { name: 'description', content: 'Want to add some metadata to your page? Now you can with the Head API! All page templates have access to this API' }],
     ['meta', { property: 'og:tite', content: 'Working with Metadata | 🎈 Hydrogen' }],
     ['meta', { property: 'og:description', content: 'Want to add some metadata to your page? Now you can with the Head API! All page templates have access to this API' }],
     ['meta', { property: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+    ['title', {}, `Working with Metadata | ${config.name}`],
   ],
 };

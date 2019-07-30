@@ -96,12 +96,12 @@ const page = () => html`
 
 module.exports = {
   layout: 'default',
-  title: 'Working with data | 🎈 Hydrogen',
   page,
-  head: () => [
+  head: ({ config }) => [
     ['meta', { name: 'description', content: 'Learn how to expose data to your data sync/async' }],
     ['meta', { name: 'og:title', content: 'Working with data | 🎈 Hydrogen' }],
     ['meta', { name: 'og:description', content: 'Learn how to expose data to your data sync/async' }],
     ['meta', { name: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
+    ['title', {}, `Working with data | ${config.name}`],
   ],
 };

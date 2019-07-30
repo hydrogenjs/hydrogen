@@ -57,6 +57,8 @@ const page = () => html`
 
 module.exports = {
   layout: 'default',
-  title: 'Docs | 🎈 Hydrogen',
   page,
+  head: ({ config }) => [
+    ['title', {}, `Docs | ${config.name}`],
+  ],
 };
