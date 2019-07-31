@@ -10,7 +10,7 @@ const page = () => html`
   <p align="center">
     <a style="color: #007acc;" href="/docs">Docs</a>
     |
-    v0.5.2
+    v0.5.8
     |
     <a href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
     |
