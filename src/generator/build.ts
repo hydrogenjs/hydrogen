@@ -98,12 +98,16 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
 
 const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
 
-  const data = page.data ? { ...await page.data({ config, dev }), config, path: page.path, dev } : { config, path: page.path, dev };
-
   const route = page.path.replace('dist', '').split('/');
   const file = route.pop();
 
-  console.log(route.join('/'));
+  const filepath = {
+    route: route.join('/') || '/',
+    file,
+  };
+
+  const data = page.data ? { ...await page.data({ config, dev }), config, path: filepath, dev } : { config, path: filepath, dev };
+
 
   return {
     html: await page.layout({
@@ -112,10 +116,7 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
       // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
       config,
-      path: {
-        route: route.join('/') || '/',
-        file,
-      },
+      path: filepath,
       dev,
     }),
     name: page.name.replace('js', 'html'),
