@@ -82,6 +82,39 @@ const page = () => html`
       };
     </code>
   </pre>
+  <h2>Using the Hydrogen config with the Head API</h2>
+  <p>With the global <code class="code">name</code> property provided by the <a href="/docs/hydrogen-config">Hydrogen Config</a>, we can use it to manage our page title's</p>
+  <pre>
+    <code class="lang-javascript">
+      const page = () => &#96;
+        &lt;p&gt;The head will be injected into the layout&lt;/p&gt;
+      &#96;;
+
+      module.exports = {
+        layout: 'default',
+        page,
+        head: ({ config }) => [
+          ['title', {}, &#96;Head API | $n{config.name}&#96;]
+        ];
+      };
+    </code>
+  </pre>
+  <p>What if you want to update your static assets folder, you can do that to!</p>
+  <pre>
+    <code class="lang-javascript">
+      const page = () => &#96;
+        &lt;p&gt;The head will be injected into the layout&lt;/p&gt;
+      &#96;;
+
+      module.exports = {
+        layout: 'default',
+        page,
+        head: ({ config }) => [
+          ['script', { src: &#96;/$n{config.staticFolder}/js/script.js&#96; }, true]
+        ];
+      };
+    </code>
+  </pre>
 `.replace(/\$n/g, '$');
 
 module.exports = {

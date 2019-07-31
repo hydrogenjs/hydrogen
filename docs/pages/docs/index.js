@@ -19,6 +19,7 @@ const page = () => html`
       <li><strong>⚡ Millisecond Builds.</strong> With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds.</li>
       <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of JavaScript.</li>
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
+      <li><strong>🕶 Powerful Metadata API.</strong> Get the best SEO for your static pages.</li>
     </ul>
   </p>
   <h2>Index</h2>
@@ -46,6 +47,12 @@ const page = () => html`
     <ul>
       <li><a href="/docs/working-with-meta-data#using-the-head-api">Using the Head API</a></li>
       <li><a href="/docs/working-with-meta-data#using-asynchronous-data-with-the-head-api">Using asynchronous data with the Head API</a></li>
+    </ul>
+    <li><a href="/docs/hydrogen-config">🔧 Hydrogen Config</a></li>
+    <ul>
+      <li><a href="/docs/hydrogen-config#set-a-global-project-name">Set a global project name</a></li>
+      <li><a href="/docs/hydrogen-config#set-a-static-assets-folder">Set a static assets folder</a></li>
+      <li><a href="/docs/hydrogen-config#set-global-head-tags">Set global head tags</a></li>
     </ul>
     <li><a href="/docs/template-apis">👀 Template APIs</a></li>
     <ul>
