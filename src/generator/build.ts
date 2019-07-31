@@ -5,11 +5,16 @@ import chalk from 'chalk';
 import figlet from 'figlet';
 import { copyPublicFolder, globFiles, transformHeadToHTML } from './helpers';
 
+interface Path {
+  route: string;
+  file?: string;
+}
 interface LayoutArgs {
   title: string;
   content: string;
   head: string;
   config: Config;
+  path: Path;
   dev: boolean;
 }
 
@@ -93,7 +98,12 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
 
 const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
 
-  const data = page.data ? { ...await page.data({ config, dev }), config, dev } : { config, dev };
+  const data = page.data ? { ...await page.data({ config, dev }), config, path: page.path, dev } : { config, path: page.path, dev };
+
+  const route = page.path.replace('dist', '').split('/');
+  const file = route.pop();
+
+  console.log(route.join('/'));
 
   return {
     html: await page.layout({
@@ -102,6 +112,10 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
       // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
       config,
+      path: {
+        route: route.join('/') || '/',
+        file,
+      },
       dev,
     }),
     name: page.name.replace('js', 'html'),
