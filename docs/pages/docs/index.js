@@ -19,6 +19,7 @@ const page = () => html`
       <li><strong>⚡ Millisecond Builds.</strong> With the global average attention span being 8 seconds, why wait seconds for your builds when you can wait milliseconds.</li>
       <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of JavaScript.</li>
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
+      <li><strong>🕶 Powerful Metadata API.</strong> Get the best SEO for your static pages.</li>
     </ul>
   </p>
   <h2>Index</h2>
