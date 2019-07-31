@@ -47,6 +47,12 @@ const page = () => html`
       <li><a href="/docs/working-with-meta-data#using-the-head-api">Using the Head API</a></li>
       <li><a href="/docs/working-with-meta-data#using-asynchronous-data-with-the-head-api">Using asynchronous data with the Head API</a></li>
     </ul>
+    <li><a href="/docs/hydrogen-config">🔧 Hydrogen Config</a></li>
+    <ul>
+      <li><a href="/docs/hydrogen-config#set-a-global-project-name">Set a global project name</a></li>
+      <li><a href="/docs/hydrogen-config#set-a-static-assets-folder">Set a static assets folder</a></li>
+      <li><a href="/docs/hydrogen-config#set-global-head-tags">Set global head tags</a></li>
+    </ul>
     <li><a href="/docs/template-apis">👀 Template APIs</a></li>
     <ul>
       <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>
