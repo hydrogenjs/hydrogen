@@ -73,6 +73,10 @@ export const mapHeadTags = ([tag, props, content = null]: [string, object, strin
       return `<${tag} ${keys}></${tag}>`;
     }
 
+    if (!Object.keys(props).length) {
+      return `<${tag}>${content}</${tag}>`;
+    }
+
     return `<${tag} ${keys}>${content}</${tag}>`;
   }
 
