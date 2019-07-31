@@ -25,6 +25,7 @@ interface PageArgs {
 
 interface DataArgs {
   config: object;
+  path: Path,
   dev: boolean;
 }
 
@@ -37,9 +38,9 @@ interface Page {
   layout: string;
   title: string;
   page(args: PageArgs): string;
-  data?({ config, dev }: DataArgs): Promise<object>;
+  data?(args: DataArgs): Promise<object>;
   path: string;
-  head({ config }: HeadArgs): Promise<[string, object][]>;
+  head(args: HeadArgs): Promise<[string, object][]>;
 }
 
 interface Layout {
@@ -52,9 +53,9 @@ interface PageAndLayout {
   title: string;
   layout(args: LayoutArgs): string;
   page(args: PageArgs): string;
-  data?({ config, dev }: DataArgs): Promise<object>;
+  data?(args: DataArgs): Promise<object>;
   path: string;
-  head({ config }: HeadArgs): Promise<[string, object][]>;
+  head(args: HeadArgs): Promise<[string, object][]>;
 }
 
 interface HTMLObject {
@@ -106,8 +107,16 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
     file,
   };
 
-  const data = page.data ? { ...await page.data({ config, dev }), config, path: filepath, dev } : { config, path: filepath, dev };
-
+  const data = page.data ? { 
+    ...await page.data({ config, path: filepath, dev }),
+    config,
+    path: filepath,
+    dev,
+  } : {
+    config,
+    path: filepath,
+    dev,
+  };
 
   return {
     html: await page.layout({
