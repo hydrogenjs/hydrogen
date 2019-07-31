@@ -64,11 +64,15 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
 };
 
 // @ts-ignore
-export const mapHeadTags = ([tag, props, content = null]: [string, object, string|null]): string => {
+export const mapHeadTags = ([tag, props, content = null]: [string, object, string|null|boolean]): string => {
   // @ts-ignore
   const keys = Object.keys(props).map((key: string): string => `${key}="${props[key]}"`).join(' ');
 
   if (content) {
+    if (content === true) {
+      return `<${tag} ${keys}></${tag}>`;
+    }
+
     return `<${tag} ${keys}>${content}</${tag}>`;
   }
 
