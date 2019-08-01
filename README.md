@@ -4,7 +4,8 @@
 
 Voted the world's lightest static-site generator built with TypeScript ❤ It uses 🔥 _lit-html_ inspired templating for super duper performant template generation.
 
-Check out the online [documentation](https://hydrogenjs.org) 📖
+- Check out the online [documentation](https://hydrogenjs.org) 📖
+- Check out our [Trello board](https://trello.com/b/N5949mJZ/hydrogenjs-development) for project activity
 
 BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/@11ty/eleventy) 😜
 
