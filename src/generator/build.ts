@@ -29,7 +29,7 @@ interface DataArgs {
   dev: boolean;
 }
 
-interface HeadArgs {
+export interface HeadArgs {
   config: object;
 }
 
@@ -122,7 +122,6 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
     html: await page.layout({
       title: page.title,
       content: await page.page(data),
-      // @ts-ignore
       head: page.head ? await transformHeadToHTML(page.head, data, config) : '',
       config,
       path: filepath,

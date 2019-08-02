@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import chalk from 'chalk';
 import path from 'path';
 import glob from 'glob';
-import { Config } from './build';
+import { Config, HeadArgs } from './build';
 
 interface Directory {
   dirName: string;
@@ -83,7 +83,7 @@ export const mapHeadTags = ([tag, props, content = null]: [string, object, strin
   return `<${tag} ${keys} />`;
 };
 
-export const transformHeadToHTML = async (head: (data: object) => Promise<[string, object][]>, data: object, config: Config): Promise<string> => {
+export const transformHeadToHTML = async (head: (data: HeadArgs) => Promise<[string, object][]>, data: object, config: Config): Promise<string> => {
   const tags = [...config.head ? await config.head({ ...data, config }) : [], ...await head({ ...data, config })];
   // @ts-ignore
   return tags.map(mapHeadTags).join('\n');
