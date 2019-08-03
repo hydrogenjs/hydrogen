@@ -26,7 +26,7 @@ interface PageArgs {
 
 interface DataArgs {
   config: object;
-  path: Path,
+  path: Path;
   dev: boolean;
 }
 
@@ -107,7 +107,7 @@ const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Pro
     file,
   };
 
-  const data = page.data ? { 
+  const data = page.data ? {
     ...await page.data({ config, path: filepath, dev }),
     config,
     path: filepath,
