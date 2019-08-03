@@ -98,7 +98,6 @@ const mergeLayoutsWithPages = (pages: Page[], layouts: Layout[]): PageAndLayout[
   }));
 
 const generateHTML = (pages: PageAndLayout[], config: Config, dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
-
   const route = page.path.replace('dist', '').split('/');
   const file = route.pop();
 
