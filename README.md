@@ -6,6 +6,7 @@ Voted the world's lightest static-site generator built with TypeScript ❤ It us
 
 - Check out the online [documentation](https://hydrogenjs.org) 📖
 - Check out our [Trello board](https://trello.com/b/N5949mJZ/hydrogenjs-development) for project activity
+- Want to contribute to HydrogenJS? Check out the [contributing](/CONTRIBUTING.md) doc
 
 BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/@11ty/eleventy) 😜
 
