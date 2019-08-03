@@ -8,6 +8,6 @@ Check out our [Trello](https://trello.com/b/N5949mJZ/hydrogenjs-development) boa
 
 ## How to contribute
 
-- Read the PR and Issue templates
+- Read the Issue and Feature templates
 - Create a fork of the repo
 - Submit a PR of your changes
