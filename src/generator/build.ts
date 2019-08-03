@@ -9,6 +9,7 @@ interface Path {
   route: string;
   file?: string;
 }
+
 interface LayoutArgs {
   title: string;
   content: string;
