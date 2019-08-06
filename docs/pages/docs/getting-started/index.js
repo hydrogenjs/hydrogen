@@ -32,9 +32,10 @@ const page = () => html`
   <p>Let's create a simple template which we will store in <code class="code">index.js</code> file</p>
   <pre>
     <code class="lang-javascript">
-      const page = ({ title, text }) => &#96;
+      const page = ({ title, head, text }) => &#96;
         &lt;html&gt;
           &lt;head&gt;
+            $n{head}
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;
@@ -48,7 +49,13 @@ const page = () => html`
         page,
         data: () => ({
           text: 'Hello from Hydrogen',
+          css: 'https://main.css',
         }),
+        head: ({ css }) => [
+          ['link', { rel: 'stylesheet', href: css }],
+          ['script', { src: 'https://script.js' }, true],
+          ['style', {}, 'body { font-size: 10px; }'],
+        ],
       };
     </code>
   </pre>
@@ -67,6 +74,9 @@ const page = () => html`
     <code class="lang-html">
       &lt;html&gt;
         &lt;head&gt;
+          &lt;link rel="stylesheet" href="https://main.css" /&gt;
+          &lt;script src="https://script.js"&gt;&lt;/script&gt;
+          &lt;style&gt;body { font-size: 10px; }&lt;/style&gt;
           &lt;title&gt;Hydrogen webpage&lt;/title&gt;
         &lt;/head&gt;
         &lt;body&gt;
