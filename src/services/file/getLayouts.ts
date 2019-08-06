@@ -10,7 +10,7 @@ const getLayoutTemplates = async (): Promise<Promise<LayoutTemplate>[]> => {
   const paths = await getLayoutPaths();
 
   return paths.map((path): Promise<LayoutTemplate> => import(`${CWD}/${path}`));
-}
+};
 
 const getLayouts = async (): Promise<LayoutTemplate[]> => {
   const templates = await getLayoutTemplates();

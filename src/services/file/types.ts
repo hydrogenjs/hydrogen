@@ -9,10 +9,13 @@ interface HeadArgs {
 export interface PageTemplate {
   layout: string;
   page(args: PageArgs): string;
+  default: PageTemplate;
 }
 
 interface LayoutArgs {
   dev: boolean;
 }
 
-export type LayoutTemplate = (args: LayoutArgs) => string;
+export interface LayoutTemplate {
+  default: (args: LayoutArgs) => string;
+}
