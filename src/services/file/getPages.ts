@@ -2,8 +2,9 @@ import glob from '../../helpers/glob';
 import { PageTemplate } from './types';
 
 const CWD = process.cwd();
+const PATTERN = 'pages/**/*.js';
 
-const getPagesPaths = async (): Promise<string[]> => glob('pages/**/*.js');
+const getPagesPaths = async (): Promise<string[]> => glob(PATTERN);
 
 const getPagesTemplate = async (): Promise<Promise<PageTemplate>[]> => {
   const paths = await getPagesPaths();
