@@ -1,19 +1,24 @@
 import glob from '../../helpers/glob';
-import { LayoutTemplate } from './types';
+import { LayoutProperties } from './types';
 
 const CWD = process.cwd();
 const PATTERN = 'layouts/**/*.js';
 
 const getLayoutPaths = async (): Promise<string[]> => glob(PATTERN);
 
-const getLayoutTemplates = async (): Promise<Promise<LayoutTemplate>[]> => {
+const getLayoutTemplates = async (paths: string[]): Promise<Promise<LayoutProperties>[]> => paths
+  .map(async (path): Promise<LayoutProperties> => {
+    const filename = path.split('/').pop() as string;
+
+    return {
+      name: filename.split('.')[0],
+      ...await import(`${CWD}/${path}`),
+    };
+  });
+
+const getLayouts = async (): Promise<LayoutProperties[]> => {
   const paths = await getLayoutPaths();
-
-  return paths.map((path): Promise<LayoutTemplate> => import(`${CWD}/${path}`));
-};
-
-const getLayouts = async (): Promise<LayoutTemplate[]> => {
-  const templates = await getLayoutTemplates();
+  const templates = await getLayoutTemplates(paths);
 
   return Promise.all(templates);
 };
