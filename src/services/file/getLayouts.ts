@@ -25,6 +25,4 @@ const getLayouts = async (): Promise<LayoutProperties[]> => {
   return Promise.all(templates);
 };
 
-export default {
-  getLayouts,
-};
+export default getLayouts;

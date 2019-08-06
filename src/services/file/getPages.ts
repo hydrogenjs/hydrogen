@@ -22,6 +22,4 @@ const getPages = async (): Promise<PageProperties[]> => {
   return Promise.all(templates);
 };
 
-export default {
-  getPages,
-};
+export default getPages;
