@@ -51,18 +51,6 @@ export const globFiles = async (pattern: string): Promise<string[]> => new Promi
   });
 });
 
-export const tempateGenerator = async (filename: string): Promise<void|boolean> => {
-  if (!filename) {
-    console.log('\nNo file provided\n');
-    return false;
-  }
-
-  console.time('build time');
-  const file = await import(`${CWD}/${filename}`);
-  await fs.outputFile(filename.replace('.js', '.html'), await file.page({ title: file.title, ...file.data ? await file.data() : {} }));
-  console.timeEnd('build time');
-};
-
 // @ts-ignore
 export const mapHeadTags = ([tag, props, content = null]: [string, object, string|null|boolean]): string => {
   // @ts-ignore
@@ -97,4 +85,26 @@ export const getConfig = async (): Promise<Config> => {
   }
 
   return import(`${CWD}/hydrogen.config.js`).then((res): Config => res.default);
+};
+
+export const tempateGenerator = async (filename: string): Promise<void|boolean> => {
+  if (!filename) {
+    console.log('\nNo file provided\n');
+    return false;
+  }
+
+  console.time('build time');
+  const file = await import(`${CWD}/${filename}`);
+  const config = await getConfig();
+
+  const data = {
+    ...file.data ? await file.data() : {},
+  };
+
+  await fs.outputFile(filename.replace('.js', '.html'), await file.page({
+    title: file.title,
+    head: file.head ? await transformHeadToHTML(file.head, data, config) : '',
+    ...data,
+  }));
+  console.timeEnd('build time');
 };
