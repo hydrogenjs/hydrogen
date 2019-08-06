@@ -6,8 +6,9 @@ interface HeadArgs {
   dev: boolean;
 }
 
-interface PageTemplate {
+export interface PageTemplate {
   layout: string;
+  title: string;
   page(args: PageArgs): string;
   default: PageTemplate;
 }
@@ -21,7 +22,7 @@ interface LayoutArgs {
   dev: boolean;
 }
 
-interface LayoutTemplate {
+export interface LayoutTemplate {
   default: (args: LayoutArgs) => string;
 }
 
