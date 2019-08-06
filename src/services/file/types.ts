@@ -12,6 +12,11 @@ export interface PageTemplate {
   default: PageTemplate;
 }
 
+export interface PageProperties extends PageTemplate {
+  name: string;
+  path: string;
+}
+
 interface LayoutArgs {
   dev: boolean;
 }
