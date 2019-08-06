@@ -4,9 +4,11 @@ import { LayoutProperties } from './types';
 const CWD = process.cwd();
 const PATTERN = 'layouts/**/*.js';
 
-const getLayoutPaths = async (): Promise<string[]> => glob(PATTERN);
+type Paths = string[];
 
-const getLayoutTemplates = async (paths: string[]): Promise<Promise<LayoutProperties>[]> => paths
+const getLayoutPaths = async (): Promise<Paths> => glob(PATTERN);
+
+const getLayoutTemplates = async (paths: Paths): Promise<Promise<LayoutProperties>[]> => paths
   .map(async (path): Promise<LayoutProperties> => {
     const filename = path.split('/').pop() as string;
 

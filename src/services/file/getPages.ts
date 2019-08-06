@@ -4,9 +4,11 @@ import { PageProperties } from './types';
 const CWD = process.cwd();
 const PATTERN = 'pages/**/*.js';
 
-const getPagesPaths = async (): Promise<string[]> => glob(PATTERN);
+type Paths = string[];
 
-const getPagesTemplate = async (paths: string[]): Promise<Promise<PageProperties>[]> => paths
+const getPagesPaths = async (): Promise<Paths> => glob(PATTERN);
+
+const getPagesTemplate = async (paths: Paths): Promise<Promise<PageProperties>[]> => paths
   .map(async (path): Promise<PageProperties> => ({
     name: path.split('/').pop(),
     path: path.replace('pages', 'dist').replace('.js', '.html'),
