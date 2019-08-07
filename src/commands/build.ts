@@ -1,7 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import cli from 'cli-ux';
 import { build } from '../services/compiler';
-import { saveHTMLToFiles, getConfig } from '../services/file';
+import { saveHTMLToFiles, getConfig, copyStaticFolder } from '../services/file';
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
 
@@ -32,6 +32,7 @@ export class Build extends Command {
     const htmlPages = await build(dev, config);
 
     await saveHTMLToFiles(htmlPages);
+    await copyStaticFolder(config.staticFolder);
 
     cli.action.stop();
     console.timeEnd('Build time');

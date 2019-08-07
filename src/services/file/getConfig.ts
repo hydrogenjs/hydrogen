@@ -5,7 +5,7 @@ const FILE = 'hydrogen.config.js';
 
 const CWD = process.cwd();
 
-const getConfig = async (): Promise<Config|object> => {
+const getConfig = async (): Promise<Config> => {
   if (!await fs.pathExists(`${CWD}/${FILE}`)) {
     return {};
   }
