@@ -6,6 +6,7 @@ export interface PageAndLayoutProperties {
   path: string;
   layout: LayoutTemplate['default'];
   page: PageTemplate['page'];
+  data?: PageTemplate['data'];
 }
 
 export interface HTMLObject {

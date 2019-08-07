@@ -1,5 +1,10 @@
 interface PageArgs {
   dev: boolean;
+  data: object;
+}
+
+interface DataArgs {
+  dev: boolean;
 }
 
 interface HeadArgs {
@@ -10,6 +15,7 @@ export interface PageTemplate {
   layout: string;
   title: string;
   page(args: PageArgs): string;
+  data?(args: DataArgs): Promise<object>;
   default: PageTemplate;
 }
 

@@ -8,8 +8,11 @@ export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutPr
   }));
 
 export const generateHTML = (pages: PageAndLayoutProperties[], { dev }: Options): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
+  const pageData = page.data ? await page.data({ dev }) : {};
+
   const pageTemplate = page.page({
     dev,
+    data: pageData,
   });
 
   const layoutTemplate = await page.layout({
