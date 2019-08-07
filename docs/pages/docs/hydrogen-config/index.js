@@ -39,6 +39,22 @@ const page = () => html`
       };
     </code>
   </pre>
+  <h2>Copy extra static files <code class="badge">New v0.5.11</code></h2>
+  <p>You now able to copy static files like <code class="code">manifest.json</code> or any root-level files in your project to the <code class="code">dist</code> folder</p>
+  <small>hydrogen.config.js</small>
+  <pre>
+    <code class="lang-javascript">
+      module.exports = {
+        name: 'Hydrogen Webapp',
+        staticFolder: 'public'
+        extraStaticFiles: [
+          'robots.txt',
+          'manifest.json',
+          'sitemap.xml',  
+        ]
+      };
+    </code>
+  </pre>
   <h2 id="set-global-head-tags">Set global head tags</h2>
   <p>You now have access to the <a href="/docs/working-with-meta-data">Head API</a> in the config for global meta info</p>
   <p class="tip">The global head tags are merged with the head tags in each page</p>
