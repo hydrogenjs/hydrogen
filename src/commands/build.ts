@@ -31,8 +31,9 @@ export class Build extends Command {
 
     const htmlPages = await build(dev, config);
 
+    await saveHTMLToFiles(htmlPages);
+
     await Promise.all([
-      saveHTMLToFiles(htmlPages),
       copyStaticFolder(config.staticFolder),
       copyExtraStaticFiles(config.extraStaticFiles),
     ]);
