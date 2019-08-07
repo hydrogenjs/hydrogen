@@ -59,8 +59,8 @@ const page = () => html`
   </p>
   <pre>
     <code class="lang-javascript">
-      const page = ({ text, dev }) => &#96;
-        &lt;p&gt;$n{text}&lt;/p&gt;
+      const page = ({ data, dev }) => &#96;
+        &lt;p&gt;$n{data.text}&lt;/p&gt;
       &#96;;
 
       module.exports = {
@@ -92,17 +92,17 @@ const page = () => html`
     <tr>
       <td><code class="code">page</code></td>
       <td>This is a function that is used as the page content</td>
-      <td style="width: 20vw;">async page({ ...data: object, dev: boolean }): string</td>
+      <td style="width: 20vw;">async page({ data: object, dev: boolean }): string</td>
     </tr>
     <tr>
       <td><code class="code">data</code></td>
       <td>This is a function that can be used to fetch data from remote sources such as: JSON files or APIs</td>    
-      <td>async data({ dev: boolean }): object</td>    
+      <td>async data({ dev: boolean }): object</td>
     </tr>
     <tr>
       <td><code class="code">head</code></td>
       <td>This is a function that can be used to dynamically generate metadata which gets injected into the layout template</td>
-      <td>async head({ ...data: object, dev: boolean }): [string, object, string][]</td>
+      <td>async head({ data: object, dev: boolean }): [string, object, string][]</td>
     </tr>
   </table>
 `.replace(/\$n/g, '$');

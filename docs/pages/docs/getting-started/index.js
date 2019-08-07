@@ -32,14 +32,14 @@ const page = () => html`
   <p>Let's create a simple template which we will store in <code class="code">index.js</code> file</p>
   <pre>
     <code class="lang-javascript">
-      const page = ({ title, head, text }) => &#96;
+      const page = ({ title, head, data }) => &#96;
         &lt;html&gt;
           &lt;head&gt;
             $n{head}
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;
-            &lt;p&gt;$n{text}&lt;/p&gt;
+            &lt;p&gt;$n{data.text}&lt;/p&gt;
           &lt;/body&gt;
         &lt;/html&gt;
       &#96;;
@@ -52,7 +52,7 @@ const page = () => html`
           css: 'https://main.css',
         }),
         head: ({ css }) => [
-          ['link', { rel: 'stylesheet', href: css }],
+          ['link', { rel: 'stylesheet', href: data.css }],
           ['script', { src: 'https://script.js' }, true],
           ['style', {}, 'body { font-size: 10px; }'],
         ],

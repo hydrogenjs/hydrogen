@@ -26,8 +26,8 @@ const page = () => html`
   <small>In your page template you can export the head function</small>
   <pre>
     <code class="lang-javascript">
-      const page = ({ text, dev }) => &#96;
-        &lt;p&gt;$n{text}&lt;/p&gt;
+      const page = ({ data, dev }) => &#96;
+        &lt;p&gt;$n{data.text}&lt;/p&gt;
       &#96;;
 
       module.exports = {
@@ -65,8 +65,8 @@ const page = () => html`
     <code class="lang-javascript">
       const axios = require('axios');
 
-      const page = ({ likes, dev }) => &#96;
-        &lt;p&gt;This project has $n{likes} likes&lt;/p&gt;
+      const page = ({ data, dev }) => &#96;
+        &lt;p&gt;This project has $n{data.likes} likes&lt;/p&gt;
       &#96;;
 
       module.exports = {

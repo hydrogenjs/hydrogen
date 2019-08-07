@@ -16,13 +16,13 @@ const page = () => html`
   <small>Using a simple object</small>
   <pre>
     <code class="lang-javascript">
-      const page = ({ title, text }) => &#96;
+      const page = ({ title, data }) => &#96;
         &lt;html&gt;
           &lt;head&gt;
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;
-            &lt;p&gt;$n{text}&lt;/p&gt;
+            &lt;p&gt;$n{data.text}&lt;/p&gt;
           &lt;/body&gt;
         &lt;/html&gt;
       &#96;;
@@ -41,14 +41,14 @@ const page = () => html`
     <code class="lang-javascript">
       const data = require('./data.json');
 
-      const page = ({ title, posts }) => &#96;
+      const page = ({ title, data }) => &#96;
         &lt;html&gt;
           &lt;head&gt;
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;
             &lt;ul&gt;
-              $n{posts.map((post) => &#96;&lt;li&gt;$n{post.title}&lt;/li&gt;&#96;).join('')}
+              $n{data.posts.map((post) => &#96;&lt;li&gt;$n{post.title}&lt;/li&gt;&#96;).join('')}
             &lt;/ul&gt;
           &lt;/body&gt;
         &lt;/html&gt;
@@ -72,13 +72,13 @@ const page = () => html`
     <code class="lang-javascript">
       const axios = require('axios');
 
-      const page = ({ title, githubStars }) => &#96;
+      const page = ({ title, data }) => &#96;
         &lt;html&gt;
           &lt;head&gt;
             &lt;title&gt;$n{title}&lt;/title&gt;
           &lt;/head&gt;
           &lt;body&gt;
-            &lt;p&gt;$n{githubStars}&lt;/p&gt;
+            &lt;p&gt;$n{data.githubStars}&lt;/p&gt;
           &lt;/body&gt;
         &lt;/html&gt;
       &#96;;
