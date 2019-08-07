@@ -1,3 +1,5 @@
+import { HeadTag } from '../head/types';
+
 interface PageArgs {
   dev: boolean;
   data: object;
@@ -9,6 +11,7 @@ interface DataArgs {
 
 interface HeadArgs {
   dev: boolean;
+  data: object;
 }
 
 export interface PageTemplate {
@@ -16,6 +19,7 @@ export interface PageTemplate {
   title: string;
   page(args: PageArgs): string;
   data?(args: DataArgs): Promise<object>;
+  head?(args: HeadArgs): Promise<HeadTag[]>;
   default: PageTemplate;
 }
 
@@ -27,6 +31,7 @@ export interface PageProperties extends PageTemplate {
 interface LayoutArgs {
   title: string;
   content: string;
+  head: string;
   dev: boolean;
 }
 
