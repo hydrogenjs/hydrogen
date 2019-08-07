@@ -4,6 +4,7 @@ module.exports = {
   extraStaticFiles: [
     'robots.txt',
   ],
+  sw: 'sw.js',
   head: ({ config }) => [
     ['link', { rel: 'stylesheet', href: `/${config.staticFolder}/css/main.css` }],
     ['link', { rel: 'stylesheet', href: 'https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css' }],
