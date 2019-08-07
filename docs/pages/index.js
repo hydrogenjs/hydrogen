@@ -1,6 +1,7 @@
 const html = require('html-template-tag');
+const axios = require('axios');
 
-const page = () => html`
+const page = ({ data }) => html`
   <h1>🎈 Hydrogen</h1>
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
   <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
@@ -10,7 +11,7 @@ const page = () => html`
   <p align="center">
     <a style="color: #007acc;" href="/docs">Docs</a>
     |
-    v0.5.9
+    v${data.version}
     |
     <a href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
     |
@@ -67,6 +68,9 @@ const page = () => html`
 module.exports = {
   layout: 'default',
   page,
+  data: async () => ({
+    version: await axios.get('https://api.npms.io/v2/package/hydrogen-cli').then(res => res.data.collected.metadata.version),
+  }),
   head: () => [
     ['meta', { name: 'description', content: 'A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation' }],
     ['meta', { property: 'og:title', content: '🎈 Hydrogen: Super fast static-site generator' }],
