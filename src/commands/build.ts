@@ -1,7 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import cli from 'cli-ux';
 import { build } from '../services/compiler';
-import { saveHTMLToFiles } from '../services/file';
+import { saveHTMLToFiles, getConfig } from '../services/file';
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
 
@@ -18,6 +18,8 @@ export class Build extends Command {
   async run(): Promise<boolean|void> {
     const { flags: { dev } } = this.parse(Build);
 
+    const config = await getConfig();
+
     await logBuildMode(dev);
 
     if (!await doFoldersExist()) {
@@ -27,7 +29,7 @@ export class Build extends Command {
     cli.action.start('Building files');
     console.time('Build time');
 
-    const htmlPages = await build(dev);
+    const htmlPages = await build(dev, config);
 
     await saveHTMLToFiles(htmlPages);
 

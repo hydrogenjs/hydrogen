@@ -1,11 +1,13 @@
-import { HeadTag } from '../head/types';
+import { HeadTag, Head } from '../head/types';
 
 interface PageArgs {
-  dev: boolean;
   data: object;
+  config: Config;
+  dev: boolean;
 }
 
 interface DataArgs {
+  config: Config;
   dev: boolean;
 }
 
@@ -32,6 +34,7 @@ interface LayoutArgs {
   title: string;
   content: string;
   head: string;
+  config: Config;
   dev: boolean;
 }
 
@@ -41,4 +44,10 @@ export interface LayoutTemplate {
 
 export interface LayoutProperties extends LayoutTemplate {
   name: string;
+}
+
+export interface Config {
+  name: string;
+  staticFolder: string;
+  head: Head;
 }

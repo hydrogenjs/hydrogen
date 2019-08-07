@@ -1,4 +1,4 @@
-import { LayoutTemplate, PageTemplate } from '../file/types';
+import { LayoutTemplate, PageTemplate, Config } from '../file/types';
 
 export interface PageAndLayoutProperties {
   name: string;
@@ -18,4 +18,5 @@ export interface HTMLObject {
 
 export interface Options {
   dev: boolean;
+  config: Config;
 }
