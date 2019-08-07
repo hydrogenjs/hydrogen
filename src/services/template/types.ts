@@ -7,3 +7,13 @@ export interface PageAndLayoutProperties {
   layout: LayoutTemplate['default'];
   page: PageTemplate['page'];
 }
+
+export interface HTMLObject {
+  html: string;
+  name: string;
+  path: string;
+}
+
+export interface Options {
+  dev: boolean;
+}

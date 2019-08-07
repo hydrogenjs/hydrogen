@@ -19,6 +19,8 @@ export interface PageProperties extends PageTemplate {
 }
 
 interface LayoutArgs {
+  title: string;
+  content: string;
   dev: boolean;
 }
 
