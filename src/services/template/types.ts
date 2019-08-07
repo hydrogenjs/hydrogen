@@ -13,3 +13,7 @@ export interface HTMLObject {
   name: string;
   path: string;
 }
+
+export interface Options {
+  dev: boolean;
+}

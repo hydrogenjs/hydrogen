@@ -1,5 +1,5 @@
 import { PageProperties, LayoutProperties } from '../file/types';
-import { PageAndLayoutProperties, HTMLObject } from './types';
+import { PageAndLayoutProperties, HTMLObject, Options } from './types';
 
 export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutProperties[]): PageAndLayoutProperties[] => pages
   .map(({ layout, ...otherValues }): PageAndLayoutProperties => ({
@@ -7,7 +7,7 @@ export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutPr
     ...otherValues,
   }));
 
-export const generateHTML = (pages: PageAndLayoutProperties[], dev: boolean): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
+export const generateHTML = (pages: PageAndLayoutProperties[], { dev }: Options): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
   const pageTemplate = page.page({
     dev,
   });
