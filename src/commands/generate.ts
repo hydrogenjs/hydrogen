@@ -1,6 +1,5 @@
 import { Command } from '@oclif/command';
-import { tempateGenerator } from '../generator/helpers';
-
+import { tempateGenerator } from '../services/compiler';
 export class Generate extends Command {
   static description = 'Generate a template';
 
@@ -8,9 +7,9 @@ export class Generate extends Command {
     { name: 'file' },
   ];
 
-  async run() {
+  async run(): Promise<void> {
     const { args } = this.parse(Generate);
 
     tempateGenerator(args.file);
-  };
-};
+  }
+}
