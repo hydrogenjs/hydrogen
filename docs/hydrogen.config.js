@@ -1,6 +1,9 @@
 module.exports = {
   name: '🎈 Hydrogen',
   staticFolder: 'public',
+  extraStaticFiles: [
+    'robots.txt',
+  ],
   head: ({ config }) => [
     ['link', { rel: 'stylesheet', href: `/${config.staticFolder}/css/main.css` }],
     ['link', { rel: 'stylesheet', href: 'https://highlightjs.org/static/demo/styles/tomorrow-night-bright.css' }],
