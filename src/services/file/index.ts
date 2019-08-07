@@ -4,6 +4,7 @@ import saveHTMLToFiles from './saveHTMLToFiles';
 import getConfig from './getConfig';
 import copyStaticFolder from './copyStaticFolder';
 import copyExtraStaticFiles from './copyExtraStaticFiles';
+import getServiceWorker from './getServiceWorker';
 
 export {
   getPages,
@@ -12,4 +13,5 @@ export {
   getConfig,
   copyStaticFolder,
   copyExtraStaticFiles,
+  getServiceWorker,
 };
