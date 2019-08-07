@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { build } from '../services/compiler';
 import { saveHTMLToFiles } from '../services/file';
+import { doFoldersExist } from '../helpers/checkFolder';
 
 export class Build extends Command {
   static description = 'Starts building templates for production';
@@ -12,8 +13,12 @@ export class Build extends Command {
     }),
   };
 
-  async run(): Promise<void> {
+  async run(): Promise<boolean|undefined> {
     const { flags: { dev } } = this.parse(Build);
+
+    if (!await doFoldersExist()) {
+      return false;
+    }
 
     const htmlPages = await build(dev);
 
