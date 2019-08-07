@@ -7,5 +7,6 @@ export default async (sw: string): Promise<Buffer|boolean> => {
     return false;
   }
 
-  return fs.readFile(`${CWD}/${sw}`);
+  // @ts-ignore
+  return fs.readFile(`${CWD}/${sw}`, 'utf-8');
 };

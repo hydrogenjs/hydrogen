@@ -4,6 +4,7 @@ import { build } from '../services/compiler';
 import { saveHTMLToFiles, getConfig, copyStaticFolder, copyExtraStaticFiles } from '../services/file';
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
+import { generateSW } from '../services/service_worker';
 
 export class Build extends Command {
   static description = 'Starts building templates for production';
@@ -36,6 +37,7 @@ export class Build extends Command {
     await Promise.all([
       copyStaticFolder(config.staticFolder),
       copyExtraStaticFiles(config.extraStaticFiles),
+      generateSW(config.sw),
     ]);
 
     cli.action.stop();
