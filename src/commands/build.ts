@@ -13,7 +13,7 @@ export class Build extends Command {
     }),
   };
 
-  async run(): Promise<boolean|undefined> {
+  async run(): Promise<boolean|void> {
     const { flags: { dev } } = this.parse(Build);
 
     if (!await doFoldersExist()) {
