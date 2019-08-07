@@ -3,10 +3,10 @@ import { normalize } from 'path';
 
 const CWD = process.cwd();
 
-export default async (files: string[] | undefined = []): Promise<void|boolean> => {
+export default async (files: string[] | undefined = []): Promise<void[]|boolean> => {
   if (!files) {
     return false;
   }
 
-  files.map((file): Promise<void> => fs.copyFile(normalize(`${CWD}/${file}`), normalize(`${CWD}/dist/${file}`)));
+  return Promise.all(files.map((file): Promise<void> => fs.copyFile(normalize(`${CWD}/${file}`), normalize(`${CWD}/dist/${file}`))));
 };
