@@ -39,8 +39,8 @@ const page = () => html`
   <small>pages/index.js</small>
   <pre>
     <code class="lang-javascript">
-      const page = ({ text }) => &#96;
-        &lt;p&gt;$n{text}&lt;/p&gt;
+      const page = ({ data }) => &#96;
+        &lt;p&gt;$n{data.text}&lt;/p&gt;
       &#96;;
 
       module.exports = {

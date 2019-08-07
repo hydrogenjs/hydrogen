@@ -33,5 +33,6 @@ module.exports = {
       "@typescript-eslint/no-var-requires": "off",
       "no-nested-ternary": "off",
       "no-console": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off"
   }
 };
