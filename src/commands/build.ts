@@ -1,5 +1,6 @@
 import { Command, flags } from '@oclif/command';
-import { main } from '../generator';
+import { build } from '../services/compiler';
+import { saveHTMLToFiles } from '../services/file';
 
 export class Build extends Command {
   static description = 'Starts building templates for production';
@@ -11,8 +12,11 @@ export class Build extends Command {
     }),
   };
 
-  async run() {
-    const { flags } = this.parse(Build);
-    await main(flags.dev);
-  };
-};
+  async run(): Promise<void> {
+    const { flags: { dev } } = this.parse(Build);
+
+    const htmlPages = await build(dev);
+
+    await saveHTMLToFiles(htmlPages);
+  }
+}
