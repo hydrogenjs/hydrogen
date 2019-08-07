@@ -1,3 +1,4 @@
+import { normalize } from 'path';
 import glob from '../../helpers/glob';
 import { LayoutProperties } from './types';
 
@@ -14,7 +15,7 @@ const getLayoutTemplates = async (paths: Paths): Promise<Promise<LayoutPropertie
 
     return {
       name: filename.split('.')[0],
-      ...await import(`${CWD}/${path}`),
+      ...await import(normalize(`${CWD}/${path}`)),
     };
   });
 

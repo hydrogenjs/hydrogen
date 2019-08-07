@@ -1,3 +1,4 @@
+import { normalize } from 'path';
 import glob from '../../helpers/glob';
 import { PageProperties } from './types';
 
@@ -12,7 +13,7 @@ const getPagesTemplate = async (paths: Paths): Promise<Promise<PageProperties>[]
   .map(async (path): Promise<PageProperties> => ({
     name: path.split('/').pop(),
     path: path.replace('pages', 'dist').replace('.js', '.html'),
-    ...await import(`${CWD}/${path}`),
+    ...await import(normalize(`${CWD}/${path}`)),
   }));
 
 const getPages = async (): Promise<PageProperties[]> => {

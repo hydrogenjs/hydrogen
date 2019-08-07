@@ -1,4 +1,5 @@
 import fs from 'fs-extra';
+import { normalize } from 'path';
 import { getPages, getLayouts, getConfig } from '../file';
 import { mergeLayoutsWithPages, generateHTML } from '../template';
 import { HTMLObject, PageAndLayoutProperties } from '../template/types';
@@ -22,7 +23,7 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
   }
 
   console.time('build time');
-  const file = await import(`${CWD}/${filename}`) as PageAndLayoutProperties;
+  const file = await import(normalize(`${CWD}/${filename}`)) as PageAndLayoutProperties;
   const config = await getConfig();
 
   const data = {
