@@ -47,7 +47,7 @@ export interface LayoutProperties extends LayoutTemplate {
 }
 
 export interface Config {
-  name: string;
-  staticFolder: string;
-  head: Head;
+  name?: string;
+  staticFolder?: string;
+  head?: Head;
 }
