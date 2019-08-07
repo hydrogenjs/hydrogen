@@ -7,7 +7,6 @@ import { Path } from './types';
 
 const CWD = process.cwd();
 
-
 export const generateSW = async (sw: string | undefined = 'sw.js'): Promise<void> => {
   const pages = await glob('pages/**/*.js');
   const file = await getServiceWorker(sw);
