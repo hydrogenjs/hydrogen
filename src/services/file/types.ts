@@ -49,5 +49,6 @@ export interface LayoutProperties extends LayoutTemplate {
 export interface Config {
   name?: string;
   staticFolder?: string;
+  extraStaticFiles?: string[];
   head?: Head;
 }
