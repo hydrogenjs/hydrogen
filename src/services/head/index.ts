@@ -2,7 +2,7 @@ import { Head, HeadTag } from './types';
 import { Config } from '../file/types';
 
 const mapHeadTags = ([tag, props, content = null]: HeadTag): string => {
-  const keys = Object.keys(props).map((key: string): string => `${key}="${props[key]}"`).join(' ');
+  const keys = Object.keys(props).map((key: string): string => (props[key] === true ? `${key}` : `${key}="${props[key]}"`)).join(' ');
 
   if (content) {
     if (content === true) {
