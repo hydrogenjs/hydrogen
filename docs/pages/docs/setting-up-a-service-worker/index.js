@@ -49,7 +49,7 @@ const page = () => html`
   </pre>
   <p>Run <code class="code">npx hydrogen build</code> and the <code class="code">sw.js</code> will be copied to the dist folder</p>
   <h2 id="exposing-page-routes-to-your-service-worker">Exposing page routes to your Service Worker</h2>
-  <p>Here is our folder structure.</p>
+  <p>Here is our pages folder structure.</p>
   <pre>
     <code class="lang-plaintext">
       /pages
@@ -68,24 +68,34 @@ const page = () => html`
     <code class="lang-javascript">
       const routes = [
         {
+          "route": "/",
+          "filename": "index.html",
+          "index": true,
+          "depth": 0
+        },
+        {
+          "route": "/java",
+          "filename": "index.html",
+          "index": true,
+          "depth": 1 
+        },
+        {
           "route": "/javascript",
-          "filename": "index.html"
+          "filename": "index.html",
+          "index": true,
+          "depth": 1
         },
         {
           "route": "/javascript",
           "filename": "functions.html"
+          "index": false,
+          "depth": 1
         },
         {
           "route": "/javascript/oop",
-          "filename": "index.html"
-        },
-        {
-          "route": "/java",
-          "filename": "index.html"
-        },
-        {
-          "route": "/",
-          "filename": "index.html"
+          "filename": "index.html",
+          "index": true,
+          "depth": 2
         }
       ]
     </code>

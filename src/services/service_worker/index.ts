@@ -19,8 +19,10 @@ export const generateSW = async (sw: string | undefined = 'sw.js'): Promise<void
     return {
       route,
       filename,
+      index: filename === 'index.html',
+      depth: path.length - 1,
     };
-  });
+  }).sort((a, b): number => a.depth - b.depth);
 
   const serviceWorker = `
     const routes = ${JSON.stringify(paths, null, 3)}
