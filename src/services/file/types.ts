@@ -50,5 +50,6 @@ export interface Config {
   name?: string;
   staticFolder?: string;
   extraStaticFiles?: string[];
+  sw?: string;
   head?: Head;
 }

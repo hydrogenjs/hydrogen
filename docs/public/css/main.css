@@ -123,8 +123,9 @@ img {
 }
 
 .code {
-  background-color: black; 
-  color: #76FF03; 
+  background-color: black;
+  color: #76FF03;
+  font-size: 13px;
   padding: 2px;
   padding-left: 4px;
   padding-right: 4px;

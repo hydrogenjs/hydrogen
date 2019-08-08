@@ -9,6 +9,19 @@ module.exports = async ({ title, content, head }) => html`
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     $${head}
     $${title ? html`<title>${title}</title>` : ''}
+    <script>
+      const registerSW = async () => {
+        if (!navigator.serviceWorker) {
+          return false;
+        }
+
+        const reg = await navigator.serviceWorker.register('/sw.js');
+
+        await reg.update();
+      }
+
+      registerSW();
+    </script>
   </head>
   <body>
     <nav>
