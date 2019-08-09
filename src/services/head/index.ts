@@ -2,21 +2,22 @@ import { Head, HeadTag } from './types';
 import { Config } from '../file/types';
 
 const mapHeadTags = ([tag, props, content = null]: HeadTag): string => {
-  const keys = Object.keys(props).map((key: string): string => (props[key] === true ? `${key}` : `${key}="${props[key]}"`)).join(' ');
+  const keys = Object.keys(props);
+  const attributes = keys.map((key: string): string => (props[key] === true ? `${key}` : `${key}="${props[key]}"`)).join(' ');
 
   if (content) {
     if (content === true) {
-      return `<${tag} ${keys}></${tag}>`;
+      return `<${tag} ${attributes}></${tag}>`;
     }
 
-    if (!Object.keys(props).length) {
+    if (!keys.length) {
       return `<${tag}>${content}</${tag}>`;
     }
 
-    return `<${tag} ${keys}>${content}</${tag}>`;
+    return `<${tag} ${attributes}>${content}</${tag}>`;
   }
 
-  return `<${tag} ${keys} />`;
+  return `<${tag} ${attributes} />`;
 };
 
 export const transformHeadToHTML = async ({ head, data, config, dev }: { head?: Head; data: object; config: Config; dev: boolean }): Promise<string> => {
