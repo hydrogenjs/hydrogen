@@ -29,9 +29,14 @@ const pagesWithData = pages.map(({ page, ...otherValues }): PageProperties => ({
 
 const pagesWithHead = pages.map((page): PageProperties => ({
   head: async (): Promise<HeadTag[]> => [
-    ['link', {}, false],
+    ['link', { rel: 'stylesheet', href: 'https://main.css' }, false],
   ],
   ...page,
+}));
+
+const layoutsForHead = layouts.map(({ name }): LayoutProperties => ({
+  name,
+  default: ({ head }): string => `${head}`,
 }));
 
 describe('Template API', (): void => {
@@ -92,6 +97,15 @@ describe('Template API', (): void => {
       expect(generatedPage.name).toBe('index.html');
       expect(generatedPage.path).toBe('dist/docs/template-apis/index.html');
       expect(generatedPage.html).toBe('<p>John</p>');
+    });
+
+    it('should have output of head function in generated HTMLObject', async (): Promise<void> => {
+      const layoutsWithPages = mergeLayoutsWithPages(pagesWithHead, layoutsForHead);
+      const [generatedPage] = await generateHTML(layoutsWithPages, { dev: true, config: {} });
+
+      expect(generatedPage.name).toBe('index.html');
+      expect(generatedPage.path).toBe('dist/docs/template-apis/index.html');
+      expect(generatedPage.html).toBe('<link rel="stylesheet" href="https://main.css" />');
     });
   });
 });
