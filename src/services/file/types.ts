@@ -22,7 +22,6 @@ export interface PageTemplate {
   page(args: PageArgs): string;
   data?(args: DataArgs): Promise<object>;
   head?(args: HeadArgs): Promise<HeadTag[]>;
-  // default: PageTemplate;
 }
 
 export interface PageProperties extends PageTemplate {
