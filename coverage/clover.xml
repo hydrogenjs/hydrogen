@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1565355446049" clover="3.2.0">
+  <project timestamp="1565355446050" name="All files">
+    <metrics statements="13" coveredstatements="10" conditionals="13" coveredconditionals="6" methods="3" coveredmethods="3" elements="29" coveredelements="19" complexity="0" loc="13" ncloc="13" packages="1" files="1" classes="1"/>
+    <file name="index.ts" path="/mnt/c/Users/shail/Projects/Personal/hydrogen/src/services/head/index.ts">
+      <metrics statements="13" coveredstatements="10" conditionals="13" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <line num="4" count="1" type="cond" truecount="0" falsecount="1"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="29" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
