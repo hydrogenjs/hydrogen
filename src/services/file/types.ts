@@ -1,7 +1,9 @@
 import { HeadTag, Head } from '../head/types';
 
 interface PageArgs {
-  data: object;
+  data: {
+    [x: string]: any;
+  };
   config: Config;
   dev: boolean;
 }

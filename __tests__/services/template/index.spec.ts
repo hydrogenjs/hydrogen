@@ -26,8 +26,31 @@ describe('Template API', (): void => {
       expect(page.name).toBe('index.js');
       expect(page.path).toBe('dist/docs/template-apis/index.html');
       expect(page.title).toBe('Template APIs | �🎈 Hydrogen');
+      expect(page.data).toBe(undefined);
+      expect(page.head).toBe(undefined);
       expect(typeof page.layout === 'function').toBe(true);
       expect(typeof page.page === 'function').toBe(true);
+    });
+
+    it('should have a data function', (): void => {
+      const newPages = pages.map((page): PageProperties => ({
+        data: async (): Promise<{ name: string }> => ({
+          name: 'John',
+        }),
+        page: ({ data }): string => `<p>${data.name}</p>`,
+        ...page,
+      }));
+
+      const [page] = mergeLayoutsWithPages(newPages, layouts);
+
+      expect(page.name).toBe('index.js');
+      expect(page.path).toBe('dist/docs/template-apis/index.html');
+      expect(page.title).toBe('Template APIs | �🎈 Hydrogen');
+      expect(page.head).toBe(undefined);
+      expect(page).toHaveProperty('data');
+      expect(typeof page.layout === 'function').toBe(true);
+      expect(typeof page.page === 'function').toBe(true);
+      expect(typeof page.data === 'function').toBe(true);
     });
   });
 
