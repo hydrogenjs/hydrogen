@@ -101,6 +101,7 @@ const page = () => html`
     </code>
   </pre>
   <p>Your <code class="code">sw.js</code> now has access to the above <code class="code">const routes</code>, so you can do something like creating a simple precache.</p>
+  <p class="tip">You also have access to the <code class="code">const DEV</code> which determines the mode</p>
   <small>sw.js</small>
   <pre>
     <code class="lang-javascript">

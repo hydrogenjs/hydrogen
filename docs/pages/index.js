@@ -1,5 +1,5 @@
 const html = require('html-template-tag');
-const axios = require('axios');
+const { version } = require('../../package.json');
 
 const page = ({ data }) => html`
   <h1>🎈 Hydrogen</h1>
@@ -68,8 +68,8 @@ const page = ({ data }) => html`
 module.exports = {
   layout: 'default',
   page,
-  data: async () => ({
-    version: await axios.get('https://api.npms.io/v2/package/hydrogen-cli').then(res => res.data.collected.metadata.version),
+  data: () => ({
+    version,
   }),
   head: () => [
     ['meta', { name: 'description', content: 'A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation' }],
