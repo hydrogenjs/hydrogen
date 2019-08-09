@@ -73,7 +73,7 @@
   "scripts": {
     "postpack": "rm -rf oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
-    "test": "npx jest"
+    "test": "npx jest --verbose --coverage"
   },
   "types": "lib/index.d.ts",
   "husky": {
