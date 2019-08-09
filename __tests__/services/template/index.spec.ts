@@ -1,5 +1,6 @@
 import { mergeLayoutsWithPages, generateHTML } from '../../../src/services/template';
 import { PageProperties, LayoutProperties } from '../../../src/services/file/types';
+import { HeadTag } from '../../../src/services/head/types';
 
 const pages: PageProperties[] = [
   {
@@ -23,6 +24,13 @@ const pageWithData = pages.map((page): PageProperties => ({
     name: 'John',
   }),
   page: ({ data }): string => `<p>${data.name}</p>`,
+  ...page,
+}));
+
+const pageWithHead = pages.map((page): PageProperties => ({
+  head: async (): Promise<HeadTag[]> => [
+    ['link', {}, false],
+  ],
   ...page,
 }));
 
@@ -51,6 +59,19 @@ describe('Template API', (): void => {
       expect(typeof page.layout === 'function').toBe(true);
       expect(typeof page.page === 'function').toBe(true);
       expect(typeof page.data === 'function').toBe(true);
+    });
+
+    it('should have a head function', (): void => {
+      const [page] = mergeLayoutsWithPages(pageWithHead, layouts);
+
+      expect(page.name).toBe('index.js');
+      expect(page.path).toBe('dist/docs/template-apis/index.html');
+      expect(page.title).toBe('Template APIs | �🎈 Hydrogen');
+      expect(page.data).toBe(undefined);
+      expect(page).toHaveProperty('head');
+      expect(typeof page.layout === 'function').toBe(true);
+      expect(typeof page.page === 'function').toBe(true);
+      expect(typeof page.head === 'function').toBe(true);
     });
   });
 
