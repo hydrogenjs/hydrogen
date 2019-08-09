@@ -7,7 +7,7 @@ import { Path } from './types';
 
 const CWD = process.cwd();
 
-export const generateSW = async (sw: string | undefined = 'sw.js'): Promise<void> => {
+export const generateSW = async (sw: string | undefined = 'sw.js', dev: boolean): Promise<void> => {
   const pages = await glob('pages/**/*.js');
   const file = await getServiceWorker(sw);
 
@@ -25,6 +25,7 @@ export const generateSW = async (sw: string | undefined = 'sw.js'): Promise<void
   }).sort((a, b): number => a.depth - b.depth);
 
   const serviceWorker = `
+    const DEV = ${JSON.stringify(dev)};
     const routes = ${JSON.stringify(paths, null, 3)}
 
     ${file}

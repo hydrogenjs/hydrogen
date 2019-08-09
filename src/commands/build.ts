@@ -37,7 +37,7 @@ export class Build extends Command {
     await Promise.all([
       copyStaticFolder(config.staticFolder),
       copyExtraStaticFiles(config.extraStaticFiles),
-      generateSW(config.sw),
+      generateSW(config.sw, dev),
     ]);
 
     cli.action.stop();
