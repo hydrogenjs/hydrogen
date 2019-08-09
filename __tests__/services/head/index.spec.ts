@@ -6,6 +6,8 @@ const head = async (): Promise<HeadTag[]> => [
   ['script', { src: '/public/js/script.js' }, true],
 ];
 
+const expectedOutput = '<link rel="stylesheet" href="/public/css/main.css" /><script src="/public/js/script.js"></script>';
+
 describe('Head API', (): void => {
   describe('transformHeadToHTML', (): void => {
     it('should return a string if given an array of head tags', async (): Promise<void> => {
@@ -14,9 +16,9 @@ describe('Head API', (): void => {
         data: {},
         config: {},
         dev: true,
-      });
+      }).then((res): string => res.replace(/\n/g, '').trim());
 
-      expect(HEAD.replace(/\n/g, '').trim()).toBe('<link rel="stylesheet" href="/public/css/main.css" /><script src="/public/js/script.js"></script>');
+      expect(HEAD).toBe(expectedOutput);
     });
   });
 });
