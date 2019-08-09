@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "html-template-tag": "^3.1.0",
-    "hydrogen-cli": "^0.6.2-beta.0"
+    "hydrogen-cli": "^0.6.2"
   },
   "scripts": {
     "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
