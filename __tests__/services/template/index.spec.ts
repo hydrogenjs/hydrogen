@@ -18,6 +18,14 @@ const layouts: LayoutProperties[] = [
   },
 ];
 
+const pageWithData = pages.map((page): PageProperties => ({
+  data: async (): Promise<{ name: string }> => ({
+    name: 'John',
+  }),
+  page: ({ data }): string => `<p>${data.name}</p>`,
+  ...page,
+}));
+
 describe('Template API', (): void => {
   describe('mergeLayoutsWithPages', (): void => {
     it('should merge a layout template with the related page template', (): void => {
@@ -33,15 +41,7 @@ describe('Template API', (): void => {
     });
 
     it('should have a data function', (): void => {
-      const newPages = pages.map((page): PageProperties => ({
-        data: async (): Promise<{ name: string }> => ({
-          name: 'John',
-        }),
-        page: ({ data }): string => `<p>${data.name}</p>`,
-        ...page,
-      }));
-
-      const [page] = mergeLayoutsWithPages(newPages, layouts);
+      const [page] = mergeLayoutsWithPages(pageWithData, layouts);
 
       expect(page.name).toBe('index.js');
       expect(page.path).toBe('dist/docs/template-apis/index.html');
