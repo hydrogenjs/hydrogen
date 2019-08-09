@@ -34,6 +34,7 @@
     "@types/node": "^10",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
+    "codecov": "^3.5.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
@@ -81,5 +82,9 @@
       "pre-commit": "yarn test",
       "pre-push": "yarn test"
     }
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

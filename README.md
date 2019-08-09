@@ -11,6 +11,7 @@ Voted the world's lightest static-site generator built with TypeScript ❤ It us
 BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/@11ty/eleventy) 😜
 
 [![Version](https://img.shields.io/npm/v/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
+[![codecov](https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg)](https://codecov.io/gh/ShailenNaidoo/hydrogen)
 [![Downloads/week](https://img.shields.io/npm/dw/hydrogen-cli.svg)](https://npmjs.org/package/hydrogen-cli)
 [![License](https://img.shields.io/npm/l/cli.svg)](https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json)
 
