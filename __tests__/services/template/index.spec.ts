@@ -19,15 +19,15 @@ const layouts: LayoutProperties[] = [
   },
 ];
 
-const pageWithData = pages.map((page): PageProperties => ({
+const pagesWithData = pages.map(({ page, ...otherValues }): PageProperties => ({
   data: async (): Promise<{ name: string }> => ({
     name: 'John',
   }),
   page: ({ data }): string => `<p>${data.name}</p>`,
-  ...page,
+  ...otherValues,
 }));
 
-const pageWithHead = pages.map((page): PageProperties => ({
+const pagesWithHead = pages.map((page): PageProperties => ({
   head: async (): Promise<HeadTag[]> => [
     ['link', {}, false],
   ],
@@ -49,7 +49,7 @@ describe('Template API', (): void => {
     });
 
     it('should have a data function', (): void => {
-      const [page] = mergeLayoutsWithPages(pageWithData, layouts);
+      const [page] = mergeLayoutsWithPages(pagesWithData, layouts);
 
       expect(page.name).toBe('index.js');
       expect(page.path).toBe('dist/docs/template-apis/index.html');
@@ -62,7 +62,7 @@ describe('Template API', (): void => {
     });
 
     it('should have a head function', (): void => {
-      const [page] = mergeLayoutsWithPages(pageWithHead, layouts);
+      const [page] = mergeLayoutsWithPages(pagesWithHead, layouts);
 
       expect(page.name).toBe('index.js');
       expect(page.path).toBe('dist/docs/template-apis/index.html');
@@ -83,6 +83,15 @@ describe('Template API', (): void => {
       expect(generatedPage.name).toBe('index.html');
       expect(generatedPage.path).toBe('dist/docs/template-apis/index.html');
       expect(generatedPage.html).toBe('<p>Hello World</p>');
+    });
+
+    it('should have output of data function in generated HTMLObject', async (): Promise<void> => {
+      const layoutsWithPages = mergeLayoutsWithPages(pagesWithData, layouts);
+      const [generatedPage] = await generateHTML(layoutsWithPages, { dev: true, config: {} });
+
+      expect(generatedPage.name).toBe('index.html');
+      expect(generatedPage.path).toBe('dist/docs/template-apis/index.html');
+      expect(generatedPage.html).toBe('<p>John</p>');
     });
   });
 });
