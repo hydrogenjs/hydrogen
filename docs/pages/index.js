@@ -3,6 +3,10 @@ const { version } = require('../../package.json');
 
 const page = ({ data }) => html`
   <h1>🎈 Hydrogen</h1>
+  <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
+  <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
+  <img style="border-radius: 0px;" src="https://img.shields.io/npm/dw/hydrogen-cli.svg">
+  <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
   <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
   <center>
