@@ -80,6 +80,36 @@ const page = () => html`
     You can place any assets you like in this folder and when you run the <code class="code">build</code> command the public folder is automatically hoisted into the dist folder.
   </p>
   <p>Repeat <span style="color: #007acc;">Step 3</span> to see how it works.</p>
+  <h2 id="setting-up-a-dev-server">Step 5: Setting up a dev server</h2>
+  <p>
+    Most static-site generators provide a development server out of the box but not Hydrogen. 
+    Hydrogen gives all the power to you, so you can setup our own development server.
+    Here is a simple development server setup with hot reloading.
+  </p>
+  <p>
+    We need some way to re-run hydrogen when files change and push the updates to the browser. We can use <code class="code">nodemon</code> <code class="code">live-server</code> <code class="code">npm-run-all</code> packages
+  </p>
+  <small>Install packages</small>
+  <pre>
+    <code class="lang-bash">
+        $ yarn add -D nodemon live-server npm-run-all
+    </code>
+  </pre>
+  <small>Update package.json</small>
+  <pre>
+    <code class="lang-json">
+        {
+          "scripts": {
+            "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
+            "serve": "npx cross-env npx live-server ./dist",
+            "dev": "npx npm-run-all --parallel reload serve"
+          }
+        }
+    </code>
+  </pre>
+  <p>
+    Run <code class="code">yarn dev</code> then you will have neat little development server with hot reloading
+  </p>
 `.replace(/\$n/g, '$');
 
 module.exports = {
