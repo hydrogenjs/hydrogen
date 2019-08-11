@@ -37,6 +37,7 @@ const page = () => html`
       <li><a href="/docs/advanced-setup#setting-up-a-page">Step 2: Setting up a page</a></li>
       <li><a href="/docs/advanced-setup#building-our-templates-into-html">Step 3: Building our templates into HTML</a></li>
       <li><a href="/docs/advanced-setup#using-static-assets-like-css-and-js">Step 4: Using static assets like CSS and JS</a></li>
+      <li><a href="/docs/advanced-setup#setting-up-a-dev-server">Step 5: Setting up a dev server</a></li>
     </ul>
     <li><a href="/docs/working-with-data">🌐 Working with Data</a></li>
     <ul>
