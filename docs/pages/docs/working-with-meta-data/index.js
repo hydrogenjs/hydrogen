@@ -118,7 +118,6 @@ const page = () => html`
 `.replace(/\$n/g, '$');
 
 module.exports = {
-  layout: 'default',
   page,
   head: ({ config }) => [
     ['meta', { name: 'description', content: 'Want to add some metadata to your page? Now you can with the Head API! All page templates have access to this API' }],
