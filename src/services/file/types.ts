@@ -19,7 +19,7 @@ interface HeadArgs {
 }
 
 export interface PageTemplate {
-  layout: string;
+  layout?: string;
   title: string;
   page(args: PageArgs): string;
   data?(args: DataArgs): Promise<object>;

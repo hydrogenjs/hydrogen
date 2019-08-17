@@ -19,6 +19,8 @@ const layouts: LayoutProperties[] = [
   },
 ];
 
+const pagesWithNoLayout = pages.map(({ layout, ...otherValues }) => ({ ...otherValues }));
+
 const pagesWithData = pages.map(({ page, ...otherValues }): PageProperties => ({
   data: async (): Promise<{ name: string }> => ({
     name: 'John',
@@ -43,6 +45,18 @@ describe('Template API', (): void => {
   describe('mergeLayoutsWithPages', (): void => {
     it('should merge a layout template with the related page template', (): void => {
       const [page] = mergeLayoutsWithPages(pages, layouts);
+
+      expect(page.name).toBe('index.js');
+      expect(page.path).toBe('dist/docs/template-apis/index.html');
+      expect(page.title).toBe('Template APIs | �🎈 Hydrogen');
+      expect(page.data).toBe(undefined);
+      expect(page.head).toBe(undefined);
+      expect(typeof page.layout === 'function').toBe(true);
+      expect(typeof page.page === 'function').toBe(true);
+    });
+
+    it('should merge default layout template with the related page template if layout is unknown', (): void => {
+      const [page] = mergeLayoutsWithPages(pagesWithNoLayout, layouts);
 
       expect(page.name).toBe('index.js');
       expect(page.path).toBe('dist/docs/template-apis/index.html');

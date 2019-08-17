@@ -3,7 +3,7 @@ import { PageAndLayoutProperties, HTMLObject, Options } from './types';
 import { transformHeadToHTML } from '../head';
 
 export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutProperties[]): PageAndLayoutProperties[] => pages
-  .map(({ layout, ...otherValues }): PageAndLayoutProperties => ({
+  .map(({ layout = 'default', ...otherValues }): PageAndLayoutProperties => ({
     layout: layouts.filter(({ name }): boolean => name === layout)[0].default,
     ...otherValues,
   }));

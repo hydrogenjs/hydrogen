@@ -92,7 +92,6 @@ const page = () => html`
 `.replace(/\$n/g, '$');
 
 module.exports = {
-  layout: 'default',
   title: 'Getting Started | 🎈 Hydrogen',
   page,
   head: ({ config }) => [

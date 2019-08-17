@@ -95,7 +95,6 @@ const page = () => html`
 `.replace(/\$n/g, '$');
 
 module.exports = {
-  layout: 'default',
   page,
   head: ({ config }) => [
     ['meta', { name: 'description', content: 'Learn how to expose data to your data sync/async' }],

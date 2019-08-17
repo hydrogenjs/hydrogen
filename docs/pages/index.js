@@ -70,7 +70,6 @@ const page = ({ data }) => html`
 `.replace('$n', '$');
 
 module.exports = {
-  layout: 'default',
   page,
   data: () => ({
     version,
