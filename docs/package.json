@@ -6,14 +6,14 @@
   "dependencies": {
     "axios": "^0.19.0",
     "html-template-tag": "^3.1.0",
-    "hydrogen-cli": "^0.6.2"
+    "hydrogen-cli": "^0.6.3"
   },
   "scripts": {
     "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
     "serve": "npx cross-env npx live-server ./dist",
     "dev": "npx npm-run-all --parallel reload serve",
     "build": "npx hydrogen build",
-    "test:cli": "../bin/run build --dev" 
+    "test:cli": "../bin/run build --dev"
   },
   "devDependencies": {
     "live-server": "^1.2.1"

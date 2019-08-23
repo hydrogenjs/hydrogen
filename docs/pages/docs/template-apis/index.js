@@ -108,7 +108,6 @@ const page = () => html`
 `.replace(/\$n/g, '$');
 
 module.exports = {
-  layout: 'default',
   title: 'Template APIs | 🎈 Hydrogen',
   page,
   head: ({ config }) => [

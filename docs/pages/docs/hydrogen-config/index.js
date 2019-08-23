@@ -89,7 +89,6 @@ const page = () => html`
 `.replace(/\$n/g, '$');
 
 module.exports = {
-  layout: 'default',
   page,
   head: ({ config }) => [
     ['title', {}, `Hydrogen Config | ${config.name}`],
