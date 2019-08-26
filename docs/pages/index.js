@@ -2,7 +2,7 @@ const html = require('html-template-tag');
 const { version } = require('../../package.json');
 
 const page = ({ data }) => html`
-  <h1>🎈 Hydrogen</h1>
+  <h1>🎈 DevUG</h1>
   <img style="border-radius: 0px;" src="https://api.netlify.com/api/v1/badges/812415ef-37e8-4015-b7cd-7654d0f3c9b8/deploy-status">
   <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
   <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
