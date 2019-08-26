@@ -5,6 +5,7 @@ import { saveHTMLToFiles, getConfig, copyStaticFolder, copyExtraStaticFiles } fr
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
 import { generateSW } from '../services/service_worker';
+import fileStats from '../helpers/fileStats';
 
 export class Build extends Command {
   static description = 'Starts building templates for production';
@@ -39,6 +40,8 @@ export class Build extends Command {
       copyExtraStaticFiles(config.extraStaticFiles),
       generateSW(config.sw, dev),
     ]);
+
+    await fileStats();
 
     cli.action.stop();
     console.timeEnd('Build time');

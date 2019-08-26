@@ -29,7 +29,7 @@ module.exports = {
       "import/prefer-default-export": 'off',
       "max-len": ["error", { code: 200 }],
       "consistent-return": 'off',
-      "linebreak-style": ["error", "windows"],
+      "linebreak-style": ["error", "unix"],
       "@typescript-eslint/no-var-requires": "off",
       "no-nested-ternary": "off",
       "no-console": "off",
