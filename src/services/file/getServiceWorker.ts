@@ -3,15 +3,14 @@ import { normalize } from 'path';
 
 const CWD = process.cwd();
 
-export default async (sw: string): Promise<Buffer|boolean> => {
+export default async (sw: string): Promise<Buffer|undefined|string> => {
   if (!sw) {
-    return false;
+    return;
   }
 
   if (!await fs.pathExists(normalize(`${CWD}/${sw}`))) {
-    return false;
+    return;
   }
 
-  // @ts-ignore
   return fs.readFile(`${CWD}/${sw}`, 'utf-8');
 };
