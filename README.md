@@ -23,6 +23,65 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 - 🔌 **Use External APIs**. Plug into your data with remote APIs.
 - 🕶 **Powerful Metadata API**. Get the best SEO for your static pages.
 
+## Quick start
+Add Hydrogen CLI to your project
+
+```bash
+$ yarn add hydrogen-cli
+```
+Create a simple `index.js` file with below code
+
+```javascript
+const page = ({ title, data, head }) => `
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>${title}</title>
+      ${head}
+    </head>
+    <body>
+      <h2>${data.project}</h2>
+      <p>${data.description}</p>
+    <body>
+  </html>
+`;
+
+module.exports = {
+  page,
+  title: 'Welcome to Hydrogen',
+  data: () => ({
+    project: 'Hydrogen',
+    description: 'Super fast static-site generator'
+  }),
+  head: ({ data }) => [
+    ['meta', { name: 'description', content: data.description }]
+  ]
+}
+```
+
+Run the below command to generate your template to HTML
+
+```bash 
+$ npx hydrogen generate index.js
+```
+The below HTML is outputted to an HTML file with the same name as the source `index.html`
+
+```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Welcome to Hydrogen</title>
+      <meta name="description" content="Super fast static-site generator" />
+    </head>
+    <body>
+      <h2>Hydrogen</h2>
+      <p>Super fast static-site generator</p>
+    <body>
+  </html>
+```
+
+> If you want to see a more advanced setup using Hydrogen, checkout [⚙ Advanced Setup](https://hydrogenjs.org/docs/advanced-setup/)
+
 ## Development
 
 Pull requests are more than welcome :)
