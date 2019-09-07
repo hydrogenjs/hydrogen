@@ -76,8 +76,10 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
     "test": "npx jest --verbose --coverage",
     "docker:build": "docker build -t hydrogen .",
-    "docker:shell": "docker run -it -p 8080:8080 hydrogen sh",
-    "docker:serve:docs": "docker run -it -p 8080:8080 hydrogen yarn dev"
+    "docker:shell": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen sh",
+    "docker:serve:docs": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn dev",
+    "docker:cli:dev": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build --dev",
+    "docker:cli:prod": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build"
   },
   "types": "lib/index.d.ts",
   "husky": {
