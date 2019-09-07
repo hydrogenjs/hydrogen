@@ -86,14 +86,16 @@ The below HTML is outputted to an HTML file with the same name as the source `in
 
 Pull requests are more than welcome :)
 
-Get started by cloning the repo
+1. Install [Docker](https://www.docker.com/)
+2. Clone repo
+3. All commands are in the `package.json` file
+
+Run the below commands:
 
 ```bash
-$ yarn install
+$ yarn docker:build # Builds Docker Image
 
-$ cd docs
-
-$ node ../bin/run
+$ yarn docker:cli:dev # Runs CLI in dev mode
 ```
 
 This will run your changes to the Hydrogen CLI over the Hydrogen documentation
