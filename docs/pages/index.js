@@ -50,7 +50,7 @@ const page = ({ data }) => html`
 
       module.exports = {
         page,
-        title: 'Hello World',
+        title: 'Welcome to Hydrogen',
         data: () => ({
           project: 'Hydrogen',
           description: 'Super fast static-site generator'
