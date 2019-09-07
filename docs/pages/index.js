@@ -35,11 +35,29 @@ const page = ({ data }) => html`
   <small>Input file: <i>index.js</i></small>
   <pre>
     <code class="lang-javascript">
-      const page = ({ title }) => &#96;&lt;title&gt;$n{title}&lt;/title&gt;&#96;
+      const page = ({ title, data, head }) => &#96;
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;title&gt;$n{title}&lt;/title&gt;
+            $n{head}
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h2&gt;$n{data.project}&lt;/h2&gt;
+            &lt;p&gt;$n{data.description}&lt;/p&gt;
+          &lt;body&gt;
+        &lt;/html&gt;
+      &#96;
 
       module.exports = {
-        title: 'Hello World',
         page,
+        title: 'Hello World',
+        data: () => ({
+          project: 'Hydrogen',
+          description: 'Super fast static-site generator'
+        }),
+        head: ({ data }) => [
+          ['meta', { name: 'description', content: data.description }]
+        ]
       };
     </code>
   </pre>
@@ -52,7 +70,16 @@ const page = ({ data }) => html`
   <small>Output file: <i>index.html</i></small>
   <pre>
     <code class="lang-html">
-      &lt;title&gt;Hello World&lt;/title&gt;
+      &lt;html&gt;
+        &lt;head&gt;
+          &lt;title&gt;Welcome to Hydrogen&lt;/title&gt;
+          &lt;meta name=&quot;description&quot; content=&quot;Super fast static-site generator&quot; /&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+          &lt;h2&gt;Hydrogen&lt;/h2&gt;
+          &lt;p&gt;Super fast static-site generator&lt;/p&gt;
+        &lt;body&gt;
+      &lt;/html&gt;
     </code>
   </pre>
   <h2>🏝 Deep dive</h2>
@@ -68,7 +95,7 @@ const page = ({ data }) => html`
     If you want, you can build what ever configuration you want on top of it.
   </p>
   <p>Checkout the <a style="color: #007acc;" href="/docs">docs</a></p>
-`.replace('$n', '$');
+`.replace(/\$n/g, '$');
 
 module.exports = {
   page,
