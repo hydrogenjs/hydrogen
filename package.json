@@ -77,6 +77,7 @@
     "test": "npx jest --verbose --coverage",
     "docker:build": "docker build -t hydrogen .",
     "docker:shell": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen sh",
+    "docker:test:cli": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app -w /app hydrogen yarn test",
     "docker:serve:docs": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn dev",
     "docker:cli:dev": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build --dev",
     "docker:cli:prod": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build"
