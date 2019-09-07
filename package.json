@@ -76,11 +76,16 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest",
     "test": "npx jest --verbose --coverage",
     "docker:build": "docker build -t hydrogen .",
-    "docker:shell": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen sh",
-    "docker:test:cli": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app -w /app hydrogen yarn test",
-    "docker:serve:docs": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn dev",
-    "docker:cli:dev": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build --dev",
-    "docker:cli:prod": "docker run -it -p 8080:8080 -v \"$(pwd)\":/app hydrogen yarn build"
+    "docker:create": "docker create -it --name hydrogen-env -p 8080:8080 -v \"$(pwd)\":/app hydrogen",
+    "docker:setup": "yarn docker:build && yarn docker:create",
+    "docker:start": "docker start hydrogen-env",
+    "docker:stop": "docker stop hydrogen-env",
+    "docker:remove": "docker rm hydrogen-env",
+    "docker:shell": "docker exec -it -w /app hydrogen-env sh",
+    "docker:test:cli": "docker exec -it -w /app hydrogen-env yarn test",
+    "docker:serve:docs": "docker exec -it hydrogen-env yarn dev",
+    "docker:cli:dev": "docker exec -it hydrogen-env yarn build --dev",
+    "docker:cli:prod": "docker exec -it hydrogen-env yarn build"
   },
   "types": "lib/index.d.ts",
   "husky": {

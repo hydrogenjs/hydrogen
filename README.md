@@ -93,7 +93,9 @@ Pull requests are more than welcome :)
 Run the below commands:
 
 ```bash
-$ yarn docker:build # Builds Docker Image
+$ yarn docker:setup # Builds Docker image and create Docker container
+
+$ yarn docker:start # Starts Docker image
 
 $ yarn docker:cli:dev # Runs CLI in dev mode
 ```
