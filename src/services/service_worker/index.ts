@@ -9,7 +9,7 @@ const CWD = process.cwd();
 const SW_DEFAULT_TEMPLATE = 'sw.js';
 
 export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, dev: boolean): Promise<void> => {
-  const [pages, file] = await Promise.all([
+  const [pages, swFile] = await Promise.all([
     glob('pages/**/*.js'),
     getServiceWorker(sw),
   ]);
@@ -31,7 +31,7 @@ export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, d
     const DEV = ${JSON.stringify(dev)};
     const routes = ${JSON.stringify(paths, null, 3)}
 
-    ${file}
+    ${swFile}
   `;
 
   const cleanUpFile = beautify(serviceWorker, { indent_size: 2, keep_array_indentation: true });
