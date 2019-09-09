@@ -18,7 +18,8 @@ module.exports = {
   "extends": ["plugin:@typescript-eslint/recommended", "airbnb-base"],
   "globals": {
       "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
+      "SharedArrayBuffer": "readonly",
+      "routes": "readonly"
   },
   "parserOptions": {
       "ecmaVersion": 2018
@@ -33,6 +34,7 @@ module.exports = {
       "@typescript-eslint/no-var-requires": "off",
       "no-nested-ternary": "off",
       "no-console": "off",
-      "@typescript-eslint/explicit-member-accessibility": "off"
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "no-restricted-globals": "off"
   }
 };

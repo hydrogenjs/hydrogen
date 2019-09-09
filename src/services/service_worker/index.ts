@@ -6,10 +6,13 @@ import glob from '../../helpers/glob';
 import { Path } from './types';
 
 const CWD = process.cwd();
+const SW_DEFAULT_TEMPLATE = 'sw.js';
 
-export const generateSW = async (sw: string | undefined = 'sw.js', dev: boolean): Promise<void> => {
-  const pages = await glob('pages/**/*.js');
-  const file = await getServiceWorker(sw);
+export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, dev: boolean): Promise<void> => {
+  const [pages, file] = await Promise.all([
+    glob('pages/**/*.js'),
+    getServiceWorker(sw),
+  ]);
 
   const paths = pages.map((page): Path => {
     const path = page.replace('pages', '').replace('.js', '.html').split('/');
