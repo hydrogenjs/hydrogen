@@ -13,3 +13,5 @@ RUN yarn install && cd ./docs && yarn install
 EXPOSE 8080
 
 WORKDIR /app/docs
+
+CMD ["yarn", "serve:normal"]

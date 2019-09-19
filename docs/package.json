@@ -11,6 +11,7 @@
   "scripts": {
     "reload": "npx cross-env npx nodemon -w ./layouts -w ./pages -w ./public --exec \"npx hydrogen build --dev\"",
     "serve": "npx cross-env npx live-server ./dist",
+    "serve:normal": "npx serve ./dist -p $PORT",
     "dev": "npx npm-run-all --parallel reload serve",
     "build": "npx hydrogen build",
     "test:cli": "../bin/run build --dev"

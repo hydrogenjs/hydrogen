@@ -1,6 +1,6 @@
 const html = require('html-template-tag');
 
-module.exports = async ({ title, content, head }) => html`
+module.exports = ({ title, content, head }) => html`
   <!DOCTYPE html>
   <html lang="en">
   <head>
