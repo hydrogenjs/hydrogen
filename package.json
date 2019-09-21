@@ -25,6 +25,9 @@
     "tslib": "^1"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/preset-env": "^7.6.0",
     "@oclif/dev-cli": "^1",
     "@types/figlet": "^1.2.0",
     "@types/fs-extra": "^8.0.0",
@@ -34,6 +37,7 @@
     "@types/node": "^10",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
+    "babel-jest": "^24.9.0",
     "codecov": "^3.5.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",

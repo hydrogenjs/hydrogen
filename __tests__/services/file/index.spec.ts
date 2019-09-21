@@ -1,9 +1,9 @@
+import fs from 'fs-extra';
+
 import copyExtraStaticFiles from '../../../src/services/file/copyExtraStaticFiles';
+import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
 
-global.Promise = jest.requireActual('promise');
-
-jest.mock('fs');
-jest.mock('path');
+jest.mock('fs-extra');
 
 describe('File API', (): void => {
   describe('copyExtraStaticFiles', (): void => {
@@ -11,6 +11,21 @@ describe('File API', (): void => {
       const res = await copyExtraStaticFiles([]);
 
       expect(res).toMatchObject([]);
+    });
+  });
+
+  describe('copyStaticFolder', (): void => {
+    test('function should return undefined ', async (): Promise<void> => {
+      fs.pathExists = jest.fn().mockReturnValue(true);
+      const res = await copyStaticFolder();
+      expect(res).toBeUndefined();
+    });
+
+    test('function should return false', async (): Promise<void> => {
+      fs.pathExists = jest.fn().mockReturnValue(false);
+      const res = await copyStaticFolder();
+
+      expect(res).toBe(false);
     });
   });
 });
