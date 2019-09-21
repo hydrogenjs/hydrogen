@@ -14,7 +14,7 @@
     "serve:normal": "npx serve ./dist -p $PORT",
     "dev": "npx npm-run-all --parallel reload serve",
     "build": "npx hydrogen build",
-    "test:cli": "../bin/run build --dev"
+    "test:cli": "node ../bin/run build --dev"
   },
   "devDependencies": {
     "live-server": "^1.2.1"
