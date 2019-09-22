@@ -5,6 +5,7 @@ import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
 import getConfig from '../../../src/services/file/getConfig';
 import * as Layout from '../../../src/services/file/getLayouts';
 import * as Page from '../../../src/services/file/getPages';
+import getServiceWorker from '../../../src/services/file/getServiceWorker';
 import { LayoutProperties, PageProperties } from '../../../src/services/file/types';
 
 jest.mock('fs-extra');
@@ -113,6 +114,30 @@ describe('File API', (): void => {
       expect(first.path).toBe('dist/index.html');
       expect(first.title).toBe('Hello World');
       expect(first.page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
+    });
+  });
+
+  describe('getServiceWorker', (): void => {
+    test('function should return undefined', async (): Promise<void> => {
+      const res = await getServiceWorker();
+
+      expect(res).toBeUndefined();
+    });
+
+    test('function should return undefined when file does not exist', async (): Promise<void> => {
+      fs.pathExists = jest.fn().mockReturnValue(false);
+      const res = await getServiceWorker('sw.js');
+
+      expect(res).toBeUndefined();
+    });
+
+    test('function should return a file', async (): Promise<void> => {
+      fs.pathExists = jest.fn().mockReturnValue(true);
+      fs.readFile = jest.fn().mockReturnValue('self.addEventListener(\'install\', () => {})');
+
+      const res = await getServiceWorker('sw.js');
+
+      expect(res).toBe('self.addEventListener(\'install\', () => {})');
     });
   });
 });

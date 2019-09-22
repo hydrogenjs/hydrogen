@@ -3,7 +3,7 @@ import { normalize } from 'path';
 
 const CWD = process.cwd();
 
-export default async (sw: string): Promise<Buffer|undefined|string> => {
+export default async (sw?: string): Promise<Buffer|undefined|string> => {
   if (!sw) {
     return;
   }
