@@ -4,7 +4,8 @@ import copyExtraStaticFiles from '../../../src/services/file/copyExtraStaticFile
 import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
 import getConfig from '../../../src/services/file/getConfig';
 import * as Layout from '../../../src/services/file/getLayouts';
-import { LayoutProperties } from '../../../src/services/file/types';
+import * as Page from '../../../src/services/file/getPages';
+import { LayoutProperties, PageProperties } from '../../../src/services/file/types';
 
 jest.mock('fs-extra');
 jest.mock('path');
@@ -81,6 +82,37 @@ describe('File API', (): void => {
       expect(first).toHaveProperty('name');
       expect(first).toHaveProperty('default');
       expect(typeof first.default).toBe('function');
+    });
+  });
+
+  describe('getPages', (): void => {
+    test('function should return array of page templates', async (): Promise<void> => {
+      const getPagesPathsSpy = jest.spyOn(Page, 'getPagesPaths');
+      const getPagesTemplateSpy = jest.spyOn(Page, 'getPagesTemplate');
+
+      getPagesPathsSpy.mockReturnValue(Promise.resolve(['pages/index.js']));
+      getPagesTemplateSpy.mockReturnValue(Promise.resolve([
+        Promise.resolve({
+          name: 'index.js',
+          path: 'dist/index.html',
+          title: 'Hello World',
+          page: ({ data }): string => `<p>${data.name}</p>`,
+        }),
+      ]));
+
+      const res = await Page.getPages().then((temp): Promise<PageProperties[]> => Promise.all(temp));
+
+      expect(res[0].name).toBe('index.js');
+      expect(res[0].path).toBe('dist/index.html');
+      expect(res[0].title).toBe('Hello World');
+      expect(res[0].page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
+
+      const [first] = await Page.getPagesTemplate(['pages/index.js']).then((temp): Promise<PageProperties[]> => Promise.all(temp));
+
+      expect(first.name).toBe('index.js');
+      expect(first.path).toBe('dist/index.html');
+      expect(first.title).toBe('Hello World');
+      expect(first.page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
     });
   });
 });
