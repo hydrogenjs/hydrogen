@@ -1,13 +1,15 @@
 import fs from 'fs-extra';
+// import glob from '../../../src/helpers/glob';
 
 import copyExtraStaticFiles from '../../../src/services/file/copyExtraStaticFiles';
 import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
 import getConfig from '../../../src/services/file/getConfig';
-import getLayouts from '../../../src/services/file/getLayouts';
+import * as Layout from '../../../src/services/file/getLayouts';
 
 jest.mock('fs-extra');
 jest.mock('path');
-jest.mock('../../../src/services/file/getLayouts');
+// jest.mock('../../../src/services/file/getLayouts');
+// jest.mock('../../../src/helpers/glob');
 
 describe('File API', (): void => {
   describe('copyExtraStaticFiles', (): void => {
@@ -53,14 +55,28 @@ describe('File API', (): void => {
 
   describe('getLayouts', (): void => {
     test('function should return array of layout templates', async (): Promise<void> => {
-      const getLayoutsMock = getLayouts as jest.Mock;
-      const mock = getLayoutsMock.mockReturnValue([{ name: 'default', default: (): string => '' }]);
+      const getLayoutPathsSpy = jest.spyOn(Layout, 'getLayoutPaths');
+      const getLayoutTemplatesSpy = jest.spyOn(Layout, 'getLayoutTemplates');
 
-      const [{ name, default: fn }] = await mock();
+      getLayoutPathsSpy.mockReturnValue(Promise.resolve(['layout/default.js']));
+      getLayoutTemplatesSpy.mockReturnValue(Promise.resolve([Promise.resolve({ name: 'default', default: ({ title }): string => `<title>${title}</title>` })]));
 
+      const [{ name, default: fn }] = await Layout.getLayouts();
+
+      expect(getLayoutPathsSpy).toHaveBeenCalledTimes(1);
+      expect(getLayoutTemplatesSpy).toHaveBeenCalledTimes(1);
       expect(name).toBe('default');
       expect(typeof fn).toBe('function');
-      expect(mock).toBeCalledTimes(1);
+      expect(fn({
+        title: 'Hello World',
+        content: '<p>Hello World</p>',
+        head: '<meta name="test" description="test">',
+        config: {},
+        dev: false,
+      })).toBe('<title>Hello World</title>');
+
+      getLayoutPathsSpy.mockRestore();
+      getLayoutTemplatesSpy.mockRestore();
     });
   });
 });

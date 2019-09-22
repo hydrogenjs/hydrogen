@@ -7,9 +7,9 @@ const PATTERN = 'layouts/**/*.js';
 
 type Paths = string[];
 
-const getLayoutPaths = async (): Promise<Paths> => glob(PATTERN);
+export const getLayoutPaths = async (): Promise<Paths> => glob(PATTERN);
 
-const getLayoutTemplates = async (paths: Paths): Promise<Promise<LayoutProperties>[]> => paths
+export const getLayoutTemplates = async (paths: Paths): Promise<Promise<LayoutProperties>[]> => paths
   .map(async (path): Promise<LayoutProperties> => {
     const filename = path.split('/').pop() as string;
 
@@ -19,7 +19,7 @@ const getLayoutTemplates = async (paths: Paths): Promise<Promise<LayoutPropertie
     };
   });
 
-const getLayouts = async (): Promise<LayoutProperties[]> => {
+export const getLayouts = async (): Promise<LayoutProperties[]> => {
   const paths = await getLayoutPaths();
   const templates = await getLayoutTemplates(paths);
 
