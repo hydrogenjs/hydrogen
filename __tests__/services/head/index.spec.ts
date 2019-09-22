@@ -13,6 +13,10 @@ const expectedOutput = [
   '<script src="/public/js/script.js"></script>',
   '<script type="module">console.log("Hello World")</script>',
   '<style>p { font-size: 10px }</style>',
+  '<link rel="stylesheet" href="/public/css/main.css" />',
+  '<script src="/public/js/script.js"></script>',
+  '<script type="module">console.log("Hello World")</script>',
+  '<style>p { font-size: 10px }</style>',
 ].join('');
 
 describe('Head API', (): void => {
@@ -21,7 +25,14 @@ describe('Head API', (): void => {
       const HEAD = await transformHeadToHTML({
         head,
         data: {},
-        config: {},
+        config: {
+          head: async (): Promise<HeadTag[]> => [
+            ['link', { rel: 'stylesheet', href: '/public/css/main.css' }, false],
+            ['script', { src: '/public/js/script.js' }, true],
+            ['script', { type: 'module' }, 'console.log("Hello World")'],
+            ['style', {}, 'p { font-size: 10px }'],
+          ],
+        },
         dev: true,
       }).then((res): string => res.replace(/\n/g, '').trim());
 
