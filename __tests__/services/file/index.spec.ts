@@ -4,6 +4,7 @@ import copyExtraStaticFiles from '../../../src/services/file/copyExtraStaticFile
 import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
 import getConfig from '../../../src/services/file/getConfig';
 import * as Layout from '../../../src/services/file/getLayouts';
+import { LayoutProperties } from '../../../src/services/file/types';
 
 jest.mock('fs-extra');
 jest.mock('path');
@@ -51,7 +52,7 @@ describe('File API', (): void => {
   });
 
   describe('getLayouts', (): void => {
-    test('function should return array of layout templates', async (): Promise<void> => {
+    test.only('function should return array of layout templates', async (): Promise<void> => {
       const getLayoutPathsSpy = jest.spyOn(Layout, 'getLayoutPaths');
       const getLayoutTemplatesSpy = jest.spyOn(Layout, 'getLayoutTemplates');
 
@@ -74,6 +75,12 @@ describe('File API', (): void => {
 
       getLayoutPathsSpy.mockRestore();
       getLayoutTemplatesSpy.mockRestore();
+
+      const [first] = await Layout.getLayoutTemplates(['layout/default.js']).then((temp): Promise<LayoutProperties[]> => Promise.all(temp));
+
+      expect(first).toHaveProperty('name');
+      expect(first).toHaveProperty('default');
+      expect(typeof first.default).toBe('function');
     });
   });
 });
