@@ -3,11 +3,21 @@ const { version } = require('../../package.json');
 
 const page = ({ data }) => html`
   <h1>🎈 Hydrogen</h1>
-  <img style="border-radius: 0px;" src="https://api.netlify.com/api/v1/badges/812415ef-37e8-4015-b7cd-7654d0f3c9b8/deploy-status">
-  <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
-  <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
-  <img style="border-radius: 0px;" src="https://img.shields.io/npm/dw/hydrogen-cli.svg">
-  <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
+  <a style="text-decoration: none" href="https://app.netlify.com/sites/hydrogen-cli/deploys">
+    <img style="border-radius: 0px;" src="https://api.netlify.com/api/v1/badges/812415ef-37e8-4015-b7cd-7654d0f3c9b8/deploy-status">
+  </a>
+  <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
+    <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
+  </a>
+  <a style="text-decoration: none" href="https://codecov.io/gh/ShailenNaidoo/hydrogen">
+    <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
+  </a>
+  <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
+    <img style="border-radius: 0px;" src="https://img.shields.io/npm/dw/hydrogen-cli.svg">
+  </a>
+  <a style="text-decoration: none" href="https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json">
+    <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
+  </a>
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
   <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
   <center>
@@ -78,7 +88,7 @@ const page = ({ data }) => html`
         &lt;body&gt;
           &lt;h2&gt;Hydrogen&lt;/h2&gt;
           &lt;p&gt;Super fast static-site generator&lt;/p&gt;
-        &lt;body&gt;
+        &lt;body&gt; 
       &lt;/html&gt;
     </code>
   </pre>
