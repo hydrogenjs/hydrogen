@@ -52,7 +52,7 @@ describe('File API', (): void => {
   });
 
   describe('getLayouts', (): void => {
-    test.only('function should return array of layout templates', async (): Promise<void> => {
+    test('function should return array of layout templates', async (): Promise<void> => {
       const getLayoutPathsSpy = jest.spyOn(Layout, 'getLayoutPaths');
       const getLayoutTemplatesSpy = jest.spyOn(Layout, 'getLayoutTemplates');
 
