@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-// import glob from '../../../src/helpers/glob';
 
 import copyExtraStaticFiles from '../../../src/services/file/copyExtraStaticFiles';
 import copyStaticFolder from '../../../src/services/file/copyStaticFolder';
@@ -8,15 +7,13 @@ import * as Layout from '../../../src/services/file/getLayouts';
 
 jest.mock('fs-extra');
 jest.mock('path');
-// jest.mock('../../../src/services/file/getLayouts');
-// jest.mock('../../../src/helpers/glob');
 
 describe('File API', (): void => {
   describe('copyExtraStaticFiles', (): void => {
-    test('function should return empty array', async (): Promise<void> => {
-      const res = await copyExtraStaticFiles([]);
+    test('function should return array of undefined', async (): Promise<void> => {
+      const res = await copyExtraStaticFiles(['/layouts/default.js', '/layouts/no-header.js']);
 
-      expect(res).toMatchObject([]);
+      expect(res).toMatchObject([undefined, undefined]);
     });
   });
 
