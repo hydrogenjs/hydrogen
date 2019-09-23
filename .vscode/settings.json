@@ -2,5 +2,6 @@
   "eslint.validate": [
     "javascript",
     "typescript",
-  ]
+  ],
+  "netlify.site_id": "hydrogen-cli.netlify.com"
 }
