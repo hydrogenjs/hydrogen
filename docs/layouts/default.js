@@ -21,6 +21,7 @@ module.exports = ({ title, content, head }) => html`
       }
 
       registerSW();
+
     </script>
   </head>
   <body>
