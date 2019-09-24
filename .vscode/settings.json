@@ -3,5 +3,6 @@
     "javascript",
     "typescript",
   ],
-  "netlify.site_id": "hydrogen-cli.netlify.com"
+  "netlify.site_id": "hydrogen-cli.netlify.com",
+  "netlify.set_interval": 10000
 }
