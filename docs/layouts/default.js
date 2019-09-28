@@ -37,6 +37,9 @@ module.exports = ({ title, content, head }) => html`
     <p>
       Made with Hydrogen by <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a> 🤎
     </p>
+    <a href="https://www.netlify.com">
+      <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
+    </a>
   </footer>
   </html>
 `;
