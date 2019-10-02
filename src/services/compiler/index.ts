@@ -16,7 +16,7 @@ export const build = async (dev: boolean, config: Config): Promise<HTMLObject[]>
   return htmlPages;
 };
 
-export const tempateGenerator = async (filename: string): Promise<void|boolean> => {
+export const templateGenerator = async (filename: string): Promise<void|boolean> => {
   if (!filename) {
     console.log('\nNo file provided\n');
     return false;
