@@ -34,7 +34,7 @@ export const tempateGenerator = async (filename: string): Promise<void|boolean> 
     // @ts-ignore
     title: file.title,
     head: file.head ? await transformHeadToHTML({ head: file.head, data, config, dev: false }) : '',
-    ...data,
+    data,
   }));
   console.timeEnd('build time');
 };
