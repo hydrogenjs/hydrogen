@@ -100,7 +100,7 @@ describe('File API', (): void => {
           title: 'Hello World',
           dynamic: false,
           route: {
-            query: {},
+            data: {},
             hash: '',
           },
           page: ({ data }): string => `<p>${data.name}</p>`,

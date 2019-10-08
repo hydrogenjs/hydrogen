@@ -16,13 +16,13 @@ const page = () => html`
       module.exports = async () =&gt; [
         {
           path: '/blogs/setting-up-hydrogen',
-          query: {
+          data: {
             post: 1,
           },
         },
         {
           path: '/blogs/setting-up-a-service-worker',
-          query: {
+          data: {
             post: 2,
           },
         },
@@ -62,7 +62,7 @@ const page = () => html`
         title: 'Hydrogen webpage',
         page,
         data: async ({ route }) => ({
-          content: await axios.get('https://api.blog.com/post=$n{route.query.post}'),
+          content: await axios.get('https://api.blog.com/post=$n{route.data.post}'),
         }),
       };
     </code>

@@ -7,7 +7,7 @@ interface PageArgs {
   config: Config;
   dev: boolean;
   route?: {
-    query: object;
+    data: object;
     hash: string;
   };
 }
@@ -16,7 +16,7 @@ interface DataArgs {
   config: Config;
   dev: boolean;
   route?: {
-    query: object;
+    data: object;
     hash: string;
   };
 }
@@ -30,7 +30,7 @@ export interface PageTemplate {
   layout?: string;
   title: string;
   route: {
-    query: object;
+    data: object;
     hash: string;
   };
   page(args: PageArgs): string;
@@ -70,6 +70,6 @@ export interface Config {
 
 export interface Route {
   path: string;
-  query: object;
+  data: object;
   hash: string;
 }

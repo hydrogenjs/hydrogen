@@ -10,7 +10,7 @@ const pages: PageProperties[] = [
     title: 'Template APIs | �🎈 Hydrogen',
     dynamic: false,
     route: {
-      query: {},
+      data: {},
       hash: '',
     },
     page: (): string => '<p>Hello World</p>',
