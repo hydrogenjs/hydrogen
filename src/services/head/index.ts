@@ -22,8 +22,18 @@ const mapHeadTags = ([tag, props, content = null]: HeadTag): string => {
 
 export const transformHeadToHTML = async ({ head, data, config, dev, route }: { head?: Head; data: object; config: Config; dev: boolean; route: object }): Promise<string> => {
   const tags = head ? [
-    ...config.head ? await config.head({ data, config, dev, route }) : [],
-    ...await head({ data, config, dev, route }),
+    ...config.head ? await config.head({
+      data,
+      config,
+      dev,
+      route,
+    }) : [],
+    ...await head({ 
+      data,
+      config,
+      dev,
+      route,
+    }),
   ] : [];
 
   return tags.map(mapHeadTags).join('\n');
