@@ -11,11 +11,12 @@ export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutPr
   }));
 
 export const generateHTML = (pages: PageAndLayoutProperties[], { dev, config }: Options): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
-  const pageData = page.data ? await page.data({ dev, config }) : {};
+  const pageData = page.data ? await page.data({ dev, config, route: page.route }) : {};
 
   const pageHead = transformHeadToHTML({
     head: page.head,
     data: pageData,
+    route: page.route,
     config,
     dev,
   });
@@ -24,6 +25,7 @@ export const generateHTML = (pages: PageAndLayoutProperties[], { dev, config }: 
     data: pageData,
     config,
     dev,
+    route: page.route,
   });
 
   const layoutTemplate = page.layout({

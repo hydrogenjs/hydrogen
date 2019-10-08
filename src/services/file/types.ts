@@ -6,11 +6,19 @@ interface PageArgs {
   };
   config: Config;
   dev: boolean;
+  route?: {
+    querystring: object;
+    hash: string;
+  };
 }
 
 interface DataArgs {
   config: Config;
   dev: boolean;
+  route?: {
+    querystring: object;
+    hash: string;
+  };
 }
 
 interface HeadArgs {
