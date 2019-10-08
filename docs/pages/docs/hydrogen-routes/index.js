@@ -73,10 +73,10 @@ module.exports = {
   title: 'Advanced Setup | 🎈 Hydrogen',
   page,
   head: ({ config }) => [
-    ['meta', { name: 'description', content: 'Learn how to use a more advanced setup with Hydrogen' }],
-    ['meta', { property: 'og:title', content: 'Advanced Setup | 🎈 Hydrogen' }],
-    ['meta', { property: 'og:description', content: 'Learn how to use a more advanced setup with Hydrogen' }],
+    ['meta', { name: 'description', content: 'Learn how to dynamically generate routes with Hydrogen' }],
+    ['meta', { property: 'og:title', content: 'Dynamically generate routes | 🎈 Hydrogen' }],
+    ['meta', { property: 'og:description', content: 'Learn how to dynamically generate routes with Hydrogen' }],
     ['meta', { property: 'og:url', content: 'https://hydrogen-cli.netlify.com' }],
-    ['title', {}, `Advanced Setup | ${config.name}`],
+    ['title', {}, `Dynamically generate routes | ${config.name}`],
   ],
 };
