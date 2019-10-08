@@ -8,6 +8,10 @@ const PATTERN = 'pages/**/*.js';
 
 type Paths = string[];
 
+export {
+  getRoutes,
+};
+
 export const getPagesPaths = async (): Promise<Paths> => glob(PATTERN);
 
 export const getPagesTemplate = async (paths: Paths): Promise<Promise<PageProperties>[]> => paths
@@ -23,7 +27,7 @@ export const getPages = async (): Promise<PageProperties[]> => {
   const routes = await getRoutes();
   const templates = await getPagesTemplate(paths);
 
-  const dynamicRoutes = await routes.default();
+  const dynamicRoutes = await routes;
 
   const resolvedTemplates = await Promise.all(templates);
 

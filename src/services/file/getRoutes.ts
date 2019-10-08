@@ -6,12 +6,14 @@ const FILE = 'hydrogen.routes.js';
 
 const CWD = process.cwd();
 
-const getRoutes = async (): Promise<{ default: () => Route[] }> => {
+const getRoutes = async (): Promise<Route[]> => {
   if (!await fs.pathExists(normalize(`${CWD}/${FILE}`))) {
-    return { default: (): Route[] => [] };
+    return [];
   }
 
-  return import(normalize(`${CWD}/${FILE}`));
+  const { default: fn } = await import(normalize(`${CWD}/${FILE}`));
+
+  return fn();
 };
 
 export default getRoutes;

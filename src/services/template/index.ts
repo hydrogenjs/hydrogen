@@ -16,6 +16,7 @@ export const generateHTML = (pages: PageAndLayoutProperties[], { dev, config }: 
   const pageHead = transformHeadToHTML({
     head: page.head,
     data: pageData,
+    // @ts-ignore
     route: page.route,
     config,
     dev,
