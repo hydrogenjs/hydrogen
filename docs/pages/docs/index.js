@@ -54,6 +54,11 @@ const page = () => html`
       <li><a href="/docs/setting-up-a-service-worker#basic-setup">Basic Setup</a></li>
       <li><a href="/docs/setting-up-a-service-worker#exposing-page-routes-to-your-service-worker">Exposing page routes to your Service Worker</a></li>
     </ul>
+    <li><a href="/docs/hydrogen-routes">Generate Routes Dynamically</a></li>
+    <ul>
+      <li><a href="/docs/hydrogen-routes#basic-setup">Basic setup</a></li>
+      <li><a href="/docs/hydrogen-routes#setting-up-a-dynamic-page-template">Setting up a dynamic page template</a></li>
+    </ul>
     <li><a href="/docs/hydrogen-config">🔧 Hydrogen Config</a></li>
     <ul>
       <li><a href="/docs/hydrogen-config#set-a-global-project-name">Set a global project name</a></li>
