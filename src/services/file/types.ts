@@ -21,6 +21,10 @@ interface HeadArgs {
 export interface PageTemplate {
   layout?: string;
   title: string;
+  route: {
+    querystring: object;
+    hash: string;
+  };
   page(args: PageArgs): string;
   data?(args: DataArgs): Promise<object>;
   head?(args: HeadArgs): Promise<HeadTag[]>;
@@ -29,6 +33,7 @@ export interface PageTemplate {
 export interface PageProperties extends PageTemplate {
   name: string;
   path: string;
+  dynamic: boolean;
 }
 
 interface LayoutArgs {
@@ -53,4 +58,10 @@ export interface Config {
   extraStaticFiles?: string[];
   sw?: string;
   head?: Head;
+}
+
+export interface Route {
+  path: string;
+  querystring: object;
+  hash: string;
 }
