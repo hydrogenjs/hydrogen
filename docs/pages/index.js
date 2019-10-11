@@ -21,7 +21,7 @@ const page = ({ data }) => html`
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
   <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
   <center>
-    <img style="margin: 20px; border-radius: 10px;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
+    <img style="margin: 20px; border-radius: 10px;width: 80%;height: auto;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>
   <p align="center">
     <a style="color: #007acc;" href="/docs">Docs</a>
