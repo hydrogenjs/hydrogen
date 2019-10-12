@@ -8,6 +8,11 @@ const pages: PageProperties[] = [
     path: 'dist/docs/template-apis/index.html',
     layout: 'default',
     title: 'Template APIs | �🎈 Hydrogen',
+    dynamic: false,
+    route: {
+      data: {},
+      hash: '',
+    },
     page: (): string => '<p>Hello World</p>',
   },
 ];
@@ -19,6 +24,7 @@ const layouts: LayoutProperties[] = [
   },
 ];
 
+// @ts-ignore
 const pagesWithNoLayout = pages.map(({ layout, ...otherValues }) => ({ ...otherValues }));
 
 const pagesWithData = pages.map(({ page, ...otherValues }): PageProperties => ({

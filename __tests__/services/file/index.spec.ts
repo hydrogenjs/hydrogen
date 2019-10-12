@@ -88,15 +88,23 @@ describe('File API', (): void => {
 
   describe('getPages', (): void => {
     test('function should return array of page templates', async (): Promise<void> => {
+
       const getPagesPathsSpy = jest.spyOn(Page, 'getPagesPaths');
       const getPagesTemplateSpy = jest.spyOn(Page, 'getPagesTemplate');
+      const getRoutesSpy = jest.spyOn(Page, 'getRoutes');
 
       getPagesPathsSpy.mockReturnValue(Promise.resolve(['pages/index.js']));
+      getRoutesSpy.mockReturnValue(Promise.resolve([]));
       getPagesTemplateSpy.mockReturnValue(Promise.resolve([
         Promise.resolve({
           name: 'index.js',
           path: 'dist/index.html',
           title: 'Hello World',
+          dynamic: false,
+          route: {
+            data: {},
+            hash: '',
+          },
           page: ({ data }): string => `<p>${data.name}</p>`,
         }),
       ]));
@@ -112,6 +120,43 @@ describe('File API', (): void => {
 
       expect(first.name).toBe('index.js');
       expect(first.path).toBe('dist/index.html');
+      expect(first.title).toBe('Hello World');
+      expect(first.page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
+    });
+
+    test('function should return array of page templates with dynamic', async (): Promise<void> => {
+
+      const getPagesPathsSpy = jest.spyOn(Page, 'getPagesPaths');
+      const getPagesTemplateSpy = jest.spyOn(Page, 'getPagesTemplate');
+      const getRoutesSpy = jest.spyOn(Page, 'getRoutes');
+
+      getPagesPathsSpy.mockReturnValue(Promise.resolve(['pages/blog/_index.js']));
+      getRoutesSpy.mockReturnValue(Promise.resolve([{ path: '/blog/working-with-data', data: {}, hash: '' }]));
+      getPagesTemplateSpy.mockReturnValue(Promise.resolve([
+        Promise.resolve({
+          name: '_index.js',
+          path: 'dist/blog/working-with-data',
+          title: 'Hello World',
+          dynamic: true,
+          route: {
+            data: {},
+            hash: '',
+          },
+          page: ({ data }): string => `<p>${data.name}</p>`,
+        }),
+      ]));
+
+      const res = await Page.getPages().then((temp): Promise<PageProperties[]> => Promise.all(temp));
+
+      expect(res[0].name).toBe('_index.js');
+      expect(res[0].path).toBe('dist/blog/working-with-data');
+      expect(res[0].title).toBe('Hello World');
+      expect(res[0].page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
+
+      const [first] = await Page.getPagesTemplate(['pages/index.js']).then((temp): Promise<PageProperties[]> => Promise.all(temp));
+
+      expect(first.name).toBe('_index.js');
+      expect(first.path).toBe('dist/blog/working-with-data');
       expect(first.title).toBe('Hello World');
       expect(first.page({ data: { name: 'John' }, config: {}, dev: true })).toBe('<p>John</p>');
     });

@@ -8,6 +8,7 @@ export interface PageAndLayoutProperties {
   page: PageTemplate['page'];
   data?: PageTemplate['data'];
   head?: PageTemplate['head'];
+  route?: PageTemplate['route'];
 }
 
 export interface HTMLObject {

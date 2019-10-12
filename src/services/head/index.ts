@@ -20,10 +20,20 @@ const mapHeadTags = ([tag, props, content = null]: HeadTag): string => {
   return `<${tag} ${attributes} />`;
 };
 
-export const transformHeadToHTML = async ({ head, data, config, dev }: { head?: Head; data: object; config: Config; dev: boolean }): Promise<string> => {
+export const transformHeadToHTML = async ({ head, data, config, dev, route }: { head?: Head; data: object; config: Config; dev: boolean; route: object }): Promise<string> => {
   const tags = head ? [
-    ...config.head ? await config.head({ data, config, dev }) : [],
-    ...await head({ data, config, dev }),
+    ...config.head ? await config.head({
+      data,
+      config,
+      dev,
+      route,
+    }) : [],
+    ...await head({ 
+      data,
+      config,
+      dev,
+      route,
+    }),
   ] : [];
 
   return tags.map(mapHeadTags).join('\n');

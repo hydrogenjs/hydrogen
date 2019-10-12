@@ -33,6 +33,7 @@ describe('Head API', (): void => {
             ['style', {}, 'p { font-size: 10px }'],
           ],
         },
+        route: {},
         dev: true,
       }).then((res): string => res.replace(/\n/g, '').trim());
 

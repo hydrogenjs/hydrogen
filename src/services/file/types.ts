@@ -6,11 +6,19 @@ interface PageArgs {
   };
   config: Config;
   dev: boolean;
+  route?: {
+    data: object;
+    hash: string;
+  };
 }
 
 interface DataArgs {
   config: Config;
   dev: boolean;
+  route?: {
+    data: object;
+    hash: string;
+  };
 }
 
 interface HeadArgs {
@@ -21,6 +29,10 @@ interface HeadArgs {
 export interface PageTemplate {
   layout?: string;
   title: string;
+  route: {
+    data: object;
+    hash: string;
+  };
   page(args: PageArgs): string;
   data?(args: DataArgs): Promise<object>;
   head?(args: HeadArgs): Promise<HeadTag[]>;
@@ -29,6 +41,7 @@ export interface PageTemplate {
 export interface PageProperties extends PageTemplate {
   name: string;
   path: string;
+  dynamic: boolean;
 }
 
 interface LayoutArgs {
@@ -53,4 +66,10 @@ export interface Config {
   extraStaticFiles?: string[];
   sw?: string;
   head?: Head;
+}
+
+export interface Route {
+  path: string;
+  data: object;
+  hash: string;
 }
