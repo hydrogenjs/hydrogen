@@ -1,18 +1,25 @@
+import fs from 'fs-extra';
 import { normalize } from 'path';
 import glob from '../../helpers/glob';
-import { PageProperties } from './types';
-import getRoutes from './getRoutes';
+import { PageProperties, Route } from './types';
 
 const CWD = process.cwd();
 const PATTERN = 'pages/**/*.js';
+const FILE = 'hydrogen.routes.js';
 
 type Paths = string[];
 
-export {
-  getRoutes,
-};
-
 export const getPagesPaths = async (): Promise<Paths> => glob(PATTERN);
+
+export const getRoutes = async (): Promise<Route[]> => {
+  if (!await fs.pathExists(normalize(`${CWD}/${FILE}`))) {
+    return [];
+  }
+
+  const { default: fn } = await import(normalize(`${CWD}/${FILE}`));
+
+  return fn();
+};
 
 export const getPagesTemplate = async (paths: Paths): Promise<Promise<PageProperties>[]> => paths
   .map(async (path): Promise<PageProperties> => ({
