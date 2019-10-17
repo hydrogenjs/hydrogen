@@ -10,12 +10,12 @@ const SW_DEFAULT_TEMPLATE = 'sw.js';
 
 export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, dev: boolean): Promise<void> => {
   const [pages, swFile] = await Promise.all([
-    glob('pages/**/*.js'),
+    glob('dist/**/*.html'),
     getServiceWorker(sw),
   ]);
 
   const paths = pages.map((page): Path => {
-    const path = page.replace('pages', '').replace('.js', '.html').split('/');
+    const path = page.replace('dist', '').split('/');
     const filename = path.pop() as string;
     const route = path.join('/') || '/';
 
