@@ -15,4 +15,4 @@ fields:
   label: Description
   description: The description of the page
 pages:
-- "content/\U0001F388-hydrogen-super-fast-static-site-generator.md"
+- content/index.md
