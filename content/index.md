@@ -11,3 +11,9 @@ A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 [
 > Compile a ton of templates in under \~150ms
 
 ![](https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp)
+
+## Quick start
+
+***
+
+<small>Install Hydrogen CLI</small>
