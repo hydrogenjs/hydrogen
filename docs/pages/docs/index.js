@@ -67,11 +67,6 @@ const page = () => html`
       <li><a href="/docs/hydrogen-config#set-global-head-tags">Set global head tags</a></li>
       <li><a href="/docs/hydrogen-config#setting-a-custom-service-worker">Setting a custom Service Worker</a></li>
     </ul>
-    <li><a href="/docs/template-apis">👀 Template APIs</a></li>
-    <ul>
-      <li><a href="/docs/template-apis#layout-template">Layout Template</a></li>
-      <li><a href="/docs/template-apis#page-template">Page Template</a></li>
-    </ul>
   </ul>
 `;
 
