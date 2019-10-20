@@ -1,4 +1,16 @@
 ---
 label: Page
 hide_body: false
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: The title of page
+- name: description
+  type: text
+  config:
+    required: false
+  label: Description
+  description: The description of the page
