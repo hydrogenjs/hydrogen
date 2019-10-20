@@ -15,5 +15,5 @@ fields:
   label: Description
   description: The description of the page
 pages:
-- content/docs/docs-hydrogenjs.md
+- content/docs/index.md
 - content/index.md
