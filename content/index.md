@@ -20,16 +20,18 @@ A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 [
 
 `yarn add hydrogen-cli`
 
+<small>Input file: <i>index.js</i></small>
+
 ```javascript
 const page = ({ title, data, head }) => `
   <html>
     <head>
-      <title>$n{title}</title>
-      $n{head}
+      <title>${title}</title>
+      ${head}
     </head>
     <body>
-      <h2>$n{data.project}</h2>
-      <p>$n{data.description}</p>
+      <h2>${data.project}</h2>
+      <p>${data.description}</p>
     <body>
   </html>
 `;
@@ -45,4 +47,19 @@ module.exports = {
     ['meta', { name: 'description', content: data.description }]
   ]
 };
+```
+
+<small>Output file: <i>index.html</i></small>
+
+```html
+<html>
+  <head>
+    <title>Welcome to Hydrogen</title>
+    <meta name="description" content="Super fast static-site generator" />
+  </head>
+  <body>
+    <h2>Hydrogen</h2>
+    <p>Super fast static-site generator</p>
+  <body> 
+</html>
 ```
