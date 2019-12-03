@@ -14,4 +14,7 @@ module.exports = {
     ['script', { src: `/${config.staticFolder}/js/script.js` }, true],
     ['script', { async: true, defer: true, src: 'https://buttons.github.io/buttons.js' }, true],
   ],
+  build: {
+    deleteFolder: true,
+  },
 };

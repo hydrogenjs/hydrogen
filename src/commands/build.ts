@@ -1,7 +1,13 @@
 import { Command, flags } from '@oclif/command';
 import cli from 'cli-ux';
 import { build } from '../services/compiler';
-import { saveHTMLToFiles, getConfig, copyStaticFolder, copyExtraStaticFiles } from '../services/file';
+import {
+  saveHTMLToFiles,
+  getConfig,
+  copyStaticFolder,
+  copyExtraStaticFiles,
+  deleteDistFolder,
+} from '../services/file';
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
 import { generateSW } from '../services/service_worker';
@@ -22,6 +28,11 @@ export class Build extends Command {
     const config = await getConfig();
 
     await logBuildMode(dev);
+
+    if (config.build && config.build.deleteFolder) {
+      console.log('Deleting [dist] folder before build');
+      await deleteDistFolder();
+    }
 
     if (!await doFoldersExist()) {
       return false;

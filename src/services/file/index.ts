@@ -5,6 +5,7 @@ import getConfig from './getConfig';
 import copyStaticFolder from './copyStaticFolder';
 import copyExtraStaticFiles from './copyExtraStaticFiles';
 import getServiceWorker from './getServiceWorker';
+import deleteDistFolder from './deleteDistFolder';
 
 export {
   getPages,
@@ -14,4 +15,5 @@ export {
   copyStaticFolder,
   copyExtraStaticFiles,
   getServiceWorker,
+  deleteDistFolder,
 };
