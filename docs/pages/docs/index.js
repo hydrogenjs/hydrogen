@@ -66,6 +66,7 @@ const page = () => html`
       <li><a href="/docs/hydrogen-config#copy-extra-static-files">Copy extra static files</a></li>
       <li><a href="/docs/hydrogen-config#set-global-head-tags">Set global head tags</a></li>
       <li><a href="/docs/hydrogen-config#setting-a-custom-service-worker">Setting a custom Service Worker</a></li>
+      <li><a href="/docs/hydrogen-config#delete-dist-folder-before-build">Delete dist folder before build</a></li>
     </ul>
   </ul>
 `;

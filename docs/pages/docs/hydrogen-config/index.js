@@ -86,6 +86,20 @@ const page = () => html`
       };
     </code>
   </pre>
+  <h2 id="delete-dist-folder-before-build">Delete dist folder before build <code class="badge">New v0.8</code></h2>
+  <p>
+    Hydrogen will automatically delete the <code class="code">dist</code> folder before each build by default. 
+    You can turn this off by setting <code class="code">build.deleteFolder</code> to <code class="code">true</code> 
+  </p>
+  <pre>
+    <code class="lang-javascript">
+      module.exports = {
+        build: {
+          deleteFolder: false,
+        },
+      };
+    </code>
+  </pre>
 `.replace(/\$n/g, '$');
 
 module.exports = {
