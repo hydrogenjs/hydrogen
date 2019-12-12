@@ -8,7 +8,7 @@ import { transformHeadToHTML } from '../head';
 
 const CWD = process.cwd();
 
-export const build = async (dev: boolean, config: Config): Promise<HTMLObject[]> => {
+const build = async (dev: boolean, config: Config): Promise<HTMLObject[]> => {
   const [pages, layouts] = await Promise.all([getPages(), getLayouts()]);
   const layoutsWithPages = mergeLayoutsWithPages(pages, layouts);
   const htmlPages = await generateHTML(layoutsWithPages, { dev, config });
@@ -16,7 +16,7 @@ export const build = async (dev: boolean, config: Config): Promise<HTMLObject[]>
   return htmlPages;
 };
 
-export const templateGenerator = async (filename: string): Promise<void|boolean> => {
+const templateGenerator = async (filename: string): Promise<void|boolean> => {
   if (!filename) {
     console.log('\nNo file provided\n');
     return false;
@@ -38,3 +38,5 @@ export const templateGenerator = async (filename: string): Promise<void|boolean>
   }));
   console.timeEnd('build time');
 };
+
+export { build, templateGenerator };

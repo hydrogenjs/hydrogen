@@ -1194,10 +1194,10 @@ http-errors@~1.7.2:
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.10.tgz#92c9c1374c35085f75db359ec56cc257cbb93fa4"
   integrity sha1-ksnBN0w1CF912zWexWzCV8u5P6Q=
 
-hydrogen-cli@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.7.1.tgz#847bd36c06c3f51281baff792ce486304f108c86"
-  integrity sha512-sShDoJMzg4FelG7us/c0tQscopoQYyKQ5BwWoXnc2FZPbll+f3BaTJDC5h2/kpGNFGv3SoI4jGIlB3n2IKEmJQ==
+hydrogen-cli@^0.8.0-beta.0:
+  version "0.8.0-beta.0"
+  resolved "https://registry.yarnpkg.com/hydrogen-cli/-/hydrogen-cli-0.8.0-beta.0.tgz#9417057d382a6c7ba0d99c2866bf394ffbbc32a3"
+  integrity sha512-Pm6o7eJJLduL4KzPOPTbyLUOE+bIYgj6EY7z1fpnLDdhp79UCpjKuk2jTgG6TjFcmk1Sz6Ma1+ReCjt0xVh8kQ==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"

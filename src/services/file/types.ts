@@ -66,6 +66,9 @@ export interface Config {
   extraStaticFiles?: string[];
   sw?: string;
   head?: Head;
+  build?: {
+    deleteFolder?: boolean;
+  };
 }
 
 export interface Route {
