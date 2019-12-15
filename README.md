@@ -103,3 +103,11 @@ $ yarn docker:cli:dev # Runs CLI in dev mode
 This will run your changes to the Hydrogen CLI over the Hydrogen documentation
 
 > Note: There are `pre-commit` and `pre-push` hooks that run tests
+
+## Roadmap
+
+### V1
+
+- [ ] Debugging - How to debug a Hydrogen build process
+- [ ] Project write - To improve modularity
+- [ ] Improve documention
