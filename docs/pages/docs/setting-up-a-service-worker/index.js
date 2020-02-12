@@ -120,6 +120,12 @@ const page = () => html`
   </p>
   <pre>
     <code class="lang-javascript">
+      const getOldCacheData = async () => {
+        const oldCache = await caches.open(await caches.keys()[0]).keys()
+
+        return oldCache
+      }
+
       const removeOldCaches = async () => {
         const cacheVersions = await caches.keys()
         
@@ -130,9 +136,11 @@ const page = () => html`
         }
       }
 
-      self.addEventListener('install', (e) => {
+      self.addEventListener('install', async (e) => {
+        const oldCacheData = await getOldCacheData()
+
         e.waitUntil(caches.open(CACHE_VERSION).then(cache => {
-          return cache.addAll(routes.map(({ route }) => route))
+          return cache.addAll(new Set([...oldCacheData, ...routes.map(({ route }) => new Request(route))]))
             .then(() => removeOldCaches())
         }));
       });

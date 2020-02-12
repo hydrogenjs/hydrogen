@@ -1,16 +1,28 @@
+const getOldCacheData = async () => {
+  const oldCache = await caches.open(await caches.keys()[0]).keys();
+
+  return oldCache;
+};
+
 const removeOldCaches = async () => {
   const cacheVersions = await caches.keys();
 
   cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1);
 
   for (cacheName of cacheVersions) {
-    await caches.delete(cacheName)
+    await caches.delete(cacheName);
   }
-}
+};
 
-self.addEventListener('install', (e) => {
+self.addEventListener('install', async (e) => {
+  const oldCacheData = await getOldCacheData();
+  const requestsToCache = [
+    ...oldCacheData,
+    ...routes.map(({ route }) => new Request(route)),
+  ];
+
   e.waitUntil(caches.open(CACHE_VERSION).then((cache) => {
-    return cache.addAll(routes.map(({ route }) => route))
+    return cache.addAll(requestsToCache)
       .then(() => removeOldCaches());
   }));
 });
