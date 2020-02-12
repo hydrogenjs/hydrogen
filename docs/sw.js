@@ -1,3 +1,7 @@
+const ROUTES_TO_CACHE = new Set([
+  ...routes.map(({ route }) => route),
+]);
+
 const getOldCacheData = async () => {
   const [cacheVersion] = await caches.keys();
 
@@ -25,20 +29,19 @@ const removeOldCaches = async () => {
   return Promise.all(cacheVersions.map(cacheName => caches.delete(cacheName)));
 };
 
-self.addEventListener('install', (e) => {
-  e.waitUntil(getOldCacheData()
-    .then((oldCacheData) => {
-      const requestsToCache = new Set([
-        ...routes.map(({ route }) => route),
-      ]);
+const migrateOldCacheToNewCache = async (oldCacheData) => {
+  const cache = await caches.open(CACHE_VERSION);
 
-      return caches.open(CACHE_VERSION)
-        .then((cache) => {
-          const addOldCache = Promise.all(oldCacheData.map(data => cache.put(data.request, data.response)));
+  const addOldCacheToNewCache = Promise.all(oldCacheData.map(data => cache.put(data.request, data.response)));
 
-          return Promise.all([cache.addAll(requestsToCache), addOldCache]);
-        });
-    })
-    .then(() => removeOldCaches())
-    .catch(console.log));
+  return Promise.all([cache.addAll(ROUTES_TO_CACHE), addOldCacheToNewCache]);
+};
+
+self.addEventListener('install', (event) => {
+  const installEvent = getOldCacheData()
+    .then(migrateOldCacheToNewCache)
+    .then(removeOldCaches)
+    .catch(console.log);
+
+  event.waitUntil(installEvent);
 });
