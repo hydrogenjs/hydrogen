@@ -14,6 +14,8 @@ export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, d
     getServiceWorker(sw),
   ]);
 
+  const { version: cacheVersion } = await fs.readJSON(normalize(`${CWD}/package.json`));
+
   const paths = pages.map((page): Path => {
     const path = page.replace('dist', '').split('/');
     const filename = path.pop() as string;
@@ -29,7 +31,8 @@ export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, d
 
   const serviceWorker = `
     const DEV = ${JSON.stringify(dev)};
-    const routes = ${JSON.stringify(paths, null, 3)}
+    const CACHE_VERSION = ${JSON.stringify(cacheVersion)};
+    const routes = ${JSON.stringify(paths, null, 3)};
 
     ${swFile}
   `;

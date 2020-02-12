@@ -112,6 +112,49 @@ const page = () => html`
       });
     </code>
   </pre>
+  <h2 id="exposing-page-routes-to-your-service-worker">Versioning your Service Worker cache<code class="badge">New v0.9</code></h2>
+  <p>
+    Managing cache is not the easiest thing in the world, especially if you need to invalidate the cache. 
+    You can now get access to the <code class="code">const CACHE_VERSION</code> variable
+    which is determined by the version field in your <code class="code">package.json</code> file
+  </p>
+  <pre>
+    <code class="lang-javascript">
+      const getOldCacheData = async () => {
+        const oldCache = await caches.open(await caches.keys()[0]);
+
+        return oldCache.keys();
+      };
+
+      const removeOldCaches = async () => {
+        const cacheVersions = await caches.keys();
+
+        cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1);
+
+        for (const cacheName of cacheVersions) {
+          await caches.delete(cacheName);
+        }
+      };
+
+      self.addEventListener('install', async (e) => {
+        const oldCacheData = await getOldCacheData();
+        const requestsToCache = [
+          ...oldCacheData,
+          ...routes.map(({ route }) => new Request(route)),
+        ];
+
+        e.waitUntil(caches.open(CACHE_VERSION).then((cache) => {
+          return cache.addAll(requestsToCache)
+            .then(() => removeOldCaches());
+        }));
+      });
+    </code>
+  </pre>
+  <p>
+    Here we are deleting our old caches if we deployed a new version of our app,
+    it will only delete the old cache versions if the new cache version was successfully created.
+    If any of the promises fails in <code class="code">e.waitUntil</code> then the entire install event will cancel 
+  </p>
 `;
 
 module.exports = {

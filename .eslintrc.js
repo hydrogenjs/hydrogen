@@ -19,7 +19,9 @@ module.exports = {
   "globals": {
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly",
-      "routes": "readonly"
+      "routes": "readonly",
+      "CACHE_VERSION": "readonly",
+      "DEV": "readonly"
   },
   "parserOptions": {
       "ecmaVersion": 2018
@@ -35,6 +37,7 @@ module.exports = {
       "no-nested-ternary": "off",
       "no-console": "off",
       "@typescript-eslint/explicit-member-accessibility": "off",
-      "no-restricted-globals": "off"
+      "no-restricted-globals": "off",
+      "no-restricted-syntax": "off"
   }
 };
