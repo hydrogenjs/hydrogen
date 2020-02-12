@@ -120,33 +120,37 @@ const page = () => html`
   </p>
   <pre>
     <code class="lang-javascript">
-      const getOldCacheData = async () => {
-        const oldCache = await caches.open(await caches.keys()[0]);
-
-        return oldCache.keys();
-      };
-
       const removeOldCaches = async () => {
         const cacheVersions = await caches.keys();
 
-        cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1);
+        const handler = () => Promise.all(cacheVersions.map((cacheName) => caches.delete(cacheName)));
 
-        for (const cacheName of cacheVersions) {
-          await caches.delete(cacheName);
+        if (cacheVersions.includes(CACHE_VERSION)) {
+          cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1)
         }
+
+        return handler();
       };
 
-      self.addEventListener('install', async (e) => {
-        const oldCacheData = await getOldCacheData();
-        const requestsToCache = [
-          ...oldCacheData,
-          ...routes.map(({ route }) => new Request(route)),
-        ];
+      self.addEventListener('install', (event) => {
+        event.waitUntil(removeOldCaches())
+      })
 
-        e.waitUntil(caches.open(CACHE_VERSION).then((cache) => {
-          return cache.addAll(requestsToCache)
-            .then(() => removeOldCaches());
-        }));
+      self.addEventListener('fetch', (event) => {
+        event.respondWith(
+          caches.open(CACHE_VERSION).then((cache) => {
+            if (event.request.destination !== 'image') {
+              return fetch(event.request);
+            }
+
+            return cache.match(event.request).then((cacheResponse) => {
+              return cacheResponse || fetch(event.request).then((networkResponse) => {
+                cache.put(event.request, networkResponse.clone());
+                return networkResponse;
+              });
+            });
+          }),
+        );
       });
     </code>
   </pre>
