@@ -14,15 +14,17 @@ const removeOldCaches = async () => {
   }
 };
 
-self.addEventListener('install', async (e) => {
-  const oldCacheData = await getOldCacheData();
-  const requestsToCache = [
-    ...oldCacheData,
-    ...routes.map(({ route }) => new Request(route)),
-  ];
+self.addEventListener('install', (e) => {
+  e.waitUntil(getOldCacheData()
+    .then((oldCacheData) => {
+      const requestsToCache = [
+        ...oldCacheData,
+        ...routes.map(({ route }) => new Request(route)),
+      ];
 
-  e.waitUntil(caches.open(CACHE_VERSION).then((cache) => {
-    return cache.addAll(requestsToCache)
-      .then(() => removeOldCaches());
-  }));
+      return caches.open(CACHE_VERSION)
+        .then(cache => cache.addAll(requestsToCache));
+    })
+    .then(() => removeOldCaches())
+    .catch(console.log));
 });
