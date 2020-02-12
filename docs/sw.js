@@ -1,7 +1,7 @@
 const getOldCacheData = async () => {
-  const oldCache = await caches.open(await caches.keys()[0]).keys();
+  const oldCache = await caches.open(await caches.keys()[0]);
 
-  return oldCache;
+  return oldCache.keys();
 };
 
 const removeOldCaches = async () => {
@@ -9,7 +9,7 @@ const removeOldCaches = async () => {
 
   cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1);
 
-  for (cacheName of cacheVersions) {
+  for (const cacheName of cacheVersions) {
     await caches.delete(cacheName);
   }
 };
