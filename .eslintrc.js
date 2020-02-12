@@ -19,7 +19,9 @@ module.exports = {
   "globals": {
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly",
-      "routes": "readonly"
+      "routes": "readonly",
+      "CACHE_VERSION": "readonly",
+      "DEV": "readonly"
   },
   "parserOptions": {
       "ecmaVersion": 2018
