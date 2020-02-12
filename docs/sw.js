@@ -32,7 +32,9 @@ const removeOldCaches = async () => {
 const migrateOldCacheToNewCache = async (oldCacheData) => {
   const cache = await caches.open(CACHE_VERSION);
 
-  const addOldCacheToNewCache = Promise.all(oldCacheData.map(data => cache.put(data.request, data.response)));
+  const addOldCacheToNewCache = Promise.all(
+    oldCacheData.map(data => cache.put(data.request, data.response)),
+  );
 
   return Promise.all([cache.addAll(ROUTES_TO_CACHE), addOldCacheToNewCache]);
 };

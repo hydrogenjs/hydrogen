@@ -96,7 +96,6 @@
   "types": "lib/index.d.ts",
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test",
       "pre-push": "yarn test"
     }
   },
