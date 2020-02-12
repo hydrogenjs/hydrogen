@@ -9,9 +9,7 @@ const removeOldCaches = async () => {
 
   cacheVersions.splice(cacheVersions.indexOf(CACHE_VERSION), 1);
 
-  for (const cacheName of cacheVersions) {
-    await caches.delete(cacheName);
-  }
+  return Promise.all(cacheVersions.map(cacheName => caches.delete(cacheName)))
 };
 
 self.addEventListener('install', (e) => {
