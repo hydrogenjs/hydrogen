@@ -22,14 +22,14 @@ export const generateHTML = (pages: PageAndLayoutProperties[], { dev, config }: 
     dev,
   });
 
-  const pageTemplate = page.page({
+  const pageTemplate = await page.page({
     data: pageData,
     config,
     dev,
     route: page.route,
   });
 
-  const layoutTemplate = page.layout({
+  const layoutTemplate = await page.layout({
     title: page.title,
     content: pageTemplate,
     head: await pageHead,
