@@ -7,11 +7,22 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug Hydrogen Build",
+      "name": "Debug Hydrogen CLI: Package",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/docs/node_modules/hydrogen-cli/bin/run",
+      "cwd": "${workspaceFolder}/docs",
+      "args": ["build", "--dev"],
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Hydrogen CLI: Binary",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/run",
       "cwd": "${workspaceFolder}/docs",
       "args": ["build", "--dev"],
     }
