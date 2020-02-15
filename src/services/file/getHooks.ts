@@ -6,8 +6,8 @@ interface Hooks {
   afterDistRemoved?: (...args: unknown[]) => Promise<void>;
   beforeBuild?: (...args: unknown[]) => Promise<void>;
   afterBuild?: (...args: unknown[]) => Promise<void>;
-  beforeEachPage?: (...args: unknown[]) => Promise<void>;
-  afterEachPage?: (...args: unknown[]) => Promise<void>;
+  beforeEachPageGenerated?: (...args: unknown[]) => Promise<void>;
+  afterEachPageGenerated?: (...args: unknown[]) => Promise<void>;
   beforeServiceWorkerGenerated?: (...args: unknown[]) => Promise<{ inject?: string; removeDefaults?: boolean }>;
   afterServiceWorkerGenerated?: (...args: unknown[]) => Promise<{ inject?: string; removeDefaults?: boolean }>;
 }

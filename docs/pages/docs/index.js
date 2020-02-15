@@ -49,12 +49,13 @@ const page = () => html`
       <li><a href="/docs/working-with-meta-data#using-the-head-api">Using the Head API</a></li>
       <li><a href="/docs/working-with-meta-data#using-asynchronous-data-with-the-head-api">Using asynchronous data with the Head API</a></li>
     </ul>
-    <li><a href="/docs/setting-up-a-service-worker">🩺 Setting Up a Service Worker</a></li>
+    <li><a href="/docs/setting-up-a-service-worker">💾 Setting Up a Service Worker</a></li>
     <ul>
       <li><a href="/docs/setting-up-a-service-worker#basic-setup">Basic Setup</a></li>
       <li><a href="/docs/setting-up-a-service-worker#exposing-page-routes-to-your-service-worker">Exposing page routes to your Service Worker</a></li>
+      <li><a href="/docs/setting-up-a-service-worker#versioning-your-service-worker-cache">Versioning your Service Worker cache</a></li>
     </ul>
-    <li><a href="/docs/hydrogen-routes">Generate Routes Dynamically</a></li>
+    <li><a href="/docs/hydrogen-routes">⚙ Generate Routes Dynamically</a></li>
     <ul>
       <li><a href="/docs/hydrogen-routes#basic-setup">Basic setup</a></li>
       <li><a href="/docs/hydrogen-routes#setting-up-a-dynamic-page-template">Setting up a dynamic page template</a></li>
@@ -67,6 +68,10 @@ const page = () => html`
       <li><a href="/docs/hydrogen-config#set-global-head-tags">Set global head tags</a></li>
       <li><a href="/docs/hydrogen-config#setting-a-custom-service-worker">Setting a custom Service Worker</a></li>
       <li><a href="/docs/hydrogen-config#delete-dist-folder-before-build">Delete dist folder before build</a></li>
+    </ul>
+    <li><a href="/docs/build-hooks">⛏️ Build hooks</a></li>
+    <ul>
+      <li><a href="/docs/build-hooks#basic-setup">Basic setup</a></li>
     </ul>
   </ul>
 `;

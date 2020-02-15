@@ -19,7 +19,9 @@ const page = ({ data }) => html`
     <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
   </a>
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
-  <p class="tip"><i>Compile a ton of templates in under ~150ms</i></p>
+  <p class="tip">
+    New features 🎉 - <a href="/docs/build-hooks"><i>Build Hooks</i></a> and <i>Debugging JavaScript Build Process</i>
+  </p>
   <center>
     <img style="margin: 20px; border-radius: 10px;width: 80%;height: auto;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>
@@ -34,6 +36,7 @@ const page = ({ data }) => html`
     |
     <a class="github-button" href="https://github.com/ShailenNaidoo/hydrogen" data-icon="octicon-star" data-show-count="true" aria-label="Star ShailenNaidoo/hydrogen on GitHub">Star</a>
   </p>
+  
   <h2 id="quick-start">⚡ Quick Start</h2>
   <hr style="margin-bottom: 20px;">
   <small>Install: <i>Hydrogen CLI</i></small>

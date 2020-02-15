@@ -1,31 +1,15 @@
-exports.beforeDistRemoved = async (ctx) => {
-  // console.log(ctx);
-};
+exports.beforeDistRemoved = async (ctx) => {};
 
-exports.afterDistRemoved = async (ctx) => {
-  // console.log(ctx);
-};
+exports.afterDistRemoved = async (ctx) => {};
 
-exports.beforeBuild = async (ctx) => {
-  // console.log(ctx);
-};
+exports.beforeBuild = async (ctx) => {};
 
-exports.afterBuild = async (ctx) => {
-  // console.log(ctx);
-};
+exports.afterBuild = async (ctx) => {};
 
-exports.beforeEachPage = async (ctx) => {
-  console.log(ctx.page.path);
-};
+exports.beforeEachPageGenerated = async (ctx) => {};
 
-exports.afterEachPage = async (ctx) => {
-  // console.log(ctx);
-};
+exports.afterEachPageGenerated = async (ctx) => {};
 
-exports.beforeServiceWorkerGenerated = async (ctx) => {
-  // console.log(ctx);
-};
+exports.beforeServiceWorkerGenerated = async (ctx) => {};
 
-exports.afterServiceWorkerGenerated = async (ctx) => {
-  // console.log(ctx);
-};
+exports.afterServiceWorkerGenerated = async (ctx) => {};

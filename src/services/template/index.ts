@@ -14,7 +14,7 @@ export const mergeLayoutsWithPages = (pages: PageProperties[], layouts: LayoutPr
 export const generateHTML = (pages: PageAndLayoutProperties[], { dev, config }: Options): Promise<HTMLObject[]> => Promise.all(pages.map(async (page): Promise<HTMLObject> => {
   const hooks = await getHooks();
 
-  await hooks?.beforeEachPage?.({ page, dev, config });
+  await hooks?.beforeEachPageGenerated?.({ page, dev, config });
 
   const pageData = page.data ? await page.data({ dev, config, route: page.route }) : {};
 

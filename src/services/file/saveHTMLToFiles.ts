@@ -10,7 +10,7 @@ const saveHTMLToFiles = (pages: HTMLObject[]): Promise<void[]> => Promise
     const hooks = await getHooks();
 
     return fs.outputFile(path.normalize(`${CWD}/${page.path}`), page.html)
-      .then((): Promise<void> | undefined => hooks?.afterEachPage?.(page));
+      .then((): Promise<void> | undefined => hooks?.afterEachPageGenerated?.(page));
   }));
 
 export default saveHTMLToFiles;
