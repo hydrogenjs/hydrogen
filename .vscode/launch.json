@@ -12,7 +12,8 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/bin/run",
-      "args": ["build", "--dev"]
+      "cwd": "${workspaceFolder}/docs",
+      "args": ["build", "--dev"],
     }
   ]
 }
