@@ -10,15 +10,6 @@ exports.beforeEachPageGenerated = async (ctx) => {};
 
 exports.afterEachPageGenerated = async (ctx) => {};
 
-exports.beforeServiceWorkerGenerated = async (ctx) => {
-  console.log('Overriding Service Worker');
-
-  return {
-    removeDefaults: true,
-    inject: `
-      const DEV = ${JSON.stringify(ctx.dev)}
-    `,
-  }
-};
+exports.beforeServiceWorkerGenerated = async (ctx) => {};
 
 exports.afterServiceWorkerGenerated = async (ctx) => {};
