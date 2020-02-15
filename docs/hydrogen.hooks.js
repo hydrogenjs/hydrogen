@@ -10,6 +10,11 @@ exports.beforeEachPageGenerated = async (ctx) => {};
 
 exports.afterEachPageGenerated = async (ctx) => {};
 
-exports.beforeServiceWorkerGenerated = async (ctx) => {};
+exports.beforeServiceWorkerGenerated = async (ctx) => ({
+  removeDefaults: true,
+  inject: `
+    const DEV = ${JSON.stringify(ctx.dev)}
+  `,
+});
 
 exports.afterServiceWorkerGenerated = async (ctx) => {};
