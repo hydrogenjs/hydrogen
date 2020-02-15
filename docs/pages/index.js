@@ -20,7 +20,7 @@ const page = ({ data }) => html`
   </a>
   <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
   <p class="tip">
-    New features 🎉 - <a href="/docs/build-hooks"><i>Build Hooks</i></a> and <i>Debugging JavaScript Build Process</i>
+    New features 🎉 - <a href="/docs/build-hooks"><i>Build Hooks</i></a> and <a href="/docs/debugging-build-process"><i>Debugging JavaScript Build Process</i></a>
   </p>
   <center>
     <img style="margin: 20px; border-radius: 10px;width: 80%;height: auto;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
