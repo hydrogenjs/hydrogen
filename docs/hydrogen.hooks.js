@@ -12,7 +12,7 @@ exports.afterEachPageGenerated = async (ctx) => {};
 
 exports.beforeServiceWorkerGenerated = async (ctx) => {
   console.log('Overriding Service Worker');
-  
+
   return {
     removeDefaults: true,
     inject: `
