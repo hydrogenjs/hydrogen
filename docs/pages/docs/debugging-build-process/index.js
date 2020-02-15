@@ -32,6 +32,7 @@ const page = () => html`
   <p>Once the Node Devtools are open, you will need to add your project folder to the workspace by clicking on "Add folder to workspace"</p>
   <img src="/public/images/node-inspector.png">
   <p>Now you can debug your JavaScript</p>
+  <h2 id="using-synchronous-data">Debugging in VS Code</h2>
 `.replace(/\$n/g, '$');
 
 module.exports = {
