@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/bin/run",
+      "program": "${workspaceFolder}/docs/node_modules/hydrogen-cli/bin/run",
       "cwd": "${workspaceFolder}/docs",
       "args": ["build", "--dev"],
     }
