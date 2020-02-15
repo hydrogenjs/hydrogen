@@ -112,9 +112,7 @@ const page = ({ data }) => html`
 
 module.exports = {
   page,
-  data: () => ({
-    version,
-  }),
+  data: () => ({ version }),
   head: () => [
     ['meta', { name: 'description', content: 'A super lightweight static-site generator built with TypeScript 😻 Uses 🔥 lit-html inspired templates for super performant template generation' }],
     ['meta', { property: 'og:title', content: '🎈 Hydrogen: Super fast static-site generator' }],
