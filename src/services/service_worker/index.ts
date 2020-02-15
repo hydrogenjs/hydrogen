@@ -18,6 +18,7 @@ export const generateSW = async (sw: string | undefined = SW_DEFAULT_TEMPLATE, d
 
   const { version: cacheVersion } = await fs.readJSON(normalize(`${CWD}/package.json`));
 
+  // @ts-ignore
   const paths = pages.map((page): Path => {
     const path = page.replace('dist', '').split('/');
     const filename = path.pop() as string;
