@@ -6,6 +6,7 @@ import copyStaticFolder from './copyStaticFolder';
 import copyExtraStaticFiles from './copyExtraStaticFiles';
 import getServiceWorker from './getServiceWorker';
 import deleteDistFolder from './deleteDistFolder';
+import getHooks from './getHooks';
 
 export {
   getPages,
@@ -16,4 +17,5 @@ export {
   copyExtraStaticFiles,
   getServiceWorker,
   deleteDistFolder,
+  getHooks,
 };

@@ -33,7 +33,9 @@ const templateGenerator = async (filename: string): Promise<void|boolean> => {
   await fs.outputFile(filename.replace('.js', '.html'), await file.page({
     // @ts-ignore
     title: file.title,
-    head: file.head ? await transformHeadToHTML({ head: file.head, data, config, dev: false, route: {} }) : '',
+    head: file.head ? await transformHeadToHTML({
+      head: file.head, data, config, dev: false, route: {},
+    }) : '',
     data,
   }));
   console.timeEnd('build time');

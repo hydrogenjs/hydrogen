@@ -10,3 +10,4 @@ lib
 webapp
 dist
 coverage
+debug.log

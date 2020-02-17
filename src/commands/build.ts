@@ -7,6 +7,7 @@ import {
   copyStaticFolder,
   copyExtraStaticFiles,
   deleteDistFolder,
+  getHooks,
 } from '../services/file';
 import { doFoldersExist } from '../helpers/checkFolder';
 import { logBuildMode } from '../helpers/log';
@@ -26,18 +27,22 @@ export class Build extends Command {
     const { flags: { dev } } = this.parse(Build);
 
     const config = await getConfig();
+    const hooks = await getHooks();
 
     await logBuildMode(dev);
 
-    if (config.build && config.build.deleteFolder) {
+    if (config?.build?.deleteFolder) {
+      await hooks?.beforeDistRemoved?.({ dev, config });
       console.log('Deleting [dist] folder before build');
       await deleteDistFolder();
+      await hooks?.afterDistRemoved?.({ dev, config });
     }
 
     if (!await doFoldersExist()) {
       return false;
     }
 
+    await hooks?.beforeBuild?.({ dev, config });
     cli.action.start('Building files');
     console.time('Build time');
 
@@ -51,7 +56,10 @@ export class Build extends Command {
       generateSW(config.sw, dev),
     ]);
 
+
     cli.action.stop();
     console.timeEnd('Build time');
+
+    await hooks?.afterBuild?.({ dev, config });
   }
 }
