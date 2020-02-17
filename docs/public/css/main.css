@@ -22,9 +22,13 @@ body {
   font-family: Palanquin, sans-serif;
   padding: 2rem;
   max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
+  margin: auto;
   overflow-y: scroll;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .float-ballon:hover {
@@ -40,7 +44,7 @@ nav p {
   position: fixed;
   left: 30px;
   top: -30px;
-  font-size: 40px;
+  font-size: 44px;
 }
 
 nav p a {
@@ -48,25 +52,25 @@ nav p a {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 34px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 li {
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 small {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 a {
@@ -74,16 +78,17 @@ a {
 }
 
 pre code {
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 10px;
 }
 
 hr {
   border-top: dotted 1px;
+  width: 100%;
 }
 
 ul ul li {
-  font-size: 13px;
+  font-size: 17px;
 }
 
 ul ul li a {
@@ -110,7 +115,7 @@ th {
 
 td { 
   border-top: 1px solid white;
-  font-size: 13px;
+  font-size: 17px;
   padding: 10px;
 }
 
@@ -120,12 +125,20 @@ footer {
 
 img {
   border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+div a img {
+  border-radius: 10px;
+  width: initial;
+  height: initial;
 }
 
 .code {
   background-color: black;
   color: #76FF03;
-  font-size: 13px;
+  font-size: 17px;
   padding: 2px;
   padding-left: 4px;
   padding-right: 4px;
@@ -136,7 +149,7 @@ img {
   background-color: #EEEEEE;
   color: black;
   padding: 5px;
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 10px;
   border-radius: 5px;
 }
@@ -176,4 +189,65 @@ img {
   animation-duration: 1s;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  nav p {
+    font-size: 40px;
+    display: none;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 16px;
+  }
+  
+  small {
+    font-size: 14px;
+  }
+  
+  pre code {
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  ul ul li {
+    font-size: 13px;
+  }
+
+  td { 
+    border-top: 1px solid white;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .code {
+    background-color: black;
+    color: #76FF03;
+    font-size: 13px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 5px;
+  }
+  
+  .badge {
+    background-color: #EEEEEE;
+    color: black;
+    padding: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
 }

@@ -3,25 +3,27 @@ const { version } = require('../../package.json');
 
 const page = ({ data }) => html`
   <h1>🎈 Hydrogen</h1>
-  <a style="text-decoration: none" href="https://app.netlify.com/sites/hydrogen-cli/deploys">
-    <img style="border-radius: 0px;" src="https://api.netlify.com/api/v1/badges/812415ef-37e8-4015-b7cd-7654d0f3c9b8/deploy-status">
-  </a>
-  <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
-    <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
-  </a>
-  <a style="text-decoration: none" href="https://codecov.io/gh/ShailenNaidoo/hydrogen">
-    <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
-  </a>
-  <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
-    <img style="border-radius: 0px;" src="https://img.shields.io/npm/dw/hydrogen-cli.svg">
-  </a>
-  <a style="text-decoration: none" href="https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json">
-    <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
-  </a>
-  <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
-  <p class="tip">
-    New features 🎉 - <a href="/docs/build-hooks"><i>Build Hooks</i></a> and <a href="/docs/debugging-build-process"><i>Debugging JavaScript Build Process</i></a>
-  </p>
+  <div>
+    <a style="text-decoration: none" href="https://app.netlify.com/sites/hydrogen-cli/deploys">
+      <img style="border-radius: 0px;" src="https://api.netlify.com/api/v1/badges/812415ef-37e8-4015-b7cd-7654d0f3c9b8/deploy-status">
+    </a>
+    <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
+      <img style="border-radius: 0px;" src="https://img.shields.io/npm/v/hydrogen-cli.svg">
+    </a>
+    <a style="text-decoration: none" href="https://codecov.io/gh/ShailenNaidoo/hydrogen">
+      <img style="border-radius: 0px;" src="https://codecov.io/gh/ShailenNaidoo/hydrogen/branch/master/graph/badge.svg">
+    </a>
+    <a style="text-decoration: none" href="https://npmjs.org/package/hydrogen-cli">
+      <img style="border-radius: 0px;" src="https://img.shields.io/npm/dw/hydrogen-cli.svg">
+    </a>
+    <a style="text-decoration: none" href="https://github.com/ShailenNaidoo/hydrogen/blob/master/package.json">
+      <img style="border-radius: 0px;" src="https://img.shields.io/npm/l/cli.svg">
+    </a>
+    <p>A super lightweight static-site generator built with <span style="color: #007acc">TypeScript</span> 😻 Uses 🔥 <a style="color: #ff2f2f;" href="https://lit-html.polymer-project.org">lit-html</a> inspired templates for super performant template generation.</p>
+    <p class="tip">
+      New features 🎉 - <a href="/docs/build-hooks"><i>Build Hooks</i></a> and <a href="/docs/debugging-build-process"><i>Debugging JavaScript Build Process</i></a>
+    </p>
+  </div>
   <center>
     <img style="margin: 20px; border-radius: 10px;width: 80%;height: auto;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>

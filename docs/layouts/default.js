@@ -27,7 +27,9 @@ module.exports = ({ title, content, head }) => html`
     <nav>
       <p class="float-ballon"><a href="/">🎈</a></p>
     </nav>
-    $${content}
+    <main class="container">
+      $${content}
+    </main>
   </body>
   <hr style="margin-top: 40px;">
   <footer style="display: flex; justify-content: space-between;">
