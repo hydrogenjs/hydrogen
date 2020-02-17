@@ -44,7 +44,7 @@ const page = ({ data }) => html`
   <small>Install: <i>Hydrogen CLI</i></small>
   <pre>
     <code class="lang-shell">
-      $ yarn add hydrogen-cli
+      $ npm install hydrogen-cli --save
     </code>
   </pre>
   <small>Input file: <i>index.js</i></small>
