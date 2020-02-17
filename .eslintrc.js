@@ -38,6 +38,7 @@ module.exports = {
       "no-console": "off",
       "@typescript-eslint/explicit-member-accessibility": "off",
       "no-restricted-globals": "off",
-      "no-restricted-syntax": "off"
+      "no-restricted-syntax": "off",
+      "import/extensions": "off"
   }
 };
