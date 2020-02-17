@@ -108,6 +108,6 @@ This will run your changes to the Hydrogen CLI over the Hydrogen documentation
 
 ### V1
 
-- [ ] Debugging - How to debug a Hydrogen build process
-- [ ] Project rewrite - To improve modularity
-- [ ] Improve documention
+- [x] Debugging - How to debug a Hydrogen build process
+- [x] Project rewrite - To improve modularity
+- [x] Improve documention
