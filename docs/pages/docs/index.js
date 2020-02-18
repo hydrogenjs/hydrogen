@@ -73,6 +73,11 @@ const page = () => html`
     <ul>
       <li><a href="/docs/build-hooks#basic-setup">Basic setup</a></li>
     </ul>
+    <li><a href="/docs/debugging-build-process/">🐛 Debugging Build Process</a></li>
+    <ul>
+      <li><a href="/docs/debugging-build-process#using-nodejs-devtools-in-chrome">Using Node.js Devtools in Chrome</a></li>
+      <li><a href="/docs/debugging-build-process#debugging-in-vs-code">Debugging in VS Code</a></li>
+    </ul>
   </ul>
 `;
 

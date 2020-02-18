@@ -10,7 +10,7 @@ const page = () => html`
   <p>
     Let's see how we can do this!
   </p>
-  <h2 id="using-synchronous-data">Using Node.js Devtools in Chrome</h2>
+  <h2 id="using-nodejs-devtools-in-chrome">Using Node.js Devtools in Chrome</h2>
   <p>
     Chrome has a built-in tool called the Node.js V8 inspector which allows us to debug Node.js applications in Chrome Devtools
   </p>
@@ -32,7 +32,7 @@ const page = () => html`
   <p>4. Once the Node Devtools are open, you will need to add your project folder to the workspace by clicking on "Add folder to workspace"</p>
   <img src="/public/images/node-inspector.png">
   <p>Now you can debug your JavaScript</p>
-  <h2 id="using-synchronous-data">Debugging in VS Code</h2>
+  <h2 id="debugging-in-vs-code">Debugging in VS Code</h2>
   <p>
     There are two ways we could setup debugging in VS Code,
     either with VS Code's auto attaching feature or with a <code class="code">launch.json</code> file
