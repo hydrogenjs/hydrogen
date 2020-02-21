@@ -29,7 +29,7 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 Add Hydrogen CLI to your project
 
 ```bash
-$ yarn add hydrogen-cli
+$ npm install hydrogen-cli --save-dev
 ```
 Create a simple `index.js` file with below code
 
