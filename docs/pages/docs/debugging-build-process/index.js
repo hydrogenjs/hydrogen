@@ -74,7 +74,7 @@ const page = () => html`
             "request": "launch",
             "name": "Debug Hydrogen CLI",
             "skipFiles": [
-              "<node_internals>/**"
+              "&lt;node_internals&gt;/**"
             ],
             "program": "$n{workspaceFolder}/node_modules/hydrogen-cli/bin/run",
             "cwd": "$n{workspaceFolder}",
