@@ -92,6 +92,8 @@ Pull requests are more than welcome :)
 2. Clone repo
 3. All commands are in the `package.json` file
 
+> Docker is optional and if you want to debug the build process refer to [🐛 Debugging Build Process](https://hydrogenjs.org/docs/debugging-build-process/)
+
 Run the below commands:
 
 ```bash
