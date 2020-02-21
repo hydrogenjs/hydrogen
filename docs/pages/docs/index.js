@@ -95,7 +95,7 @@ const page = () => html`
       { text: 'Copy extra static files', url: '/docs/hydrogen-config#copy-extra-static-files' },
       { text: 'Set global head tags', url: '/docs/hydrogen-config#set-global-head-tags' },
       { text: 'Setting a custom Service Worker', url: '/docs/hydrogen-config#setting-a-custom-service-worker' },
-      { text: 'Delete dist folder before build', url: 'https://cdpn.io/docs/hydrogen-config#delete-dist-folder-before-build' },
+      { text: 'Delete dist folder before build', url: '/docs/hydrogen-config#delete-dist-folder-before-build' },
     ],
   })}
   $${ListItem({
