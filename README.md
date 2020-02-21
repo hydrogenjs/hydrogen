@@ -23,7 +23,7 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 - 🔌 [**Use External APIs**](https://hydrogenjs.org/docs/working-with-data/). Plug into your data with remote APIs.
 - 🕶 [**Powerful Metadata API**](https://hydrogenjs.org/docs/working-with-meta-data/). Get the best SEO for your static pages.
 - 🔨 [**Build Hooks**](https://hydrogenjs.org/docs/build-hooks/). Customize the build process to fit your needs
-- 💾 [**Native support for Service Workers**](https://hydrogenjs.org/docs/setting-up-a-service-worker/). Build powerful offline-first experiences
+- 💾 [**Service Worker friendly**](https://hydrogenjs.org/docs/setting-up-a-service-worker/). Build powerful offline-first experiences
 
 ## Quick start
 Add Hydrogen CLI to your project
