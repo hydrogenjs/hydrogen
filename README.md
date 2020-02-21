@@ -22,6 +22,8 @@ BTW Hydrogen is much faster than [@11ty/eleventy](https://www.npmjs.com/package/
 - 🔥 **JavaScript Templates**. With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of a JavaScript.
 - 🔌 **Use External APIs**. Plug into your data with remote APIs.
 - 🕶 **Powerful Metadata API**. Get the best SEO for your static pages.
+- 🔨 **Build Hooks**. Customize the build process to fit your needs
+- 💾 **Native support for Service Workers**. Build powerful offline-first experiences
 
 ## Quick start
 Add Hydrogen CLI to your project
