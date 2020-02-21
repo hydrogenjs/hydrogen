@@ -20,6 +20,12 @@ const page = () => html`
       <li><strong>🔥 JavaScript Templates.</strong> With ES6 template literals, who needs template engines like pug and handlebars. You now have access to the full-power of JavaScript.</li>
       <li><strong>🔌 Use External APIs.</strong> Plug into your data with remote APIs.</li>
       <li><strong>🕶 Powerful Metadata API.</strong> Get the best SEO for your static pages.</li>
+      <li>
+        <strong>🔨 Build Hooks.</strong> Customize the build process to fit your needs
+      </li>
+      <li>
+        <strong>💾 Service Worker friendly.</strong> Build powerful offline-first experiences
+      </li>
     </ul>
   </p>
   <h2>Index</h2>
