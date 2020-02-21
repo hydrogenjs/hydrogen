@@ -19,7 +19,7 @@
 body {
   background: white;
   color: black;
-  font-family: Palanquin, sans-serif;
+  font-family: Muli, sans-serif;
   padding: 2rem;
   max-width: 800px;
   margin: auto;
@@ -96,6 +96,35 @@ ul ul li a {
 }
 
 ul ul li a:hover {
+  text-decoration: underline;
+}
+
+details {
+  margin-bottom: 30px;
+}
+
+details summary {
+  outline: none;
+}
+
+details summary a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+details summary a:hover {
+  text-decoration: underline;
+}
+
+details ul li {
+  font-size: 17px;
+}
+
+details ul li a {
+  text-decoration: none;
+}
+
+details ul li a:hover {
   text-decoration: underline;
 }
 
