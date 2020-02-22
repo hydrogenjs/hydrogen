@@ -7,7 +7,7 @@ const ListItem = ({ heading, links = [] }) => html`
     </summary>
     <ul>
       ${links.map(({ url, text }) => html`
-        <li><a href="${url}t">${text}</a></li>
+        <li><a href="${url}">${text}</a></li>
       `)}
     </ul>
   </details>
