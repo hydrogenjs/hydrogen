@@ -51,7 +51,7 @@ const page = () => html`
           text: 'Hello from Hydrogen',
           css: 'https://main.css',
         }),
-        head: ({ css }) => [
+        head: ({ data }) => [
           ['link', { rel: 'stylesheet', href: data.css }],
           ['script', { src: 'https://script.js' }, true],
           ['style', {}, 'body { font-size: 10px; }'],
