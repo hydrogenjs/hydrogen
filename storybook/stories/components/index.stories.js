@@ -24,7 +24,22 @@ const Code = () => html`
   <code class="code green text-black">{ "hello": "world" }</code>
 `
 
+const Dropdown = () => html`
+  <details open>
+    <summary>
+      <span class="title">🔨 Getting Started</span>
+    </summary>
+    <ul>
+      <li>Step 1: Setup a project</li>
+      <li>Step 2: Install Hydrogen</li>
+      <li>Step 3: Create a template</li>
+      <li>Step 4: Build the template</li>
+    </ul>
+  </details>
+`
+
 export {
   Badge,
   Code,
+  Dropdown,
 }

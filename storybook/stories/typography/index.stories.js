@@ -25,6 +25,8 @@ const Index = () => html`
   <small class="bold">Quick start</small>
 
   <small class="italic bold">Documentation</small>
+  
+  <small class="underline">JavaScript</small>
 `
 
 export { Index }
