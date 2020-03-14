@@ -55,6 +55,10 @@ small {
   font-size: 18px;
 }
 
+.title {
+  font-size: 1.4em !important;
+}
+
 .italic {
   font-style: italic;
 }
@@ -73,6 +77,10 @@ small {
 
 .text-black {
   color: black !important;
+}
+
+.underline {
+  text-decoration: underline !important;
 }
 
 /* Text Colour Styles End */
