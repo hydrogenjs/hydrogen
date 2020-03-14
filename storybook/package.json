@@ -11,7 +11,10 @@
     "html-template-tag": "^3.2.0"
   },
   "scripts": {
-    "storybook": "start-storybook -s ../docs -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --quiet"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^5.3.17"
   }
 }
