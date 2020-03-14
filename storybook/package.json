@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.8.7",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/html": "^5.3.14",
     "babel-loader": "^8.0.6",
