@@ -39,7 +39,7 @@ const page = ({ data }) => html`
     <a class="github-button" href="https://github.com/ShailenNaidoo/hydrogen" data-icon="octicon-star" data-show-count="true" aria-label="Star ShailenNaidoo/hydrogen on GitHub">Star</a>
   </p>
   
-  <h2 id="quick-start">⚡ Quick Start</h2>
+  <h3 id="quick-start">⚡ Quick Start</h3>
   <hr style="margin-bottom: 20px;">
   <small>Install: <i>Hydrogen CLI</i></small>
   <pre>
@@ -97,7 +97,7 @@ const page = ({ data }) => html`
       &lt;/html&gt;
     </code>
   </pre>
-  <h2>🏝 Deep dive</h2>
+  <h3>🏝 Deep dive</h3>
   <hr style="margin-bottom: 20px;">
   <p>Hydrogen is fast because it uses plain JavaScript as a template engine, no need to use something like Pug or Handlebars anymore!</p>
   <p>

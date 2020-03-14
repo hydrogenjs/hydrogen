@@ -16,6 +16,111 @@
   }
 }
 
+:root {
+  --border-radius: 0.3em;
+}
+
+/* Typography Styles Start */
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+small {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 18px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Typography Styles Start */
+
+/* Text Colour Styles Start */
+
+.text-white {
+  color: white !important;
+}
+
+/* Text Colour Styles End */
+
+/* Colour Styles Start */
+
+.red {
+  background-color: #F44336 !important;
+}
+
+.green {
+  background-color: #4CAF50 !important;
+}
+
+.blue {
+  background-color: #2196F3 !important;
+}
+
+.orange {
+  background-color: #FF9800 !important;
+}
+
+/* Colour Styles End */
+
+.ml-0 {
+  margin-left: 0em !important;
+}
+
+.ml-2 {
+  margin-left: 0.2em !important;
+}
+
+.ml-4 {
+  margin-left: 0.4em !important;
+}
+
+.ml-6 {
+  margin-left: 0.6em !important;
+}
+
+.ml-8 {
+  margin-left: 0.8em !important;
+}
+
+.ml-10 {
+  margin-left: 1em !important;
+}
+
+.ml-12 {
+  margin-left: 1.2em !important;
+}
+
 body {
   background: white;
   color: black;
@@ -49,14 +154,6 @@ nav p {
 
 nav p a {
   text-decoration: none;
-}
-
-h1 {
-  font-size: 34px;
-}
-
-h2 {
-  font-size: 28px;
 }
 
 p {
@@ -167,25 +264,28 @@ div a img {
 .code {
   background-color: black;
   color: #76FF03;
-  font-size: 17px;
-  padding: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
+  font-size: 12px;
+  padding: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
   border-radius: 5px;
+  display: inline-block;
 }
 
 .badge {
   background-color: #EEEEEE;
-  color: black;
   padding: 5px;
   font-size: 16px;
-  margin-left: 10px;
-  border-radius: 5px;
+  padding: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: var(--border-radius);
+  display: inline-block;
 }
 
 .tip {
   border-left: 4px solid black; 
-  border-radius: 3px; 
+  border-radius: var(--border-radius); 
   padding-left: 20px;
 }
 

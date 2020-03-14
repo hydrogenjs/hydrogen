@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>💾 Setting Up a Service Worker<code class="badge">New v0.6</code></h1>
+  <h1>💾 Setting Up a Service Worker<code class="badge ml-12">New v0.6</code></h1>
   <hr>
   <p>
     A Service Worker is a super powerful browser API that allows you to intercept network requests online or offline.
@@ -112,7 +112,7 @@ const page = () => html`
       });
     </code>
   </pre>
-  <h2 id="versioning-your-service-worker-cache">Versioning your Service Worker cache<code class="badge">New v0.9</code></h2>
+  <h2 id="versioning-your-service-worker-cache">Versioning your Service Worker cache<code class="badge ml-12">New v0.9</code></h2>
   <p>
     Managing cache is not the easiest thing in the world, especially if you need to invalidate the cache. 
     You can now get access to the <code class="code">const CACHE_VERSION</code> variable
