@@ -1,0 +1,15 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "@storybook/addon-a11y": "^5.3.14",
+    "@storybook/html": "^5.3.14"
+  },
+  "scripts": {
+    "storybook": "start-storybook -s ../docs -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
