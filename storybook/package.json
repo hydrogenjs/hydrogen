@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@storybook/addon-a11y": "^5.3.17",
+    "@storybook/html": "^5.3.14",
     "babel-loader": "^8.0.6",
-    "@storybook/addon-a11y": "^5.3.14",
-    "@storybook/html": "^5.3.14"
+    "html-template-tag": "^3.2.0"
   },
   "scripts": {
     "storybook": "start-storybook -s ../docs -p 6006",

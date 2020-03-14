@@ -71,9 +71,17 @@ small {
   color: white !important;
 }
 
+.text-black {
+  color: black !important;
+}
+
 /* Text Colour Styles End */
 
 /* Colour Styles Start */
+
+.white {
+  background-color: white !important;
+}
 
 .red {
   background-color: #F44336 !important;
@@ -89,6 +97,10 @@ small {
 
 .orange {
   background-color: #FF9800 !important;
+}
+
+.grey {
+  background-color: #9E9E9E !important;
 }
 
 /* Colour Styles End */

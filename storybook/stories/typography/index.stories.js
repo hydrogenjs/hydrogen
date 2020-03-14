@@ -1,9 +1,9 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+import html from 'html-template-tag'
 import { withA11y } from '@storybook/addon-a11y';
 
 export default { title: 'Typography', decorators: [withA11y] }
 
-const Index = () => `
+const Index = () => html`
   <h1>Hydrogen</h1>
 
   <h2>Hydrogen</h2>
