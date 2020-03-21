@@ -109,7 +109,7 @@ const page = ({ data }) => html`
     This is what makes Hydrogen so powerful, it does not provide a dev server or any overhead packages. 
     If you want, you can build what ever configuration you want on top of it.
   </p>
-  <p>Checkout the <a style="color: #007acc;" href="/docs">docs</a></p>
+  <p>Checkout the <a style="color: #007acc;" href="/docs">doc</a></p>
 `.replace(/\$n/g, '$');
 
 module.exports = {
