@@ -3,15 +3,15 @@ import html from 'html-template-tag'
 export default { title: 'Components' }
 
 const Badge = () => html`
-  <code class="badge">New v0.6</code>
+  <code class="badge">+v0.6</code>
   
-  <code class="badge red">New v0.6</code>
+  <code class="badge red text-white">+v0.6</code>
 
-  <code class="badge green">New v0.6</code>
+  <code class="badge green">+v0.6</code>
 
-  <code class="badge blue">New v0.6</code>
+  <code class="badge blue">+v0.6</code>
 
-  <code class="badge orange">New v0.6</code>
+  <code class="badge orange">+v0.6</code>
 `
 
 const Code = () => html`
