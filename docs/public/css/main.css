@@ -300,9 +300,10 @@ div a img {
 }
 
 .tip {
+  border: 0.5px solid #EEEEEE;
   border-left: 4px solid black; 
   border-radius: var(--border-radius); 
-  padding-left: 20px;
+  padding: 10px 20px;
 }
 
 .theme-toggle-dark {
