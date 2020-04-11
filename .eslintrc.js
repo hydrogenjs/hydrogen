@@ -40,5 +40,13 @@ module.exports = {
       "no-restricted-globals": "off",
       "no-restricted-syntax": "off",
       "import/extensions": "off"
-  }
+  },
+  overrides: [
+    {
+        files: ['storybook/**/*.js'],
+        rules: {
+            semi: 'off'
+        }
+    }
+  ]
 };

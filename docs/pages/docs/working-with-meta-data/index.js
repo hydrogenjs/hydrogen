@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>🕶 Working with Metadata<code class="badge">New v0.5</code></h1>
+  <h1>🕶 Working with Metadata<code class="badge">+v0.5</code></h1>
   <p>Want to add some metadata to your page? Now you can with the <code class="code">Head API</code>! All page templates have access to this API</p>
   <h2 id="using-the-head-api">Using the Head API</h2>
   <p>Using static metadata</p>

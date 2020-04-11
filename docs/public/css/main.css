@@ -16,6 +16,131 @@
   }
 }
 
+:root {
+  --border-radius: 0.24em;
+}
+
+/* Typography Styles Start */
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+small {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 18px;
+}
+
+.title {
+  font-size: 1.4em !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Typography Styles Start */
+
+/* Text Colour Styles Start */
+
+.text-white {
+  color: white !important;
+}
+
+.text-black {
+  color: black !important;
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+/* Text Colour Styles End */
+
+/* Colour Styles Start */
+
+.white {
+  background-color: white !important;
+}
+
+.red {
+  background-color: #F44336 !important;
+}
+
+.green {
+  background-color: #4CAF50 !important;
+}
+
+.blue {
+  background-color: #2196F3 !important;
+}
+
+.orange {
+  background-color: #FF9800 !important;
+}
+
+.grey {
+  background-color: #9E9E9E !important;
+}
+
+/* Colour Styles End */
+
+.ml-0 {
+  margin-left: 0em !important;
+}
+
+.ml-2 {
+  margin-left: 0.2em !important;
+}
+
+.ml-4 {
+  margin-left: 0.4em !important;
+}
+
+.ml-6 {
+  margin-left: 0.6em !important;
+}
+
+.ml-8 {
+  margin-left: 0.8em !important;
+}
+
+.ml-10 {
+  margin-left: 1em !important;
+}
+
+.ml-12 {
+  margin-left: 1.2em !important;
+}
+
 body {
   background: white;
   color: black;
@@ -51,14 +176,6 @@ nav p a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 34px;
-}
-
-h2 {
-  font-size: 28px;
-}
-
 p {
   font-size: 20px;
 }
@@ -79,7 +196,7 @@ a {
 
 pre code {
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 hr {
@@ -131,7 +248,7 @@ details ul li a:hover {
 table {
   border: 1px solid white;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 tr {
@@ -153,13 +270,13 @@ footer {
 }
 
 img {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   width: 100%;
   height: auto;
 }
 
 div a img {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   width: initial;
   height: initial;
 }
@@ -167,26 +284,26 @@ div a img {
 .code {
   background-color: black;
   color: #76FF03;
-  font-size: 17px;
-  padding: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 5px;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: var(--border-radius);
+  display: inline-block;
 }
 
 .badge {
   background-color: #EEEEEE;
-  color: black;
   padding: 5px;
   font-size: 16px;
-  margin-left: 10px;
-  border-radius: 5px;
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  display: inline-block;
 }
 
 .tip {
+  border: 0.5px solid #EEEEEE;
   border-left: 4px solid black; 
-  border-radius: 3px; 
-  padding-left: 20px;
+  border-radius: var(--border-radius); 
+  padding: 10px 20px;
 }
 
 .theme-toggle-dark {
@@ -248,7 +365,7 @@ div a img {
   
   pre code {
     font-size: 13px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
   }
   
   ul ul li {
