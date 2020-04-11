@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>⚙ Generate routes dynamically <code class="badge">New v0.7</code></h1>
+  <h1>⚙ Generate routes dynamically <code class="badge">+v0.7</code></h1>
   <hr>
   <p>
     What if you want to generate pages dynamically based off some data from an API? Let's say you want to generate blog posts with a unique URL, you can now that!

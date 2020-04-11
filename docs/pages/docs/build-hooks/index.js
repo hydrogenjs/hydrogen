@@ -1,7 +1,7 @@
 const html = require('html-template-tag');
 
 const page = () => html`
-  <h1>⛏️ Build hooks<code class="badge">New v1.0</code></h1>
+  <h1>⛏️ Build hooks<code class="badge green text-white">+v1.0</code></h1>
   <hr>
   <p>
     Build hooks allow you to observe events that happen during the Hydrogen build process.

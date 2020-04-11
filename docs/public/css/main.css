@@ -17,7 +17,7 @@
 }
 
 :root {
-  --border-radius: 0.3em;
+  --border-radius: 0.24em;
 }
 
 /* Typography Styles Start */
@@ -196,7 +196,7 @@ a {
 
 pre code {
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 hr {
@@ -248,7 +248,7 @@ details ul li a:hover {
 table {
   border: 1px solid white;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 tr {
@@ -270,13 +270,13 @@ footer {
 }
 
 img {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   width: 100%;
   height: auto;
 }
 
 div a img {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   width: initial;
   height: initial;
 }
@@ -285,10 +285,8 @@ div a img {
   background-color: black;
   color: #76FF03;
   font-size: 12px;
-  padding: 6px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 5px;
+  padding: 3px 8px;
+  border-radius: var(--border-radius);
   display: inline-block;
 }
 
@@ -296,9 +294,7 @@ div a img {
   background-color: #EEEEEE;
   padding: 5px;
   font-size: 16px;
-  padding: 6px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 4px 8px;
   border-radius: var(--border-radius);
   display: inline-block;
 }
@@ -368,7 +364,7 @@ div a img {
   
   pre code {
     font-size: 13px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
   }
   
   ul ul li {
