@@ -8,14 +8,24 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.style.backgroundColor = '#222';
     document.body.style.color = '#fff';
     aTags.forEach((a) => { a.style.color = '#fff'; });
-    tips.forEach((tip) => { tip.style.borderLeftColor = '#fff'; });
+    tips.forEach((tip) => { 
+      tip.style.borderLeftColor = '#fff';
+      tip.style.borderTopWidth = '0px';
+      tip.style.borderRightWidth = '0px';
+      tip.style.borderBottomWidth = '0px';
+    });
   };
 
   const setLightTheme = () => {
     document.body.style.backgroundColor = '#fff';
     document.body.style.color = '#000';
     aTags.forEach((a) => { a.style.color = '#000'; });
-    tips.forEach((tip) => { tip.style.borderLeftColor = '#000'; });
+    tips.forEach((tip) => { 
+      tip.style.borderLeftColor = '#000';
+      tip.style.borderTopWidth = '0.5px';
+      tip.style.borderRightWidth = '0.5px';
+      tip.style.borderBottomWidth = '0.5px';
+    });
   }
 
   const initLocalStorage = () => {
