@@ -13,3 +13,5 @@ exports.afterEachPageGenerated = async (ctx) => {};
 exports.beforeServiceWorkerGenerated = async (ctx) => {};
 
 exports.afterServiceWorkerGenerated = async (ctx) => {};
+
+exports.beforeEachPageSaved = async (ctx) => {}
