@@ -7,6 +7,7 @@ interface Hooks {
   beforeBuild?: (...args: unknown[]) => Promise<void>;
   afterBuild?: (...args: unknown[]) => Promise<void>;
   beforeEachPageGenerated?: (...args: unknown[]) => Promise<void>;
+  beforeEachPageSaved?: (...args: unknown[]) => Promise<void>;
   afterEachPageGenerated?: (...args: unknown[]) => Promise<void>;
   beforeServiceWorkerGenerated?: (...args: unknown[]) => Promise<{ inject?: string; removeDefaults?: boolean }>;
   afterServiceWorkerGenerated?: (...args: unknown[]) => Promise<{ inject?: string; removeDefaults?: boolean }>;
