@@ -12,7 +12,6 @@ module.exports = {
     ['script', { src: 'https://yandex.st/highlightjs/8.0/highlight.min.js' }, true],
     ['script', {}, 'hljs.initHighlightingOnLoad();'],
     ['script', { src: `/${config.staticFolder}/js/script.js` }, true],
-    ['script', { async: true, defer: true, src: 'https://buttons.github.io/buttons.js' }, true],
   ],
   build: {
     deleteFolder: true,

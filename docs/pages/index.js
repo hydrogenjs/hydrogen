@@ -13,15 +13,11 @@ const page = ({ data }) => html`
     <img style="margin: 20px; border-radius: 10px;width: 80%;height: auto;" src="https://qph.fs.quoracdn.net/main-qimg-706f37c5cbc54e415892478836e8acb5.webp">
   </center>
   <p align="center">
-    <a style="color: #007acc;" href="/docs">Docs</a>
+    <a href="/docs">📓 Docs</a>
     |
     v${data.version}
     |
     <a href="https://github.com/ShailenNaidoo/hydrogen">GitHub</a>
-    |
-    <a style="color: #007acc;" href="https://twitter.com/shailen_naidoo">@shailen_naidoo</a>
-    |
-    <a class="github-button" href="https://github.com/ShailenNaidoo/hydrogen" data-icon="octicon-star" data-show-count="true" aria-label="Star ShailenNaidoo/hydrogen on GitHub">Star</a>
   </p>
   
   <h3 id="quick-start">⚡ Quick Start</h3>
