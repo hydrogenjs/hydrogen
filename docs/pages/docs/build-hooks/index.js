@@ -29,6 +29,9 @@ const page = () => html`
         <code class="code">afterEachPageGenerated</code>
       </li>
       <li>
+        <code class="code">beforeEachPageSaved</code>
+      </li>
+      <li>
         <code class="code">beforeServiceWorkerGenerated</code>
       </li>
       <li>
@@ -55,6 +58,8 @@ const page = () => html`
       exports.beforeEachPageGenerated = async (ctx) => {};
 
       exports.afterEachPageGenerated = async (ctx) => {};
+
+      exports.beforeEachPageSaved = async (ctx) => {};
 
       exports.beforeServiceWorkerGenerated = async (ctx) => {};
 
